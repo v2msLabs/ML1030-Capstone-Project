@@ -3,9 +3,8 @@ YORK UNIVERSITY. SCHOOL OF CONTINUING STUDIES. CAPSTONE PROJECT.
 
 ## Client. [KASI Insights](https://www.kasiinsight.com/)
 
-## Projects
 
-**Lending Environment Simulation Model & Lender Evaluation Tool**
+## Lending Environment Simulation Model & Lender Evaluation Tool
 
 Project structure:
 
