@@ -5,8 +5,7 @@ YORK UNIVERSITY. SCHOOL OF CONTINUING STUDIES. CAPSTONE PROJECT.
 
 ## Projects
 
-**Lending Environment Simulation Model**
-**Lender Evaluation Tool**
+**Lending Environment Simulation Model & Lender Evaluation Tool**
 
 Project structure:
 
