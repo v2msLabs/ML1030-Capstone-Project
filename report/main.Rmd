@@ -6,7 +6,10 @@ author:
   - name: Murlidhar Loka
     affiliation: York University School of Continuing Studies
 abstract: >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo ante risus, sit amet lobortis arcu convallis interdum. Integer lectus tellus, iaculis sed rhoncus id, eleifend quis purus. Nunc at tincidunt augue. Curabitur quis odio risus. Nam risus dui, convallis a hendrerit sit amet, dictum vel felis. (Ref: \cite{combatnoise})
+  Kasi Insights provides guidance to Bankers, Small Lenders and Individuals for common lending practices within the following African countries - South Africa, Kenya, Ivory Coast, .....
+  Lending Environment Simulation Tool will be used by the bankers who are interested to have a proxy in the area to run small money lending shop in the bank's behalf.
+  Lending Evaluation Tool: TODO
+  TODO (Ref: \cite{combatnoise})
 
 output:
   rticles::rjournal_article:
@@ -24,44 +27,45 @@ knitr::opts_chunk$set(fig.pos = 'H')
 
 # Introduction
 
-Vestibulum porttitor massa sed ante luctus, interdum ultrices quam bibendum. Mauris dapibus erat sed ex rutrum tristique. Mauris condimentum luctus enim, nec lobortis massa auctor a. Maecenas finibus nibh eget ipsum dictum, sed efficitur turpis mollis. Nulla venenatis, neque ut commodo pretium, tortor arcu volutpat felis, id condimentum nulla turpis non nisl. Donec accumsan interdum orci id bibendum.
-```{r example, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="VGG-16 Architecture"}
-include_graphics("../images/test.png") 
-```
+Kasi Insights uses surveys to find economic indices. One of the surveys is for Lenders.
+Lenders lend to individuals. Individuals belong to a Hub within a known radius of the Hub.
+Individuals are grouped as communities belonging to each hub. there are multiple communities across a country.
+Currently Kasi Insights deals with seven African countries.
+The questions specific to lending habbits are gathered in survey questions.
+If lenders are borrowers of a bank or financial institution - we can determine the risk profile of the lenders for the Banks/Financial institutions.
+Countries in Africa (South Africa, Ivory Coast, Kenya...).
+These countries have custom lending process and dont have means to track the transaction history.
+The data is gathered utilizing community crowd sourced survey data by Kasi Insights.
+
+
 
 # Problem Statement
 
-Vivamus interdum porttitor tellus at lacinia. Duis vitae tempor neque. Donec vitae pretium justo, ac rutrum neque. Etiam molestie et erat sed vestibulum. Fusce malesuada, dolor sed pellentesque tincidunt, turpis neque dignissim orci, ac semper odio neque eu diam. Pellentesque in purus vitae tortor euismod mollis mollis bibendum neque. Aliquam id nibh eget velit gravida facilisis. In hac habitasse platea dictumst. Vivamus sollicitudin metus vel neque consequat, eu rutrum nisi imperdiet. Nunc scelerisque porta magna et sagittis. Sed et condimentum massa, in imperdiet est.
+Kasi Insights needs Lending Environment Simulation Tool and Lender Evaluation Tool.
+Lending Evaluation Simulation tool: TODO
+Lender Evaluation Tool: TODO
 
 
 # Background
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam ultricies, libero sed pulvinar tincidunt, dui risus volutpat tortor, id viverra purus ligula ut velit. Proin lacinia tortor purus, a blandit ligula porttitor at. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Kasi Insights currently gathers the Lender Survey Results and utilizes Excel Sheet to perform calculations and get the Credit Scores for the Lenders. The need is to develop a tool which will help to evaluate the lenders and categorize them in appropriate pre-defined catogories.
 
  
 # Dataset Description
-
-Sed malesuada eros et augue dignissim, ut consectetur tortor consequat. Nam sed urna ac lorem finibus aliquam vel sit amet ipsum. Sed ex nulla, convallis et lectus eu, porta placerat tellus. Nunc gravida est sit amet tortor elementum auctor. Curabitur justo est, laoreet a sapien ac, tempor aliquam erat. Proin mattis efficitur nunc a congue. Vivamus aliquam venenatis augue ac hendrerit. Vestibulum interdum hendrerit ullamcorper. Cras non imperdiet lacus, consectetur consequat elit. Etiam non pulvinar elit. Proin egestas egestas nibh, nec facilisis purus varius id. Nulla facilisi. Mauris sem augue, finibus in nisl vitae, consectetur ullamcorper enim. Aenean interdum dui sit amet mauris ultrices, quis facilisis neque aliquet
-
-                  precision    recall  f1-score   support
-
-    Air Conditioner    0.83      0.93      0.87      3977
-        Car Horn       0.95      0.78      0.86      1998
-    Children Playing   0.69      0.77      0.73      4009
-        Dog Bark       0.91      0.65      0.76      3084
-        Drilling       0.89      0.88      0.88      3492
-    Engine Idling      0.89      0.93      0.91      3877
-        Gun Shot       0.85      0.89      0.87      1038
-      Jackhammer       0.95      0.92      0.94      3571
-           Siren       0.92      0.90      0.91      3656
-    Street Music       0.75      0.79      0.77      4023
-
-       micro avg       0.85      0.85      0.85     32725
-       macro avg       0.86      0.84      0.85     32725
-    weighted avg       0.85      0.85      0.85     32725
+The dataset is available for past 3 years (to be confirmed) consisting of survey results for the Lenders.
+There survery results are available both in English and French.
+Kasi Insights will provide the excel sheets properly sorted based on language.
+The columns will be standardized across the different spread sheets so that parsing and data validation can be standardized.
+The re-arranged spread sheets will be provided by Kasi Insights.
+There are 10 Lender specific survey questions - which will be utilized for producing the 2 ML models.
 
 
 # ML Solution
+
+TODO
+```{r example, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Approach"}
+include_graphics("../images/0001.jpg") 
+```# ML Solution
 
 In et est nec ex tincidunt tincidunt in ut dui. Nam vel nulla nec nulla consectetur sagittis. Vestibulum suscipit sem vitae nisl laoreet tempor. Suspendisse quis elementum neque. Vivamus dignissim id augue ut laoreet. Nunc ac tellus tellus. Praesent bibendum eget nisi at accumsan. Quisque nec ultricies augue. Suspendisse at accumsan est. Duis ac sapien quam. Sed fermentum in leo non porta. Suspendisse volutpat massa sit amet vestibulum ornare. Duis ut cursus arcu.
 
