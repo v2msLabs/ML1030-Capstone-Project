@@ -67,13 +67,19 @@ TODO
 include_graphics("../images/0001.png") 
 ```# ML Solution
 
-In et est nec ex tincidunt tincidunt in ut dui. Nam vel nulla nec nulla consectetur sagittis. Vestibulum suscipit sem vitae nisl laoreet tempor. Suspendisse quis elementum neque. Vivamus dignissim id augue ut laoreet. Nunc ac tellus tellus. Praesent bibendum eget nisi at accumsan. Quisque nec ultricies augue. Suspendisse at accumsan est. Duis ac sapien quam. Sed fermentum in leo non porta. Suspendisse volutpat massa sit amet vestibulum ornare. Duis ut cursus arcu.
-
-
 # Project Plan
 
-Suspendisse enim quam, aliquet vel risus ac, elementum egestas ex. Morbi elit dolor, malesuada posuere ullamcorper volutpat, lobortis quis dui. Cras nisl quam, finibus vel venenatis a, dapibus vel urna. In hac habitasse platea dictumst. Quisque scelerisque ante tellus, vel hendrerit orci vulputate pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque posuere, quam rhoncus faucibus feugiat, erat tellus dictum nulla, vitae imperdiet dolor turpis non mauris.
+TODO
 
+
+The following will be delivered in the order mentioned:
+1. Model for Lending Evaluation Simulation
+2. Model for Lender Evaluation
+3. Web based (Python, Flask, Angular) UI which will demonstrate the usage of the models created
+    The web application front end UI will provide input fields for the end user to enter (will include basic data entry validation).
+    The input values will be passed on to the model in the back end. The response will be displayed to the user as a result of utilizing the model in the backend.
+
+The production deployment is not included in the current scope.
 ## Sub Title Example
 
 ### Smaller title Example
