@@ -64,7 +64,7 @@ There are 10 Lender specific survey questions - which will be utilized for produ
 
 TODO
 ```{r example, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Approach"}
-include_graphics("../images/0001.jpg") 
+include_graphics("../images/0001.png") 
 ```# ML Solution
 
 In et est nec ex tincidunt tincidunt in ut dui. Nam vel nulla nec nulla consectetur sagittis. Vestibulum suscipit sem vitae nisl laoreet tempor. Suspendisse quis elementum neque. Vivamus dignissim id augue ut laoreet. Nunc ac tellus tellus. Praesent bibendum eget nisi at accumsan. Quisque nec ultricies augue. Suspendisse at accumsan est. Duis ac sapien quam. Sed fermentum in leo non porta. Suspendisse volutpat massa sit amet vestibulum ornare. Duis ut cursus arcu.
