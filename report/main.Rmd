@@ -72,14 +72,18 @@ include_graphics("../images/0001.png")
 TODO
 
 
+
 The following will be delivered in the order mentioned:
 1. Model for Lending Evaluation Simulation
 2. Model for Lender Evaluation
 3. Web based (Python, Flask, Angular) UI which will demonstrate the usage of the models created
-    The web application front end UI will provide input fields for the end user to enter (will include basic data entry validation).
-    The input values will be passed on to the model in the back end. The response will be displayed to the user as a result of utilizing the model in the backend.
 
-The production deployment is not included in the current scope.
+Each model will be a microservice and make it communicate via a REST Service API interface.
+The web application front end UI - developed in Angular - will provide input fields for the end user to enter (will include basic data entry validation).
+The UI will invoke the right microservice and get a json response back to be displayed to the end user.
+Platforms like AWS and GCP are available to productionalize the web application and the microservices.
+AWS will be the first choice for the deployment and as an alternate GCP will be utilized for demonstration of the UI part, interacting with microservice.
+
 ## Sub Title Example
 
 ### Smaller title Example
