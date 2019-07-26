@@ -81,8 +81,6 @@ The following will be delivered in the order mentioned:
 Each model will be a microservice and make it communicate via a REST Service API interface.
 The web application front end UI - developed in Angular - will provide input fields for the end user to enter (will include basic data entry validation).
 The UI will invoke the right microservice and get a json response back to be displayed to the end user.
-Platforms like AWS and GCP are available to productionalize the web application and the microservices.
-AWS will be the first choice for the deployment and as an alternate GCP will be utilized for demonstration of the UI part, interacting with microservice.
 
 ## Sub Title Example
 
