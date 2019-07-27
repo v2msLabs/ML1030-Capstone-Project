@@ -51,13 +51,61 @@ Lender Evaluation Tool: TODO
 Kasi Insights currently gathers the Lender Survey Results and utilizes Excel Sheet to perform calculations and get the Credit Scores for the Lenders. The need is to develop a tool which will help to evaluate the lenders and categorize them in appropriate pre-defined catogories.
 
  
+ 
+ 
 # Dataset Description
-The dataset is available for past 3 years (to be confirmed) consisting of survey results for the Lenders.
-There survery results are available both in English and French.
-Kasi Insights will provide the excel sheets properly sorted based on language.
-The columns will be standardized across the different spread sheets so that parsing and data validation can be standardized.
-The re-arranged spread sheets will be provided by Kasi Insights.
-There are 10 Lender specific survey questions - which will be utilized for producing the 2 ML models.
+The dataset was rearranged and consolidated into from separate survey results by Kasi Insights.
+This way all the columns/features were standardized for all the data that was being handled.
+2 csv files were provided for analysis.
+Both files were merged programatically and analyzed to better understand the same.
+The combined dataset from 2 csv's has:
+Records 29383
+Features 38
+Additional work needs to be done on above after consulting with Kasi Insights.
+
+The column dictionary is as follows:
+0: "Timestamp",
+1: "Location ID",
+2: "Has it become more difficult or easier to find a job in your city?",
+3: "Is this a good time for people to make a large purchase such as furnitu
+4: "Compared to the last 6 months, are you able to spend (more, the same or
+5: "Will you be able to meet your regular expenses over the next 6 months?"
+6: "How do you expect your household’s income to change over the next 6 mont
+7: "How do you expect general economic conditions in your city to change ove
+8: "How do you expect general economic conditions in your country to change
+9: "Gender",
+10:"Marital status",
+11:"Age",
+12:"What's your highest level of education?",
+13:"Occupation",
+14:"If you are a student, what level are you currently studying?",
+15:"Race/Ethnicity",
+16:"Country",
+17:"What is the name of the neighborhood where you live?",
+18:"Over the past 3 months, how many times have you lent someone money?",
+19:"On average how much do you lend in general?",
+20:"Who did you lend money to in the past 3 months?",
+21:"When you lend money, when do you usually expect to get it repaid?",
+22:"Do you include either interest or a lending fee when you lend?",
+23:"Do you request guarantees when you lend?",
+24:"Do you receive your money back in time?",
+25:"Assuming that you have lent money at least ten times, how often would yo
+26:"What's the most common use of the money you lend?",
+27:"Have you ever applied for a bank loan?",
+28:"Are you a tontine / lending club member?",
+29:"What is the most convenient way to get a loan?",
+30:"To what extent do you agree with the following sentences Access to cred
+31:"To what extent do you agree with the following sentences Credit is bene
+32:"To what extent do you agree with the following sentences I would like t
+33:"What type of loans are you currently paying of?",
+34:"Do you have a credit score?",
+35:"Do you have a credit card?",
+36:"On average, how much of your total household monthly income do you spend
+37:"If you wanted to take a loan to start a business, how much would you nee
+
+The above columns are trimmed at the end of the string - for display purposes.
+
+TODO - Quality of Data Included in the formula:
 
 
 # ML Solution
