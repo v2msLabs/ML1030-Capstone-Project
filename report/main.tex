@@ -5,11 +5,17 @@
 \maketitle
 
 \abstract{%
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-commodo ante risus, sit amet lobortis arcu convallis interdum. Integer
-lectus tellus, iaculis sed rhoncus id, eleifend quis purus. Nunc at
-tincidunt augue. Curabitur quis odio risus. Nam risus dui, convallis a
-hendrerit sit amet, dictum vel felis. (Ref: \cite{combatnoise})
+In 2013, Africa was the world's fastest-growing continent at 5.6\% a
+year, and GDP is expected to rise by an average of over 6\% a year
+between 2013 and 2023. In 2017, the African Development Bank reported
+Africa to be the world's second-fastest growing economy, and estimates
+that average growth will rebound to 3.4\% in 2017, while growth is
+expected to increase by 4.3\% in 2018. The World Bank expects that most
+African countries will reach ``middle income'' status (defined as at
+least US\$1,000 per person a year) by 2025 if current growth rates
+continue.(Ref: \cite{wiki}) With growth of the income African and
+international financial institutions are looking for the opportunities
+to extend their services to the new geographic areas.
 }
 
 % Any extra LaTeX you need in the preamble
@@ -17,108 +23,547 @@ hendrerit sit amet, dictum vel felis. (Ref: \cite{combatnoise})
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Vestibulum porttitor massa sed ante luctus, interdum ultrices quam
-bibendum. Mauris dapibus erat sed ex rutrum tristique. Mauris
-condimentum luctus enim, nec lobortis massa auctor a. Maecenas finibus
-nibh eget ipsum dictum, sed efficitur turpis mollis. Nulla venenatis,
-neque ut commodo pretium, tortor arcu volutpat felis, id condimentum
-nulla turpis non nisl. Donec accumsan interdum orci id bibendum.
+According to McKinsey, Africa has the third largest population of
+unbanked adults (326 millions) representing 80\% of the adult's
+population. According to banking executives in Africa, assessing
+consumer credit risk is one of the main challenges the banks face, which
+results in the slowing the access of general public to the credit
+resources.
 
-\begin{Schunk}
-\begin{figure}[H]
-
-{\centering \includegraphics[width=1\linewidth]{../images/test} 
-
-}
-
-\caption[VGG-16 Architecture]{VGG-16 Architecture}\label{fig:example}
-\end{figure}
-\end{Schunk}
-
-\hypertarget{problem-statement}{%
-\section{Problem Statement}\label{problem-statement}}
-
-Vivamus interdum porttitor tellus at lacinia. Duis vitae tempor neque.
-Donec vitae pretium justo, ac rutrum neque. Etiam molestie et erat sed
-vestibulum. Fusce malesuada, dolor sed pellentesque tincidunt, turpis
-neque dignissim orci, ac semper odio neque eu diam. Pellentesque in
-purus vitae tortor euismod mollis mollis bibendum neque. Aliquam id nibh
-eget velit gravida facilisis. In hac habitasse platea dictumst. Vivamus
-sollicitudin metus vel neque consequat, eu rutrum nisi imperdiet. Nunc
-scelerisque porta magna et sagittis. Sed et condimentum massa, in
-imperdiet est.
+KASI Insights is an award-winning consumer and market intelligence firm
+that provides biometric research at scale in Africa. KASI offers the
+first crowd sourced credit model. KASI Insights engages, questions and
+learns in real time from consumers and market participants in over 10
+markets in Africa to uncover what they really feel about the products
+and services the companies consider to offer in the continent before
+they launch them. (Ref:\cite{kasi})
 
 \hypertarget{background}{%
 \section{Background}\label{background}}
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-inceptos himenaeos. Nam ultricies, libero sed pulvinar tincidunt, dui
-risus volutpat tortor, id viverra purus ligula ut velit. Proin lacinia
-tortor purus, a blandit ligula porttitor at. Pellentesque habitant morbi
-tristique senectus et netus et malesuada fames ac turpis egestas.
+In Africa money lending between the individuals is very common. This
+practice in fact is a substitution to the small loan franchises, which
+are wide-spread in Western countries. One of the surveys KASI conducts
+for years targets the individuals who lend money to other members of the
+community on regular basis. The firm leverages the wisdom of the crowd
+to evaluate lending activities within a community over time to compute a
+community-based score that can be translated into an individual score.
+Thus KASI's surveys provide risk profile of the population in a given
+area through the eyes of the lender.
+
+Having many conversations with the KASI Insights CEO, we have concluded
+that, if properly used, these surveys could be a valuable intel for the
+banks and other financial institution to evaluate a possibility of
+establishing branches in suitable communities to conduct small loan
+business.
+
+The data collected by KASI Insight could also be used by the banks and
+small lenders alike to evaluate the lending environment in African
+countries/communities simulating various lending criteria.
+
+In this context we hope that applying Machine learning techniques and
+the latest advances in the software development we will put the
+collected data to use and help KASI Insights increase the offering to
+the interested parties, thus improving the company's position in the
+field of economic and marketing research in Africa.
+
+\hypertarget{problem-statement}{%
+\section{Problem Statement}\label{problem-statement}}
+
+This project has two objectives.
+
+\hypertarget{design-and-implement-lending-environment-simulation-model}{%
+\subsection{Design and Implement Lending Environment Simulation
+Model}\label{design-and-implement-lending-environment-simulation-model}}
+
+The first objective is to help KASI Insights to provide a valuable tool
+to the financial institutions and the small lenders in Africa, which
+will be used to \textbf{predict a credit score class of the target group
+of people in a given area manipulating multiple lending criteria}.
+
+\hypertarget{approach}{%
+\subsubsection{Approach}\label{approach}}
+
+The brain of the tool is going to be a \textbf{multiclass classification
+model}. We will be employing a credit score formula provided by KASI
+Insights and lender's survey data to label each observation. KASI
+Insights has come up with the following credit score classes:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Very Poor} - the credit score less than \textbf{350}
+\item
+  \textbf{Poor} - the credit score is between \textbf{350 and 550}
+\item
+  \textbf{Fair} - the credit score is between \textbf{550 and 650}
+\item
+  \textbf{Good} - the credit score lies between \textbf{650 and 750}
+\item
+  \textbf{Very Good} - the credit score is higher tan \textbf{750}
+\end{itemize}
+
+We also will provide a Web-based user interface to communicate with the
+model. We plan to develop the solution employing \emph{Python} and
+\emph{Angular} JavaScript framework. The model will be hosted in
+\emph{Flask} Web application server. The code and the supporting
+software will be shipped to the client as a \emph{Docker} package for
+the deployment on \textbf{AWS} cloud.
+
+\hypertarget{lender-evaluation-tool}{%
+\subsection{Lender Evaluation Tool}\label{lender-evaluation-tool}}
+
+Lender evaluation tool will provide means to \textbf{estimate the
+business savviness of an individual who lends money on regular basis}.
+It is meant to be used by the banks and other financial institutions
+which are interested in having a proxy in a given community to conduct
+small loan business in their behalf.
+
+KASI insight has committed to formulate an algorithm that calculates the
+worthiness of a lender as a business partner in the money lending
+context. We will be employing the demographic data and the lending
+habits of the lender contained in the survey data and the lender
+worthiness score to label all observations.
+
+At the moment of writing we did not know if KASI Insights wanted to
+predict the lender worthiness score as an absolute number or use a few
+classes that would define how good/bad the lender as a business partner
+is. Depending on the final decision we will train either a
+\textbf{regression} or \textbf{multiclass classification} model.
+
+Similarly to the first objective deliverable the final product will be a
+Web-based solution implemented using \emph{Python} and \emph{Angular}.
+The code and supplementary software will be \emph{dockerized} for easy
+roll-out on a cloud platform.
 
 \hypertarget{dataset-description}{%
 \section{Dataset Description}\label{dataset-description}}
 
-Sed malesuada eros et augue dignissim, ut consectetur tortor consequat.
-Nam sed urna ac lorem finibus aliquam vel sit amet ipsum. Sed ex nulla,
-convallis et lectus eu, porta placerat tellus. Nunc gravida est sit amet
-tortor elementum auctor. Curabitur justo est, laoreet a sapien ac,
-tempor aliquam erat. Proin mattis efficitur nunc a congue. Vivamus
-aliquam venenatis augue ac hendrerit. Vestibulum interdum hendrerit
-ullamcorper. Cras non imperdiet lacus, consectetur consequat elit. Etiam
-non pulvinar elit. Proin egestas egestas nibh, nec facilisis purus
-varius id. Nulla facilisi. Mauris sem augue, finibus in nisl vitae,
-consectetur ullamcorper enim. Aenean interdum dui sit amet mauris
-ultrices, quis facilisis neque aliquet
+As it has been mentioned previously we will be using KASI lender survey
+data for the project. The data has been collected surveying people from
+seven African countries over a course of the last three years. The data
+is maintained in the Excel spreadsheets in English and French. The
+survey comprises 38 multi-choice questions. There are almost
+\textbf{30,000} observations. The table submitted below lists the survey
+questions:
 
-\begin{verbatim}
-              precision    recall  f1-score   support
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+ID\strut
+\end{minipage} & \begin{minipage}[b]{0.89\columnwidth}\raggedright
+Question/Column\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+0\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Timestamp\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Location ID\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Has it become more difficult or easier to find a job in your city?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Is this a good time for people to make a large purchase such as
+furniture or electrical appliances, given the economic climate?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Compared to the last 6 months, are you able to spend (more, the same or
+less) money on large purchases over the next 6 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Will you be able to meet your regular expenses over the next 6
+months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+How do you expect your household's income to change over the next 6
+months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+7\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+How do you expect general economic conditions in your city to change
+over the next 6 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+How do you expect general economic conditions in your country to change
+over the next 6 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+9\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Gender\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+10\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Marital status\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+11\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Age\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+12\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's your highest level of education?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+13\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Occupation\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+14\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+If you are a student, what level are you currently studying?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+15\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Race/Ethnicity\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Country\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+17\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What is the name of the neighborhood where you live?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+21\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+When you lend money, when do you usually expect to get it repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+27\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Have you ever applied for a bank loan?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+28\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Are you a tontine / lending club member?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+29\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What is the most convenient way to get a loan?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+30\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}Access to
+credit is essential for me to achieve financial freedom{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+31\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}Credit is
+beneficial only if you have discipline{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+32\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}I would like
+to have more credit management training{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+33\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What type of loans are you currently paying of?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+34\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you have a credit score?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+35\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you have a credit card?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+36\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average, how much of your total household monthly income do you spend
+paying off debt each month?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+37\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+If you wanted to take a loan to start a business, how much would you
+need?\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 
-Air Conditioner    0.83      0.93      0.87      3977
-    Car Horn       0.95      0.78      0.86      1998
-Children Playing   0.69      0.77      0.73      4009
-    Dog Bark       0.91      0.65      0.76      3084
-    Drilling       0.89      0.88      0.88      3492
-Engine Idling      0.89      0.93      0.91      3877
-    Gun Shot       0.85      0.89      0.87      1038
-  Jackhammer       0.95      0.92      0.94      3571
-       Siren       0.92      0.90      0.91      3656
-Street Music       0.75      0.79      0.77      4023
+Since the survey has a multi-choice format the data could be easily
+categorized prior to fitting the model. As discussed the labels for each
+observation are:
 
-   micro avg       0.85      0.85      0.85     32725
-   macro avg       0.86      0.84      0.85     32725
-weighted avg       0.85      0.85      0.85     32725
-\end{verbatim}
+\begin{itemize}
+\item
+  Credit score category based on the credit score. This label will be
+  employed for training of the \textbf{Lending Environment Simulation
+  Model}
+\item
+  Lender business worthiness score or a category (TBD). This label will
+  be used to train the \textbf{Lender Evaluation Model}
+\end{itemize}
+
+\hypertarget{data-pollution-challenge-solution}{%
+\subsection{Data Pollution Challenge \&
+Solution}\label{data-pollution-challenge-solution}}
+
+The survey has been modified a few time since its inception. This lead
+to data pollution. In the latest version of survey each question offers
+a few possible answers, 3 - 4 on average, some questions have up to nine
+possible answers. In realty the preliminary data analysis shows that
+some questions have dozens, in extreme cases even up to 1000 possible
+answers\ldots{}
+
+\hypertarget{solution}{%
+\subsubsection{Solution}\label{solution}}
+
+To rectify the problem of the data pollution we suggest and have agreed
+with the business to use the latest version of survey to categorize the
+answers. Those answers that do not fall into any of the available
+categories will be categorized as \emph{Others}. Considering the fact
+the the survey has not been change much for the last couple years we
+expect that the majority of the data will be correctly classified. On
+top of it will apply sophisticated algorithm that try to categorize even
+polluted answers.
+
+Considering racial nature of the question \#15 we have reached an
+agreement with the business to exclude the question from the process.
+
+\hypertarget{data-balance}{%
+\subsection{Data balance}\label{data-balance}}
+
+At the moment of writing we did not know if the dataset was balanced. If
+it is not we would consider the data upsamling techniques.
 
 \hypertarget{ml-solution}{%
 \section{ML Solution}\label{ml-solution}}
 
-In et est nec ex tincidunt tincidunt in ut dui. Nam vel nulla nec nulla
-consectetur sagittis. Vestibulum suscipit sem vitae nisl laoreet tempor.
-Suspendisse quis elementum neque. Vivamus dignissim id augue ut laoreet.
-Nunc ac tellus tellus. Praesent bibendum eget nisi at accumsan. Quisque
-nec ultricies augue. Suspendisse at accumsan est. Duis ac sapien quam.
-Sed fermentum in leo non porta. Suspendisse volutpat massa sit amet
-vestibulum ornare. Duis ut cursus arcu.
+To meet the project objectives we propose the following pipeline.
+
+\hypertarget{data-preprocessing}{%
+\subsection{Data Preprocessing}\label{data-preprocessing}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Convert data from Excel format to *.csv format and encode it in UTF-8
+  encoding. Save the data into two files: one file will contain the data
+  in English and the other in French.
+\item
+  Develop a script to clean and categorize the data using the latest
+  KASI survey to identify the categories correctly
+\item
+  Using the formulas provided by KASI Insights label each observations.
+  There will be two labels: one for the credit category class and the
+  other for the lender business worthiness. Save the clean and labeled
+  data into a *.csv file.
+\item
+  Document data preprocessing steps so our business partner could
+  reproduce it when the model re-training is required.
+\end{enumerate}
+
+\hypertarget{model-selection-and-training}{%
+\subsection{Model Selection and
+Training}\label{model-selection-and-training}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For each proposed model we will evaluate three algorithms:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Support Vector Machine} (SVM). The greatest strength of SVM is
+  that it has multiple Kernel implementations, that can be tuned to
+  explain multi-dimensional space with high accuracy
+\item
+  \textbf{Random Forest} (RF). Random forest belongs to the class of
+  ensemble models. It has many hyperparameters that could be tuned to
+  achieve high accuracy. The random forest algorithm is not demanding in
+  terms of the data preparation, which makes it the first choice in many
+  real-life scenarios
+\item
+  \textbf{Gradient Boosting Machine} (GBM). GBM is an ensemble model as
+  well. It uses the concept of trees just like the RF model does but
+  applies it differently. GBT builds the trees one at a time, where each
+  new tree helps to correct errors made by previously trained tree. the
+  GBM.
+\end{itemize}
+
+If time permits we will attempt to evaluate a Neural Network in addition
+to the aforementioned models.
+
+The listed above models are good for classification and regression
+tasks. Thus if KASI insights decides to employ regression approach for
+the second project we are covered.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Plot and interpret the model learning curves to detect possible
+  problems such as overfitting, luck of training data, etc.
+\item
+  As an evaluation criteria we will employ the multiclass confusion
+  matrix and averaged micro and macro \textbf{F1 scores}. The multiclass
+  confusion matrix will clearly tell how well each algorithm detects the
+  categories. We believe that the F1 score is ideal metric for the model
+  evaluation because it provides the \textbf{balanced} value of
+  accuracy.
+\item
+  Pick the winning model taking into account the following criteria:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Model prediction power (the higher F1 score the better)
+\item
+  Model performance. Considering the fact that the model will be used
+  on-line we shall no underestimate this factor; the faster the model
+  the better.
+\item
+  Training time. For time being, if required, KASI Insight will be
+  re-training the model using PC. Thus re-training the model shall not
+  be taking days\ldots{}
+\end{itemize}
 
 \hypertarget{project-plan}{%
 \section{Project Plan}\label{project-plan}}
 
-Suspendisse enim quam, aliquet vel risus ac, elementum egestas ex. Morbi
-elit dolor, malesuada posuere ullamcorper volutpat, lobortis quis dui.
-Cras nisl quam, finibus vel venenatis a, dapibus vel urna. In hac
-habitasse platea dictumst. Quisque scelerisque ante tellus, vel
-hendrerit orci vulputate pulvinar. Lorem ipsum dolor sit amet,
-consectetur adipiscing elit. Quisque posuere, quam rhoncus faucibus
-feugiat, erat tellus dictum nulla, vitae imperdiet dolor turpis non
-mauris.
+We have eight weeks to make a dream a reality.
 
-\hypertarget{sub-title-example}{%
-\subsection{Sub Title Example}\label{sub-title-example}}
+\hypertarget{week-1}{%
+\subsection{Week 1}\label{week-1}}
 
-\hypertarget{smaller-title-example}{%
-\subsubsection{Smaller title Example}\label{smaller-title-example}}
+Understand the business domain and the data. Discuss the goal the
+business partner wants to achieve and evaluate the feasibility of the
+task. Do gap analysis. If the goal the client has in mind is not
+achievable due to either luck of data, time constraints or
+misunderstanding of the ML capabilities offer alternative solution,
+which the client could benefit from. Get all missing pieces of the
+information from the business partner. Finish and submit project
+proposal.
+
+\hypertarget{week-2}{%
+\subsection{Week 2}\label{week-2}}
+
+Clean the data. Do data exploration. Address possible data issues such
+as unbalanced data. Document the data exploration findings and outcomes.
+
+\hypertarget{weeks-3---4}{%
+\subsection{Weeks 3 - 4}\label{weeks-3---4}}
+
+Train and evaluate the models. Pick the winning model using the
+evaluation criteria discussed earlier. Document the process. Submit the
+first milestone assignment.
+
+\hypertarget{weeks-5---7}{%
+\subsection{Weeks 5 - 7}\label{weeks-5---7}}
+
+Develop turnkey solution:
+
+\begin{itemize}
+\tightlist
+\item
+  Develop Web-client employing \emph{Angular} JavaScript framework.
+\item
+  Deploy the model to \emph{Flask} Web application service.
+\item
+  Test the solution end-to-end locally.
+\item
+  \emph{Dockerize} the code.
+\item
+  Deploy to AWS cloud.
+\end{itemize}
+
+Submit \textbf{Project Solution} assignment.
+
+\hypertarget{week-8}{%
+\subsection{Week 8}\label{week-8}}
+
+Address possible issues with the code. Polish the project report and the
+presentation. Educate the client on how to use the product, re-train the
+model. Advise the client what could be improved and what possible
+challenges the client might have in future. Do final submission. Ship
+all project artifacts to the client.
 
 \bibliography{RJreferences}
 
