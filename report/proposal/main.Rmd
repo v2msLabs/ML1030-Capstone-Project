@@ -150,6 +150,10 @@ To meet the project objectives we propose the following pipeline.
 3. Using the formulas provided by KASI Insights label each observations. There will be two labels: one for the credit category class and the other for the lender business worthiness. Save the clean and labeled data into a *.csv file.
 4. Document data preprocessing steps so our business partner could reproduce it when the model re-training is required.
 
+## Feature Selection and Dimensionality Reduction
+
+The dataset we are dealing with has 37 columns. Apply feature selections techniques such *univariate selection*, *feature importance*, *correlation matrix with heatmap*, etc. to find the features that contribute the most to the prediction. We can also apply PCA technique to reduce the dataset dimensionality. These steps should improve the model performance, speed and reduce overfitting. 
+
 ## Model Selection and Training
 
 1. For each proposed model we will evaluate three algorithms:
