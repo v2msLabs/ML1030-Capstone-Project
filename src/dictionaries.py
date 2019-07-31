@@ -104,6 +104,68 @@ cat_col21 = {'At least 3 months but less than 6 months': 3,
              'At least 6 months but less than 12 months / 6 - 11 mois': 4,
              "One year or more / Plus d'un an": 5, "Moins d'un mois": 1, '1 - 2 mois': 2,
              '3 - 5 mois': 3, '6 - 11 mois': 4, "Plus d'un an": 5}
+cat_col22_23_24 = {'About half the time': 3, 'Occasionally': 4, 'Most of the time': 2, 'Never': 5,
+                   'Always': 1, 'Never / Jamais': 5, 'Occasionally / Souvent': 4,
+                   'Always /\xa0Toujours': 1, 'About half the time /\xa0La moitié du temps': 3,
+                   'Most of the time /\xa0La majorité du temps': 2, 'Jamais': 5,
+                   'La moitié du temps': 3, 'Souvent': 4, 'La majorité du temps': 2,
+                   'Toujours': 1, 'About half the time / La moitié du temps': 3, 'Always / Toujours': 1,
+                   'Most of the time / La majorité du temps': 2}
+cat_col25 = {'At least 5-6 out of 10 times': 1, 'At least 7-8 out of 10 times': 2,
+             'At least 9 out of 10 times': 3, 'Every time': 4,
+             'Less than 5 out of 10 times': 5,
+             'At least 5-6 out of 10 times / Au moins 5-6 fois sur 10': 1,
+             'At least 7-8 out of 10 times / Au moins 7-8 fois sur 10': 2,
+             'Less than 5 out of 10 times / Moins de 5 fois sur 10': 5,
+             'At least 9 out of 10 times / 9 fois sur 10': 3,
+             'Every time / Toutes les fois': 4, 'Au moins 7-8 fois sur 10': 2,
+             'Toutes les fois': 4, 'Au moins 5-6 fois sur 10': 1, '9 fois sur 10': 3,
+             'Moins de 5 fois sur 10': 5}
+cat_col26 = {'To invest or cover business expenses (Merchandise, salaries, etc..)': 3,
+             'To pay for one-time or sudden expenses (Wedding, medical emergencies, etc.)': 2,
+             'To cover regular expenses (Rent, clothing, home appliances, etc.)': 1,
+             'To pay off other debts': 4, "I don't know": 5,
+             'Investment (commerce, merchandise, etc.)': 3,
+             'Personal or family expenses (Health, education)': 1,
+             'Pour payer des dépenses ponctuelles ou soudaines (mariage, urgences médicales, etc.)': 2,
+             'Pour couvrir les dépenses régulières (loyer, vêtements, appareils ménagers, etc.)': 1,
+             "Payer d'autres dettes": 4,
+             'Pour investir ou couvrir les dépenses de votre entreprise (marchandises, salaires, etc.)': 3,
+             'Je ne sais pas': 5, 'Régler les problèmes subits': 2,
+             'Investir dans un projet': 3, "I don't know / Je ne sais pas": 5,
+             'Personal or family expenses (Health, education) /\xa0Régler les problèmes subits': 1,
+             'Investment (commerce, merchandise, etc.) / Investir dans un projet': 3}
+cat_col27_28_34_35 = {'Yes': 1, 'No': 2, 'Not sure': 3, 'No - but I would like to apply': 2,
+                      'Non': 2, 'Oui': 1, 'No / Non': 2, 'Yes /\xa0Oui': 1,
+                      'No - but I would like to join one': 2,
+                      "I don't know what a credit score is": 3, 'Yes / Oui': 1,
+                      "Je ne sais pas ce que c'est": 3}
+cat_col29 = {'Friends': 1, 'Family': 2, 'Lending Club': 3, 'Bank': 4, 'Micro finance': 5,
+             'None of them ': 6, 'Loans are a bad idea ': 6, 'E no need ': 6, 'None': 6,
+             'Mshwari': 6, 'Bank,Lending club, Microfinance': 4, 'i dont know': 6,
+             'lending club, family, friends': 6, 'na': 6, 'Place of work': 8,
+             'cellphone ie m-shwari': 7, 'sacco': 6, 'Bank and lending club ': 4,
+             'not available': 6, 'tontin': 3, 'work place': 8, 'Friends and Family': 1,
+             'business partners': 8, 'NONE': 6, 'Savings': 6, 'Banque': 4, 'Amis': 1,
+             'Tontine': 3, 'Famille': 2, 'Friends /\xa0Amis': 1, 'Bank /\xa0Banque': 4,
+             'Lending Club / Tontine': 3, 'Family /\xa0Famille': 2}
+cat_col30_31_32 = {'4': 4, '2': 2, '3': 3, '5 - Definitely agree': 5, '1 - Definitely disagree': 1,
+                   '5 - Complètement en accord': 5, '1 - Complètement en désaccord': 1}
+cat_col33 = {'Student loan': 1, 'Mobile loan': 2, 'Bank loan': 3, 'Private loan': 4,
+             'Car loan': 5, 'none': 6, 'no': 6, 'no one': 6, 'i dont owe anyone': 6,
+             'Credit card loan': 7, 'NONE': 6, 'Mortgage loan': 8, 'none ': 6, 'not any': 6,
+             ' none': 6, 'no ': 6, 'non of them currently': 6, 'NOT OWNING ': 6,
+             'I DONT TAKE LOAN': 6, 'school fess': 1, 'Sacco': 3, 'SACCO loan': 3, 'Hakuna': 6,
+             'None': 6, 'have  no loan': 6, 'I dont have any loan ': 6,
+             'I dont have any loan at the moment ': 6, 'no loan': 6, 'NO': 6, 'No loan': 6,
+             'Am not': 6, 'None ': 6, 'No': 6, 'Nope ': 6, 'Personal ': 4,
+             "I didn't take loan": 6, "I don't owe": 6, "Pret personnel (ex. d'un ami)": 4,
+             'Pret mobile': 2, 'Pret bancaire': 3, 'Pret auto': 5, "Pret d'étude": 1,
+             'Carte de crédit (ex. carte bleu)': 7, 'Pret hypothécaire': 8}
+
+cat_col36 = {'Less than 5%': 1, '5% -10%': 2, '10% - 20%': 3, '20% - 30%': 4,
+             '30% - 40%': 5, '40% - 50%': 6,
+             'More than half of my income goes to pay off rent': 7, "Don't Know": 8}
 # the latest survey dictionaries(reversed).
 #
 gender = {2: "Male", 1: "Female"}
