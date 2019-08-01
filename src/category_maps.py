@@ -78,7 +78,7 @@ map_col14 = {'Technical or Other college diploma / Collège technique': 1,
              'Honours Degree / Spécialisation': 4}
 map_col16 = {'Cameroon': 1, "Cote d'Ivoire": 2, 'Ghana': 3, 'Kenya': 4, 'Nigeria': 5,
              'South Africa': 6, 'Tanzania': 7}
-map_cal18 = {'Between 2-3 times': 2, 'Once': 3, 'More than 4 times': 1, 'Never': 4,
+map_col18 = {'Between 2-3 times': 2, 'Once': 3, 'More than 4 times': 1, 'Never': 4,
              'Once / Une fois': 3, 'Between 2-3 times /\xa0Entre 2 et 3 fois': 2,
              'More than 4 times / Plus de 4 fois': 1, 'Never / Jamais': 4,
              'Plus de 4 fois': 1, 'Entre 2 et 3 fois': 2, 'Aucune': 0, 'Une fois': 3,

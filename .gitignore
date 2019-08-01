@@ -1,3 +1,4 @@
 data/**
 .idea/**
 src/.ipynb_checkpoints/**
+src/__pycache__/**
