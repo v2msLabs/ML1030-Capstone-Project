@@ -9,7 +9,8 @@
 map_col2 = {'Difficult / Plus difficile': 1, 'Same / Pareil': 2, 'Easier / Plus facile': 3}
 map_col3_5 = {'No / Non': 1, 'Maybe / Peut-être': 2, 'Yes / Oui': 3}
 map_col4 = {'More / Plus': 1, 'Same / Pareil': 2, 'Less / Moins': 3}
-map_col6_7_8 = {'Improve / Améliorée': 1, 'Stay the same / La même': 2, 'Worsen / Détériorée': 3}
+map_col6_7_8 = {'Improve / Améliorée': 1, 'Stay the same / La même': 2, 'Worsen / Détériorée': 3,
+                'Worsen / Détérioriée': 3}
 map_col9 = {'Female / Femme': 1, 'Male / Homme': 2, 'Female /\xa0Femme': 1,
             'Male /\xa0Homme': 2}
 map_col10 = {'Separated, but not divorced / Séparé mais pas divorcé': 5,
@@ -135,11 +136,11 @@ map_col26 = {'To invest or cover business expenses (Merchandise, salaries, etc..
              'Investir dans un projet': 3, "I don't know / Je ne sais pas": 5,
              'Personal or family expenses (Health, education) /\xa0Régler les problèmes subits': 1,
              'Investment (commerce, merchandise, etc.) / Investir dans un projet': 3}
-map_col27_28_34_35 = {'Yes': 1, 'No': 2, 'Not sure': 3, 'No - but I would like to apply': 2,
+map_col27_28_34_35 = {'Yes': 1, 'No': 2, 'Not sure': 0, 'No - but I would like to apply': 2,
                       'Non': 2, 'Oui': 1, 'No / Non': 2, 'Yes /\xa0Oui': 1,
                       'No - but I would like to join one': 2,
-                      "I don't know what a credit score is": 3, 'Yes / Oui': 1,
-                      "Je ne sais pas ce que c'est": 3}
+                      "I don't know what a credit score is": 0, 'Yes / Oui': 1,
+                      "Je ne sais pas ce que c'est": 0}
 map_col29 = {'Friends': 2, 'Family': 1, 'Lending Club': 4, 'Bank': 3, 'Micro finance': 5,
              'None of them ': 6, 'Loans are a bad idea ': 6, 'E no need ': 6, 'None': 6,
              'Place of work': 2, 'cellphone ie m-shwari': 5, 'sacco': 4,
