@@ -85,7 +85,7 @@ amount_per_country = {1: {1: [10000], 2: [10001, 59000], 3: [59001, 290000], 4: 
                       3: {1: [90], 2: [91, 444], 3: [445, 2200], 4: [2201]},
                       4: {1: [1999], 2: [2000, 10499], 3: [10500, 49999], 4: [50000]},
                       5: {1: [6000], 2: [6001, 31000], 3: [31001, 160000], 4: [160001]},
-                      6: {1: [250], 2: [251, 1200], 3: [12001, 6400], 4: [6401]},
+                      6: {1: [250], 2: [251, 1200], 3: [1201, 6400], 4: [6401]},
                       7: {1: [44999], 2: [45000, 199999], 3: [200000, 1000000], 4: [1000001]}}
 # Whom did you lend money
 category_col20 = {0: "Unknown", 1: 'Family', 2: 'Friends', 3: 'Business colleagues', 4: "Other"}
@@ -96,7 +96,7 @@ category_col21 = {0: 'Other', 1: 'Less than a month', 2: 'At least 1 month but l
 # Lending fee, interest, guarantee,
 category_col22_23_24 = {0: 'Unknown', 1: 'Always', 2: 'Most of the time', 3: 'About half the time', 4: 'Occasionally',
                         5: 'Never'}
-# After lending for atleast 10 times, how often money is repaid
+# After lending for at least 10 times, how often money is repaid
 category_col25 = {0: 'Other', 1: 'Every time', 2: 'At least 9 out of 10 times', 3: 'At least 7-8 out of 10 times',
                   4: 'At least 5-6 out of 10 times', 5: 'Less than 5 out of 10 times'}
 # Most common use of the money that was lent
