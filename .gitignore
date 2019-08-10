@@ -2,3 +2,4 @@ data/**
 .idea/**
 src/.ipynb_checkpoints/**
 src/__pycache__/**
+src/kasi-scoring-tool/node_modules/**
