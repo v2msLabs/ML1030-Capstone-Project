@@ -1,0 +1,9 @@
+<mat-radio-group class="kasi-radio-group" [(ngModel)]="choice" (change)="onChoiceChange()">
+    <mat-radio-button class="kasi-radio-button" *ngFor="let option of choices|keyvalue" [value]="option.key">
+        {{option.value}}
+    </mat-radio-button>
+</mat-radio-group>
+<div>
+    <button mat-button color="primary" matStepperNext *ngIf="position !== StepPositionRef.Last">Next</button>
+    <button mat-button matStepperPrevious *ngIf="position !== StepPositionRef.First">Back</button>
+</div>

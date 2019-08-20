@@ -1,0 +1,77 @@
+<mat-toolbar>Lender Evaluator</mat-toolbar>
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+    <!-- answer order 24,18,22,23,20,26,19,25,16,12,11,21 -->
+    <mat-step [stepControl]="stepOne">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['16']}} <span
+                    class="kasi-answer">{{CountryMap.get(survey.q9)}}</span></span></ng-template>
+        <country-selector [(country)]="survey.q9"></country-selector>
+        <div>
+            <button mat-button color="primary" matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="stepTwo">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['24']}} <span
+                    class="kasi-answer">{{Map22_23_24.get(survey.q1)}}</span></span>
+        </ng-template>
+        <multi-choice-step [choices]="Map22_23_24" [(choice)]="survey.q1">
+        </multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepThree">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['18']}} <span
+                    class="kasi-answer">{{Map18.get(survey.q2)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map18" [(choice)]="survey.q2"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepFour">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['22']}} <span
+                    class="kasi-answer">{{Map22_23_24.get(survey.q3)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map22_23_24" [(choice)]="survey.q3"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepFive">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['23']}} <span
+                    class="kasi-answer">{{Map22_23_24.get(survey.q4)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map22_23_24" [(choice)]="survey.q4"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepSix">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['20']}} <span
+                    class="kasi-answer">{{Map20.get(survey.q5)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map20" [(choice)]="survey.q5"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepSeven">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['26']}} <span
+                    class="kasi-answer">{{Map26.get(survey.q6)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map26" [(choice)]="survey.q6"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepEight">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['19']}} <span
+                    class="kasi-answer">{{Map19.get(survey.q7)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map19" [(choice)]="survey.q7"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepNine">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['25']}} <span
+                    class="kasi-answer">{{Map25.get(survey.q8)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map25" [(choice)]="survey.q8"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepTen">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['12']}} <span
+                    class="kasi-answer">{{Map12.get(survey.q10)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map12" [(choice)]="survey.q10"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepEleven">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['11']}} <span
+                    class="kasi-answer">{{Map11.get(survey.q11)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map11" [(choice)]="survey.q11"></multi-choice-step>
+    </mat-step>
+    <mat-step [stepControl]="stepTwelve">
+        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['21']}} <span
+                    class="kasi-answer">{{Map21.get(survey.q12)}}</span></span></ng-template>
+        <multi-choice-step [choices]="Map21" [(choice)]="survey.q12"></multi-choice-step>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>
+            <mat-chip-list>
+                <mat-chip color="accent" selected>Evaluate</mat-chip>
+                <mat-chip color="accent" (click)="reset()">Reset</mat-chip>
+            </mat-chip-list>
+        </ng-template>
+    </mat-step>
+</mat-vertical-stepper>

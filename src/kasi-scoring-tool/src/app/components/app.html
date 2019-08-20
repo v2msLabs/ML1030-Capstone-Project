@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>KASI Scoring Tool</span>
+        <span class="kasi-toolbar-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="main_menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #main_menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>assignment</mat-icon>
+                <span>Lending Environment Simulator</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>
+                <mat-icon>assignment_ind</mat-icon>
+                <span>Lender Evaluation</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
