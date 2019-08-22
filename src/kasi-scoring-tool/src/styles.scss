@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 body {
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .kasi-wrap {
@@ -12,4 +15,10 @@ body {
 .kasi-answer {
   font-weight: bold;
   font-style: italic;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.mat-radio-label{
+  white-space: normal !important;
 }

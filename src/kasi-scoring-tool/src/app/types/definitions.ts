@@ -2,6 +2,16 @@ export enum StepPosition {
     First, Middle, Last
 }
 
+export enum AppRouts {
+    Simulator = "simulator",
+    LenderEvaluator = "lender-evaluator"
+}
+
+export enum AppNames {
+    Simulator = "Lending Environment Simulator",
+    LenderEvaluator = "Lender Evaluator"
+}
+
 export interface SimulatorSurvey{
     q1:string;
     q2:string;

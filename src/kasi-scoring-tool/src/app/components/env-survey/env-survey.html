@@ -1,4 +1,3 @@
-<mat-toolbar>Lending Environmnet Simulator</mat-toolbar>
 <mat-vertical-stepper [linear]="isLinear" #stepper>
     <!-- answer order 24,26,22,18,20,23,19,16,36,25 -->
     <mat-step [stepControl]="stepOne">
@@ -43,8 +42,8 @@
     </mat-step>
     <mat-step [stepControl]="stepEight">
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['19']}} <span
-                    class="kasi-answer">{{Map19.get(survey.q7)}}</span></span></ng-template>
-        <multi-choice-step [choices]="Map19" [(choice)]="survey.q7"></multi-choice-step>
+                    class="kasi-answer">{{AmountsPerCountry[survey.q8].get(survey.q7)}}</span></span></ng-template>
+        <multi-choice-step [choices]="AmountsPerCountry[survey.q8]" [(choice)]="survey.q7"></multi-choice-step>
     </mat-step>
     <mat-step [stepControl]="stepNine">
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['36']}} <span

@@ -80,6 +80,16 @@ export const optionMap20 = new Map(Object.entries(options20));
 export const options19 = { 1: 'Micro', 2: 'Small', 3: 'Medium', 4: 'Large' };
 export const optionMap19 = new Map(Object.entries(options19));
 
+export const amountsPerCounty = {
+    1: new Map(Object.entries({ 1: "Less than 10001 (in CFA)", 2: "At least 10001 but less than 59001", 3: "At least 59001 but less than  290001", 4: "More than 290001" })),
+    2: new Map(Object.entries({ 1: "Less than 10001 (in CFA)", 2: "At least 10001 but less than 59001", 3: "At least 59001 but less than  290001", 4: "More than 290001" })),
+    3: new Map(Object.entries({ 1: "Less than 91 (in GHS)", 2: "At least 91 but less than 445", 3: "At least 445 but less than 2201", 4: "More than 2201" })),
+    4: new Map(Object.entries({ 1: "Less than 2000 (in KES)", 2: "At leats 2000 but less than 10500", 3: "At least 10500 but less than 50000", 4: "More than 50000" })),
+    5: new Map(Object.entries({ 1: "Less than 6001 (in NGN)", 2: "At least 6001 but less than  31001", 3: "At least 31001 but less than 160001", 4: "More than 160001" })),
+    6: new Map(Object.entries({ 1: "Less than 251 (in ZAR)", 2: "At least 251 but less than  1201", 3: "At least 1201 but less than 6401", 4: "More than 6401" })),
+    7: new Map(Object.entries({ 1: "Less than 45000 (in TZS)", 2: "At least 45000 but less than 200000", 3: "At least 200000 but less than 1000001", 4: "More than 1000001" }))
+}
+
 export const options21 = {
     1: 'Less than a month', 2: 'At least 1 month but less than 3 months',
     3: 'At least 3 months but less than 6 months', 4: 'At least 6 months but less than 12 months',
@@ -99,4 +109,4 @@ export const options36 = {
 };
 export const optionMap36 = new Map(Object.entries(options36));
 
-
+export const creditScore = { 1: "Very Poor", 2: "Poor", 3: "Fair", 4: "Good", 5: "Very Good" };

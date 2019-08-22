@@ -1,21 +1,35 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>KASI Scoring Tool</span>
-        <span class="kasi-toolbar-spacer"></span>
-        <button mat-icon-button [matMenuTriggerFor]="main_menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #main_menu="matMenu">
-            <button mat-menu-item>
-                <mat-icon>assignment</mat-icon>
-                <span>Lending Environment Simulator</span>
+<div class="kasi-main-toolbar">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>KASI Scoring Tool</span>
+            <span class="kasi-toolbar-spacer"></span>
+            <button mat-icon-button [matMenuTriggerFor]="main_menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
             </button>
-            <mat-divider></mat-divider>
-            <button mat-menu-item>
-                <mat-icon>assignment_ind</mat-icon>
-                <span>Lender Evaluation</span>
-            </button>
-        </mat-menu>
-    </mat-toolbar-row>
-</mat-toolbar>
-<router-outlet></router-outlet>
+            <mat-menu #main_menu="matMenu">
+                <button mat-menu-item (click)="navigate(AppRoutsRef.Simulator)">
+                    <mat-icon>assignment</mat-icon>
+                    <span>{{AppNameRef.Simulator}}</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="navigate(AppRoutsRef.LenderEvaluator)">
+                    <mat-icon>assignment_ind</mat-icon>
+                    <span>{{AppNameRef.LenderEvaluator}}</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-toolbar>
+        <ng-container *ngIf="activeApp === AppNameRef.LenderEvaluator">
+            <mat-icon matTooltip="{{activeApp}}" matTooltipPosition="after">assignment_ind</mat-icon>
+            <!-- <span>{{AppNameRef.LenderEvaluator}}</span> -->
+        </ng-container>
+        <ng-container *ngIf="activeApp === AppNameRef.Simulator">
+            <mat-icon matTooltip="{{activeApp}}" matTooltipPosition="after">assignment</mat-icon>
+            <!-- <span>{{AppNameRef.Simulator}}</span> -->
+        </ng-container>
+    </mat-toolbar>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
