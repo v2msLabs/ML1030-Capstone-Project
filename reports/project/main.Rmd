@@ -1,0 +1,90 @@
+---
+title: Lending Environment Simulator & Lender Evaluation Tool
+author:
+  - name: Vadim Spirkov
+    affiliation: York University School of Continuing Studies
+  - name: Murlidhar Loka
+    affiliation: York University School of Continuing Studies
+abstract: >
+  In 
+
+output:
+  rticles::rjournal_article:
+    includes:
+      in_header: preamble.tex
+   
+---
+
+```{r message=FALSE, include=FALSE, warnings=FALSE}
+library(knitr)
+# make the images flow nicely
+knitr::opts_chunk$set(fig.pos = 'H')
+```
+
+
+# Background
+
+
+# Objectives
+
+
+# GitHub
+
+
+# Data Analysis
+
+## Data Dictionary
+
+## Data Exploration
+
+## Data Preparation
+
+
+# Feature Evaluation
+
+## Model Evaluation and Selection
+
+## Lender Evaluator
+
+
+# Classification Model Evaluation and Selection
+
+## Lending Environment Simulator
+
+### Random Forest
+
+### SVM
+
+### Gradient Boosting Machine
+
+### Winning Solution
+
+
+## Lender Evaluator
+
+
+### Random Forest
+
+### SVM
+
+### Gradient Boosting Machine
+
+### Winning Solution
+
+
+
+# Model Deployment
+
+## Architecture
+
+## Docker
+
+
+# Conclusion
+
+
+\bibliography{RJreferences}
+
+# Note from the Authors
+
+This file was generated using [_The R Journal_ style article template](https://github.com/rstudio/rticles), additional information on how to prepare articles for submission is here - [Instructions for Authors](https://journal.r-project.org/share/author-guide.pdf). The article itself is an executable R Markdown file that could be [downloaded from Github](https://github.com/ivbsoftware/big-data-final-2/blob/master/docs/R_Journal/big-data-final-2/) with all the necessary artifacts.
