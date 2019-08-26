@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 from flask import Flask, request, jsonify
 from flask_restplus import Api, Resource, fields
 import json
@@ -74,3 +76,6 @@ class EvaluatorClass(Resource):
 			app.abort(500, e.__doc__, status = "Could not save information", statusCode = "500")
 		except Exception as e:
 			app.abort(400, e.__doc__, status = "Evaluate Model Invalid Data", statusCode = "400")
+
+if __name__=="__main__":
+    flask_app.run(host='0.0.0.0', debug=True)
