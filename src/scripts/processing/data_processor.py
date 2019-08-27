@@ -2,9 +2,10 @@ import pandas as pd
 import re
 import glob
 import time
-import dictionaries as dc
-import category_maps as maps
+from . import dictionaries  as dc
+from . import category_maps as maps
 import argparse
+
 
 """Argument parser.
 Returns:
@@ -18,12 +19,12 @@ def get_args():
         '--input_path',
         type=str,
         required=True,
-        help='Input path and pattern to survey data in *csv format')
+        help='An input path and pattern to the survey files in *csv format. Example: ./raw_data/*')
     parser.add_argument(
-        '--output_dir',
+        '--output_path',
         type=str,
         default="",
-        help='Path to an output file which the preprocessor script generates')
+        help='A full path with a file name specified which will store the processed data in csv format. This file will be used to train the models. Example: ./clean/clean_data.csv')
     args, _ = parser.parse_known_args()
     return args
 
@@ -183,7 +184,6 @@ if __name__ == '__main__':
     start = time.time()
     args = get_args()
     df = run(args.input_path)
-    f = "{}clean_data.csv".format(args.output_dir)
-    df.to_csv(index=False, path_or_buf=f)
-    print("The processed data has been saved in {}".format(f))
+    df.to_csv(index=False, path_or_buf=args.output_path)
+    print("The processed data has been saved in {}".format(args.output_path))
     print("Finished. Elapsed time(sec): {0}".format(time.time() - start))

@@ -5,3 +5,6 @@ src/__pycache__/**
 src/kasi-scoring-tool/node_modules/**
 .Rproj.user
 reports/project/.Rproj.user/**
+src/scripts/__pycache__/**
+src/scripts/processing/__pycache__/**
+src/notebooks/.ipynb_checkpoints/**
