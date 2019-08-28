@@ -8,3 +8,7 @@ reports/project/.Rproj.user/**
 src/scripts/__pycache__/**
 src/scripts/processing/__pycache__/**
 src/notebooks/.ipynb_checkpoints/**
+src/dist/**
+src/scripts/kasi/__pycache__/**
+src/scripts/kasi/training/__pycache__/**
+src/build/**
