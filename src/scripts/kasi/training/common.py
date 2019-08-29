@@ -2,6 +2,7 @@ import os
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
+
 """
 
 This module maintains the code which is used by all training modules
@@ -31,19 +32,18 @@ def create_dir(path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
 
-def get_gridsearch_instance(algorithm,cv=3):
+def get_gridsearch_instance(algorithm, cv=3):
     params = {}
     model = None
     if algorithm == rf_algorithm:
         params = {'n_estimators': [200, 300, 400], 'min_samples_split': [5, 10, 20, 30, 40],
-                'max_features': ['auto', 'sqrt'], 'bootstrap': [True, False]}
+                  'max_features': ['auto', 'sqrt'], 'bootstrap': [True, False]}
         model = RandomForestClassifier()
     elif algorithm == gb_algorithm:
-        params =  {'n_estimators': [200, 300], 'learning_rate': [0.1, 1.0, 1.2], 'min_samples_split': [5, 20, 30],
-                'max_depth': [3, 6]}
+        params = {'n_estimators': [200, 300], 'learning_rate': [0.1, 1.0, 1.2], 'min_samples_split': [5, 20, 30],
+                  'max_depth': [3, 6]}
         model = GradientBoostingClassifier()
     else:
-        params = {}
+        params = {'kernel': ['rbf', 'poly', 'linear'], 'gamma': ["auto", "scale"], 'shrinking': [True, False]}
         model = SVC()
-        # finish for svm
-    return GridSearchCV(model, params, cv=cv),params
+    return GridSearchCV(model, params, cv=cv), params

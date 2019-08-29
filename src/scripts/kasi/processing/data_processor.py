@@ -4,6 +4,7 @@ import glob
 import time
 from . import dictionaries  as dc
 from . import category_maps as maps
+from ..training import common as c
 import argparse
 
 """Argument parser.
@@ -188,6 +189,7 @@ def main():
     start = time.time()
     args = get_args()
     df = run(args.input_dir)
+    c.create_dir(args.output_file)
     df.to_csv(index=False, path_or_buf=args.output_file)
     print("The processed data has been saved in {}".format(args.output_file))
     print("Finished. Elapsed time(sec): {0}".format(time.time() - start))

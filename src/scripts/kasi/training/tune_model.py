@@ -16,6 +16,8 @@ import os
 Returns:
   Dictionary of arguments.
 """
+
+
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -41,21 +43,22 @@ def get_args():
     args, _ = parser.parse_known_args()
     return args
 
+
 def main():
     start = time.time()
     args = get_args()
-    file = os.path.join(args.output_dir,"{0}_{1}_tuning.txt".format(args.model,args.algorithm))
+    file = os.path.join(args.output_dir, "{0}_{1}_tuning.txt".format(args.model, args.algorithm))
     c.create_dir(file)
-    print("Started {0} algorithm hyper-parameter tuning...".format(c.algorithms[args.algorithm]))
+    print("Started {0} hyper-parameter tuning for {1}".format(c.algorithms[args.algorithm], args.model))
     gs, params = c.get_gridsearch_instance(args.algorithm)
     df = pd.read_csv(args.input_file)
     columns, label = c.get_columns_label(args.model)
-    data= df[columns]
+    data = df[columns]
     credit_score = df[label]
     # upsample
     train, train_class = SMOTE().fit_resample(data, credit_score)
     with open(file, 'w') as f:
-        print(params,file=f)
+        print(params, file=f)
         print(label, file=f)
         print(columns, file=f)
         _ = gs.fit(train, train_class)
@@ -64,7 +67,7 @@ def main():
         bestParams = gs.best_estimator_.get_params()
         for paramName in sorted(params.keys()):
             print("\t%s: %r" % (paramName, bestParams[paramName]), file=f)
-    print("The recommended hyper-parameters have been saved in {}".format(args.output_file))
+    print("The recommended hyper-parameters have been saved in {}".format(file))
     print("Finished. Elapsed time(sec): {0}".format(time.time() - start))
 
 

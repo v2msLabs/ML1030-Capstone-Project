@@ -10,7 +10,7 @@ setuptools.setup(
         'console_scripts': ['kasi_process_data=kasi.processing.data_processor:main',
                             'kasi_train_simulator=kasi.training.train_simulator:main',
                             'kasi_train_evaluator=kasi.training.train_evaluator:main',
-                            'kasi_tune=kasi.training.tuning:main']
+                            'kasi_tune=kasi.training.tune_model:main']
     },
     install_requires=[
         'joblib>=0.13.0'

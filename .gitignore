@@ -12,3 +12,5 @@ src/dist/**
 src/scripts/kasi/__pycache__/**
 src/scripts/kasi/training/__pycache__/**
 src/build/**
+reports/project/.Rhistory
+src/scripts/kasi/processing/__pycache__/**
