@@ -7,8 +7,8 @@ import os
 
 """
 
-    This module performs Random Forest classifier hyper-parameter tuning for the simulator and evaluator models.
-    This module is not required for model re-training.
+    This module performs hyper-parameter tuning for the simulator and evaluator models.
+    The module is not required for model re-training.
 
 """
 
@@ -24,12 +24,13 @@ def get_args():
         '--algorithm',
         type=str,
         required=True,
-        help='What algorithm to apply to train the model. Acceptable values: {0}. Example: rf'.format(c.algorithms))
+        help='Which algorithm to tune the hyper-parameters for. Acceptable values: {0}. Example: rf'.format(
+            c.algorithms))
     parser.add_argument(
         '--model',
         type=str,
         required=True,
-        help='Which model to tune. Acceptable values: simulator, evaluator. Example: simulator')
+        help='Which model to tune the hyper-parameters for. Acceptable values: simulator, evaluator. Example: simulator')
     parser.add_argument(
         '--input_file',
         type=str,
@@ -42,6 +43,11 @@ def get_args():
         help='Output path. This is where the script saves the recommended hyper-parameters as a text file. Example: ./tuning')
     args, _ = parser.parse_known_args()
     return args
+
+
+"""
+Main entry point of the script that starts the tuning process
+"""
 
 
 def main():

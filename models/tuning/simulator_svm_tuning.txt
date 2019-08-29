@@ -1,0 +1,8 @@
+{'kernel': ['rbf', 'poly', 'linear'], 'gamma': ['auto', 'scale'], 'shrinking': [True, False]}
+credit_score_category
+['24', '26', '22', '18', '20', '23', '19', '16', '36', '25']
+Best Support Vector Machine algorithm score: 0.877570949038755
+Best hyper-parameters:
+	gamma: 'auto'
+	kernel: 'rbf'
+	shrinking: True
