@@ -22,17 +22,1098 @@ In
 \hypertarget{data-analysis}{%
 \section{Data Analysis}\label{data-analysis}}
 
+As it has been mentioned KASI Insight does not posess personal financial
+data that could be used to identify and predict client credit
+worthiness. In this project we are using the survey data collected by
+KASI Insight over years from seven African countries. The survey targets
+people who lend money on regular basis. The survey contains questions
+pertaining to the borrowing habits of the people the lenders deal with,
+asks respondents what they feel about the economy in a given country,
+etc. KASI insight has collected almost \textbf{30,000} records over a
+course of last three years.
+
 \hypertarget{data-dictionary}{%
 \subsection{Data Dictionary}\label{data-dictionary}}
+
+The survey comprises 38 columns. Majority of them are multi-choice
+questions. The table below lists the survey columns
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+ID\strut
+\end{minipage} & \begin{minipage}[b]{0.89\columnwidth}\raggedright
+Question/Column\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+0\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Timestamp\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Location ID\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Has it become more difficult or easier to find a job in your city?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Is this a good time for people to make a large purchase such as
+furniture or electrical appliances, given the economic climate?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Compared to the last 6 months, are you able to spend (more, the same or
+less) money on large purchases over the next 6 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Will you be able to meet your regular expenses over the next 6
+months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+How do you expect your household's income to change over the next 6
+months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+7\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+How do you expect general economic conditions in your city to change
+over the next 6 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+How do you expect general economic conditions in your country to change
+over the next 6 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+9\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Gender\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+10\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Marital status\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+11\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Age\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+12\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's your highest level of education?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+13\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Occupation\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+14\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+If you are a student, what level are you currently studying?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+15\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Race/Ethnicity\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Country\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+17\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What is the name of the neighborhood where you live?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+21\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+When you lend money, when do you usually expect to get it repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+27\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Have you ever applied for a bank loan?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+28\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Are you a tontine / lending club member?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+29\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What is the most convenient way to get a loan?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+30\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}Access to
+credit is essential for me to achieve financial freedom{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+31\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}Credit is
+beneficial only if you have discipline{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+32\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}I would like
+to have more credit management training{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+33\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What type of loans are you currently paying of?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+34\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you have a credit score?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+35\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you have a credit card?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+36\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average, how much of your total household monthly income do you spend
+paying off debt each month?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+37\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+If you wanted to take a loan to start a business, how much would you
+need?\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+The survey data could be split into three major categories:
+
+\begin{itemize}
+\tightlist
+\item
+  Demographice Statistics
+\item
+  Economic Sentiment
+\item
+  Spending and Borrowing habits
+\end{itemize}
+
+Each question/column should be trated as a catigorical value.
 
 \hypertarget{data-exploration}{%
 \subsection{Data Exploration}\label{data-exploration}}
 
-\hypertarget{data-preparation}{%
-\subsection{Data Preparation}\label{data-preparation}}
+Let's take a look at the raw survey data. Though the survey multi-choice
+questions are catergories in nature, the survey answers are stored in
+alphanumeric format. Overtime some questions have been rephrased. Thus
+in some cases the answers that pertain to the same category vary.
+Another problem with the raw data set is the missing values.
 
-\hypertarget{feature-evaluation}{%
-\section{Feature Evaluation}\label{feature-evaluation}}
+\textbf{TO DO: insert the sample of raw data here}
+
+To ractify the problems stated above we have developed a data processing
+algorithm that normalized and categorised the answers converting them
+into numeric form. The data processing script also imputes the missing
+data with the most frequently occuring value for a given category. The
+clean data set stats are depicted below. \textbf{Note}: the column
+numbers corespond to the question numbers as described in \emph{Data
+Dictionary} paragraph.
+
+\begin{Schunk}
+\begin{Soutput}
+#>               2         3         4         5         6         7         8         9        10  \
+#> count 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00   
+#> mean       1.69      2.07      1.90      2.16      1.80      1.82      1.83      1.66      1.99   
+#> std        0.62      0.61      0.64      0.60      0.64      0.63      0.64      0.48      0.87   
+#> min        1.00      1.00      1.00      1.00      1.00      1.00      1.00      1.00      1.00   
+#> 25%        1.00      2.00      1.00      2.00      1.00      1.00      1.00      1.00      1.00   
+#> 50%        2.00      2.00      2.00      2.00      2.00      2.00      2.00      2.00      2.00   
+#> 75%        2.00      2.00      2.00      3.00      2.00      2.00      2.00      2.00      2.00   
+#> max        3.00      3.00      3.00      3.00      3.00      3.00      3.00      2.00      7.00   
+#> 
+#>              11        12        13        14        16        18        19        20        21  \
+#> count 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00   
+#> mean       3.68      3.85      2.77      0.24      3.59      2.41      2.07      1.93      2.39   
+#> std        1.17      1.27      1.20      0.71      1.93      0.90      0.75      0.61      0.97   
+#> min        1.00      1.00      1.00      0.00      1.00      1.00      1.00      1.00      1.00   
+#> 25%        3.00      3.00      2.00      0.00      2.00      2.00      2.00      2.00      2.00   
+#> 50%        4.00      4.00      3.00      0.00      4.00      2.00      2.00      2.00      2.00   
+#> 75%        4.00      5.00      4.00      0.00      5.00      3.00      2.00      2.00      3.00   
+#> max        9.00     10.00      9.00      4.00      7.00      4.00      4.00      3.00      6.00   
+#> 
+#>              22        23        24        25        26        27        28        29        30  \
+#> count 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00   
+#> mean       3.26      3.28      2.80      2.71      2.61      1.47      1.51      2.66      2.71   
+#> std        1.32      1.32      1.16      1.10      1.38      0.50      0.50      1.06      1.10   
+#> min        1.00      1.00      1.00      1.00      1.00      1.00      1.00      1.00      1.00   
+#> 25%        2.00      2.00      2.00      2.00      1.00      1.00      1.00      2.00      2.00   
+#> 50%        3.00      3.00      3.00      3.00      2.00      1.00      2.00      2.00      2.00   
+#> 75%        5.00      5.00      4.00      3.00      3.00      2.00      2.00      3.00      3.00   
+#> max        5.00      5.00      5.00      5.00      5.00      2.00      2.00      6.00      5.00   
+#> 
+#>              31        32        33        34        35        36        37  credit_score  \
+#> count 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00 29,383.00     29,383.00   
+#> mean       2.84      2.90      0.30      1.25      1.30      7.68      2.19        348.56   
+#> std        1.13      1.22      1.08      0.44      0.46      1.26      0.58        244.70   
+#> min        1.00      1.00      0.00      1.00      1.00      1.00      1.00       -720.00   
+#> 25%        2.00      2.00      0.00      1.00      1.00      8.00      2.00        190.00   
+#> 50%        2.00      2.00      0.00      1.00      1.00      8.00      2.00        390.00   
+#> 75%        4.00      4.00      0.00      2.00      2.00      8.00      2.00        540.00   
+#> max        5.00      5.00      8.00      2.00      2.00      8.00      4.00        970.00   
+#> 
+#>        credit_score_category  lender_score  lender_score_category  
+#> count              29,383.00     29,383.00              29,383.00  
+#> mean                    1.84        303.80                   1.74  
+#> std                     0.95        272.73                   0.82  
+#> min                     1.00       -590.00                   1.00  
+#> 25%                     1.00        140.00                   1.00  
+#> 50%                     2.00        380.00                   2.00  
+#> 75%                     2.00        500.00                   2.00  
+#> max                     5.00        840.00                   5.00
+\end{Soutput}
+\end{Schunk}
+
+Evidently now all the data is categorized, the missing values imputed.
+From this point on we will be using the clean data set to do further
+data exploration, feature engineering and model training.
+
+\hypertarget{demographic-stats}{%
+\subsubsection{Demographic Stats}\label{demographic-stats}}
+
+It is useful to understand who took the survey. This knowledge will
+ultimately gives us the answers about the money market participants in
+Africa.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/obs_per_country} 
+
+}
+
+\caption[Participation per Country]{Participation per Country}\label{fig:pc}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/participant_age} 
+
+}
+
+\caption[Age of Participans]{Age of Participans}\label{fig:pa}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/participant_education} 
+
+}
+
+\caption[Education of Participants]{Education of Participants}\label{fig:pe}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/participant_marital} 
+
+}
+
+\caption[Marital Status of Participants]{Marital Status of Participants}\label{fig:pms}
+\end{figure}
+\end{Schunk}
+
+As per the charts submitted above we can canlude that:
+
+\begin{itemize}
+\tightlist
+\item
+  Camerun has the highest number of obervations and Tansania ihas the
+  smallets representation, where the rest of the countries or more or
+  less equaly represented.
+\item
+  Males dominate in the money lending business. Kenya though makes an
+  exception where number of femail participants is very close to the
+  male population
+\item
+  In general people in \emph{30-34} age group are the most active,
+  followed by \emph{25-29} and \emph{18-24} age groups respectively. In
+  Kenya, unlike other countries, the yonger generation is more active.
+\item
+  Majority of money lenders are either salaried or comission-based
+  employees. Again Kenya makes an exption. The second largest group of
+  the money lenders is the busines owners.
+\item
+  Education-wise people with the bachelor's degree and skilled trade
+  workers dominate.
+\item
+  Married people tend to lend money more often\ldots{}
+\end{itemize}
+
+\hypertarget{economic-sentiment}{%
+\subsubsection{Economic Sentiment}\label{economic-sentiment}}
+
+Now let's see what the money lenders think about the state of the
+economy in ther respective countries. The questions where asked in the
+six-month perspective in the future from the date of survey.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/sentiment} 
+
+}
+
+\caption[Economic Sentiment]{Economic Sentiment}\label{fig:esent}
+\end{figure}
+\end{Schunk}
+
+Evidently majority of the survey participants think that the economic
+situation in their country will be stable over a course of next six
+months. Many people in Kenya, Nigeria and Ghana find it more diffiult to
+find a job. Remarkably, despite the fact that people believe that the
+economic conditions are stable, citisens of all counties are not shure
+if they are going to meet their reqular expences.
+
+\hypertarget{spending-and-borrowing-habits}{%
+\subsubsection{Spending and Borrowing
+Habits}\label{spending-and-borrowing-habits}}
+
+Spending and borrowing habits is the segment of our particular interest
+since it affects the most the credit score of the population.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/borrowing} 
+
+}
+
+\caption[Borrowing Habits]{Borrowing Habits}\label{fig:bh}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/spending} 
+
+}
+
+\caption[Spending Habits]{Spending Habits}\label{fig:sh}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/payment} 
+
+}
+
+\caption[Debt Payment]{Debt Payment}\label{fig:dtp}
+\end{figure}
+\end{Schunk}
+
+\begin{itemize}
+\tightlist
+\item
+  Majority of population take either small or micro loans (the exact
+  amounts are country specific).
+\item
+  It is quite remarkable that the lenders do not charge fees or interest
+  regularly (if at all) more often than not. The Cameroonians make an
+  exception. In opposite the majority of South African lenders never
+  change interest. We have conducted furhter data research that have
+  proved that many people tend to lend to friends and familty. This fact
+  explains why the fees and interest on loans are waived.
+\item
+  People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to
+  cover business-related expenses. Citizens of other countries mainly
+  use loan to either cover one-time or or unexpected expences (wedding,
+  medical emergency..) or make ends meet (pay rent, buy clothes, etc.)
+\item
+  Interestingly people in all countries do not watch how they spend the
+  borrowed money. This fact probably explains why the question
+  \emph{Will you be able to meet your reqular expenses?} genrates
+  uncertain answers (see \textbf{Economic Sentiment} paragraph for
+  futher details).
+\end{itemize}
+
+\hypertarget{data-distribution-between-categories}{%
+\subsection{Data Distribution between
+Categories}\label{data-distribution-between-categories}}
+
+There are five credit categories for borrowers and five lender
+categories. To train the robust classification models we have to ensure
+that each category has enough observations to support the model traing.
+Let's review the data distribution between the borrower and lender
+categories.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/bcategories} 
+
+}
+
+\caption[Data Distribution per Credit Categories]{Data Distribution per Credit Categories}\label{fig:dc}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/lcategories} 
+
+}
+
+\caption[Data Distribution per Lender Categories]{Data Distribution per Lender Categories}\label{fig:dl}
+\end{figure}
+\end{Schunk}
+
+As we can observe overall the lending environmnet is not very promising;
+categories 1 and 2 (\emph{Very Poor} and \emph{Poor}) dominate. The
+lending climate is visibly better in Cameroon, Cote d'Ivoire and South
+Africa. It is also worth mentioning that categories 4 and 5 (\emph{Good}
+and \emph{Very Good}) do not have that much data. The situation is even
+worse with the lender categories. Thus prior to model training we would
+have to upsmple the training data sets to bring all categories to the
+same level.
+
+\hypertarget{feature-selection-and-engineering}{%
+\section{Feature Selection and
+Engineering}\label{feature-selection-and-engineering}}
+
+The data set has 38 columns. We potentially, could employ all of them to
+fit the models. But this is not the optimal approach. Not all data
+elements contribute to the category identification equally, some may not
+contribute at all, so why keep them? Another consideration is that the
+large and wide data sets make model training much longer, affect the
+accuracy and speed of the models negatively. Also many input variables
+add complexity to the user interface making it hard to implement,
+maintain and use. Thus we have opted to evaluated available data
+features. The ultimate goal is to undersatand the relationship between
+the features and the response variables and select the most infulential
+ones.
+
+\hypertarget{feature-correlation-matrix}{%
+\subsection{Feature Correlation
+Matrix}\label{feature-correlation-matrix}}
+
+Strongly correlated features are redundant thus they could be dropped
+without impacting the model performance. Figure \ref{fig:cmatrix}
+depicts a correlation heatmap of all 38 data set features. The
+correlated features would be rendered either in deep black or very light
+colors. As we can observe none of the features have strong correlation.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../artifacts/cmatrix} 
+
+}
+
+\caption[Feature Correlation]{Feature Correlation}\label{fig:cmatrix}
+\end{figure}
+\end{Schunk}
+
+\hypertarget{univariate-feature-selection}{%
+\subsection{Univariate Feature
+Selection}\label{univariate-feature-selection}}
+
+Univariate feature selection examines each feature individually to
+determine the strength of the relationship of the feature with the
+response variable. Next two paragraphs examine relationship between top
+20 features and credint and lender categories respectively.
+
+\hypertarget{credit-score-univariate-feature-selection}{%
+\subsubsection{Credit Score Univariate Feature
+Selection}\label{credit-score-univariate-feature-selection}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+Num\strut
+\end{minipage} & \begin{minipage}[b]{0.77\columnwidth}\raggedright
+Feature\strut
+\end{minipage} & \begin{minipage}[b]{0.09\columnwidth}\raggedright
+Score\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+4749.1\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+1077.69\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+727.16\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+536.27\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+512.08\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+441.73\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+33\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+What type of loans are you currently paying of?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+360.28\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+351.02\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+14\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+If you are a student, what level are you currently studying?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+301.56\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+21\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+When you lend money, when do you usually expect to get it repaid?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+218.30\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Country\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+197.034\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+180.84\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+11\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Age\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+103.30\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+12\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+What's your highest level of education?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+75.24\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+29\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+What is the most convenient way to get a loan?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+63.37\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Has it become more difficult or easier to find a job in your city?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+55.15\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+10\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Marital status\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+39.54\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+31\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}Credit is
+beneficial only if you h\ldots{}\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+35.68\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+30\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}Access to
+credit is essential for \ldots{}\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+31.48\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+32\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}I would like
+to have more credit m\ldots{}\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+25.52\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{lender-score-univariate-feature-selection}{%
+\subsubsection{Lender Score Univariate Feature
+Selection}\label{lender-score-univariate-feature-selection}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+Num\strut
+\end{minipage} & \begin{minipage}[b]{0.77\columnwidth}\raggedright
+Feature\strut
+\end{minipage} & \begin{minipage}[b]{0.09\columnwidth}\raggedright
+Score\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+6667.83\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+3588.47\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+3339.37\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+2014.33\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Country\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+595.87\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+555.59\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+460.15\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+444.85\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+415.17\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+14\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+If you are a student, what level are you currently studying?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+174.17\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+21\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+When you lend money, when do you usually expect to get it repaid?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+112.94\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+37\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+If you wanted to take a loan to start a business, how much would you
+need?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+91.9\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+28\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Are you a tontine / lending club member?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+78.77\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+27\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Have you ever applied for a bank loan?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+76.69\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Compared to the last 6 months, are you able to spend (more, the same or
+less) money on large pur\ldots{}\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+56.49\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+11\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Age\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+44.33\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+How do you expect general economic conditions in your country to change
+over the next 6 months?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+42.94\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+32\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+To what extent do you agree with the following sentences {[}I would like
+to have more credit manag\ldots{}\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+39.22\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Has it become more difficult or easier to find a job in your city?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+38.57\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+35\strut
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+Do you have a credit card?\strut
+\end{minipage} & \begin{minipage}[t]{0.09\columnwidth}\raggedright
+37.26\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{feature-importance}{%
+\subsection{Feature Importance}\label{feature-importance}}
+
+We measure the importance of a feature by calculating the increase in
+the model's prediction error after permuting the feature. A feature is
+``important'' if shuffling its values increases the model error, because
+in this case the model relied on the feature for the prediction. A
+feature is ``unimportant'' if shuffling its values leaves the model
+error unchanged, because in this case the model ignored the feature for
+the prediction.
+
+\hypertarget{credit-score-feature-impoirtance-evaluation}{%
+\subsubsection{Credit Score Feature Impoirtance
+Evaluation}\label{credit-score-feature-impoirtance-evaluation}}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../artifacts/cfimportance} 
+
+}
+
+\caption[Credit Score Feature Impoirtance]{Credit Score Feature Impoirtance}\label{fig:cfi}
+\end{figure}
+\end{Schunk}
+
+\hypertarget{lender-score-feature-impoirtance-evaluation}{%
+\subsubsection{Lender Score Feature Impoirtance
+Evaluation}\label{lender-score-feature-impoirtance-evaluation}}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../artifacts/lfimportance} 
+
+}
+
+\caption[Lender Score Feature Impoirtance]{Lender Score Feature Impoirtance}\label{fig:lfi}
+\end{figure}
+\end{Schunk}
+
+\hypertarget{takeways}{%
+\subsection{Takeways}\label{takeways}}
+
+We have applied two mathematical algorithms to identify the most
+significant features for credit score and lender score labels. Both
+methods have selected almost the same features. After some analysis we
+have selected top ten features for each label.
+
+\hypertarget{top-ten-credit-score-features}{%
+\subsubsection{Top Ten Credit Score
+Features}\label{top-ten-credit-score-features}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+Num\strut
+\end{minipage} & \begin{minipage}[b]{0.89\columnwidth}\raggedright
+Feature\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Country\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+21\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+When you lend money, when do you usually expect to get it repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{top-ten-lender-score-features}{%
+\subsubsection{Top Ten Lender Score
+Features}\label{top-ten-lender-score-features}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+Num\strut
+\end{minipage} & \begin{minipage}[b]{0.89\columnwidth}\raggedright
+Feature\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Country\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+12\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's your highest level of education?\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Later we will applly the top 10 features to train the base-line models.
+Then we will try to increase/decrease the number of features and
+evaluate the dimentionality change effect on the model accuracy.
 
 \hypertarget{model-evaluation-and-selection}{%
 \subsection{Model Evaluation and

@@ -1,7 +1,0 @@
-{'n_estimators': [200, 300, 400], 'min_samples_split': [5, 10, 20, 30, 40], 'max_features': ['auto', 'sqrt'], 'bootstrap': [True, False]}
-Best Random Forest model score: 0.909
-Best model hyper-parameters:
-	bootstrap: False
-	max_features: 'sqrt'
-	min_samples_split: 5
-	n_estimators: 200

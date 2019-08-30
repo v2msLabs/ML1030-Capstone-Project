@@ -9,7 +9,7 @@ This module maintains the code which is used by all training modules
 
 """
 
-simulator_columns = ['24', '26', '22', '18', '20', '23', '19', '16', '36', '25']
+simulator_columns = ['24', '26', '22', '18', '20', '23', '19', '16', '36', '25'] # replace 36 with 21
 evaluator_columns = ['24', '18', '22', '23', '20', '26', '19', '25', '16', '12', '11', '21']
 simulator_label = 'credit_score_category'
 evaluator_label = 'lender_score_category'
