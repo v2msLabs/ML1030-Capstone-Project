@@ -1,6 +1,4 @@
-# Dockerfile - this is a comment. Delete me if you want.
 #FROM ubuntu:18.04
-#FROM mcr.microsoft.com/windows/servercore:ltsc2019
 FROM python:3.6.7
 
 RUN pip3 install --upgrade pip==19.2.3 \
