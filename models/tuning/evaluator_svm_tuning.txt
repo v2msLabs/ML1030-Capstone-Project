@@ -1,0 +1,8 @@
+{'kernel': ['rbf', 'poly', 'linear'], 'gamma': ['auto', 'scale'], 'shrinking': [True, False]}
+lender_score_category
+['24', '18', '22', '23', '20', '26', '19', '25', '16', '12', '11', '21']
+Best Support Vector Machine algorithm score: 0.9323398576512456
+Best hyper-parameters:
+	gamma: 'auto'
+	kernel: 'rbf'
+	shrinking: True

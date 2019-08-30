@@ -1,0 +1,9 @@
+{'n_estimators': [200, 300, 400], 'min_samples_split': [5, 10, 20, 30, 40], 'max_features': ['auto', 'sqrt'], 'bootstrap': [True, False]}
+lender_score_category
+['24', '18', '22', '23', '20', '26', '19', '25', '16', '12', '11', '21']
+Best Random Forest algorithm score: 0.963211743772242
+Best hyper-parameters:
+	bootstrap: False
+	max_features: 'sqrt'
+	min_samples_split: 5
+	n_estimators: 400

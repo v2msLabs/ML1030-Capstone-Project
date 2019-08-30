@@ -1,0 +1,16 @@
+Parameters in use:
+
+{'criterion': 'friedman_mse', 'init': None, 'learning_rate': 0.1, 'loss': 'deviance', 'max_depth': 6, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 300, 'n_iter_no_change': None, 'presort': 'auto', 'random_state': None, 'subsample': 1.0, 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': 0, 'warm_start': False}
+simulator model with Gradient Boosting algorithm score: 0.9356
+              precision    recall  f1-score   support
+
+           1       0.98      0.96      0.97      3945
+           2       0.93      0.94      0.94      3144
+           3       0.86      0.86      0.86      1163
+           4       0.76      0.87      0.81       425
+           5       0.89      0.84      0.86       138
+
+   micro avg       0.94      0.94      0.94      8815
+   macro avg       0.89      0.90      0.89      8815
+weighted avg       0.94      0.94      0.94      8815
+

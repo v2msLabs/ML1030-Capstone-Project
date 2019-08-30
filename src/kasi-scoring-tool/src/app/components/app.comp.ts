@@ -11,7 +11,6 @@ export class AppComponent {
   activeApp = AppNames.Simulator;
   AppRoutsRef = AppRouts;
   AppNameRef = AppNames;
-  a:number[]=[1,2,4,3,2,1,1,2,3,4];
 
   constructor(private router: Router, private route: ActivatedRoute) {
     router.events.subscribe(e => {
@@ -27,8 +26,7 @@ export class AppComponent {
     this.setAppName(path);
 
   }
-
-
+  
 
   private setAppName(path: string | AppRouts) {
     if (!path) {

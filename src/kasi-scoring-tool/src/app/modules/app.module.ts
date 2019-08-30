@@ -10,6 +10,7 @@ import { MultiChoiceStepComponent } from 'components/common/multi-choice-step/mu
 import { CountrySelectorComponent } from 'components/common/country/country-selector.comp';
 import { AppRoutingModule } from './app-routing.module';
 import { LenderSurveyComponent } from 'components/lender-survey/lender-survey.comp';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { LenderSurveyComponent } from 'components/lender-survey/lender-survey.co
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
     MatNativeDateModule,

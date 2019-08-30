@@ -1,0 +1,16 @@
+Parameters in use:
+
+{'bootstrap': False, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'auto', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 200, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
+simulator model with Random Forest algorithm score: 0.9311
+              precision    recall  f1-score   support
+
+           1       0.98      0.96      0.97      3922
+           2       0.92      0.93      0.93      3099
+           3       0.84      0.87      0.86      1166
+           4       0.82      0.83      0.82       486
+           5       0.89      0.82      0.86       142
+
+   micro avg       0.93      0.93      0.93      8815
+   macro avg       0.89      0.88      0.89      8815
+weighted avg       0.93      0.93      0.93      8815
+
