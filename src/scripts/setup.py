@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="kasi",
-    version="0.7.9",
+    version="1.0.1",
     packages=setuptools.find_packages(),
     description="This package comprises code to clean KASI Insight raw data and to tune and train the simulator and evaluator models",
     entry_points={

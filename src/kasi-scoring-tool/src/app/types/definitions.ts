@@ -12,6 +12,11 @@ export enum AppNames {
     LenderEvaluator = "Lender Evaluator"
 }
 
+export enum EndPoints {
+    Simulator = "http://54.244.208.237:5000/api/simulator-model",
+    Evaluator = "http://54.244.208.237:5000/api/evaluator-model"
+}
+
 export interface SimulatorSurvey{
     q1:string;
     q2:string;
