@@ -8,11 +8,15 @@ from sklearn.svm import SVC
 This module maintains the code which is used by all training modules
 
 """
-simulator_columns = ['24', '26', '22', '18', '20', '23', '19','16','21', '25']
-evaluator_columns = ['24', '18', '22', '23', '20', '26', '19', '25','16', '12']
+simulator_columns_base = ['24', '26', '22', '18', '20', '23', '19']
+evaluator_columns_base = ['24', '18', '22', '23', '20', '26', '19', '25','16']
 
-#simulator_columns = ['24', '26', '22', '18', '20', '23', '19', '16', '21', '25'] # replace 36 with 21
-#evaluator_columns = ['24', '18', '22', '23', '20', '26', '19', '25', '16', '12'] #, '11', '21']
+
+simulator_columns_small = ['24', '26', '22', '18', '20']
+evaluator_columns_small = ['24', '18', '22', '23', '20', '26', '19']
+
+simulator_columns_large = ['24', '26', '22', '18', '20', '23', '19', '16', '21']
+evaluator_columns_large = ['24', '18', '22', '23', '20', '26', '19', '25', '16', '21']
 simulator_label = 'credit_score_category'
 evaluator_label = 'lender_score_category'
 simulator_model = 'simulator'
@@ -20,16 +24,33 @@ evaluator_model = 'evaluator'
 rf_algorithm = 'rf'
 svm_algorithm = 'svm'
 gb_algorithm = 'gb'
+feature_small = "small"
+feature_large = "large"
+feature_base = "base"
 
 algorithms = {rf_algorithm: "Random Forest", svm_algorithm: "Support Vector Machine", gb_algorithm: "Gradient Boosting"}
 
 """
 This function returns a list of features and a label name for simulator and evaluator models
+The feature size can also be specified
 """
 
 
-def get_columns_label(model):
-    columns = simulator_columns if model == simulator_model else evaluator_columns
+def get_columns_label(model,feature_size="base"):
+    if model == simulator_model:
+        if feature_size == feature_base:
+            columns = simulator_columns_base
+        elif feature_size == feature_large:
+            columns = simulator_columns_large
+        else:
+            columns = simulator_columns_small
+    else:
+        if feature_size == feature_base:
+            columns = evaluator_columns_base
+        elif feature_size == feature_large:
+            columns = evaluator_columns_large
+        else:
+            columns = evaluator_columns_small
     label = simulator_label if model == simulator_model else evaluator_label
     return columns, label
 
@@ -73,7 +94,7 @@ Returns a classifier instance with the  parameters identified during hyper-param
 def get_classifier(model, algorithm, default=False):
     if algorithm == rf_algorithm:
         if default:
-            return RandomForestClassifier()
+            return RandomForestClassifier(n_estimators=100)
         if model == simulator_model:
             return RandomForestClassifier(max_features='auto', n_estimators=200, min_samples_split=5,
                                           bootstrap=False)

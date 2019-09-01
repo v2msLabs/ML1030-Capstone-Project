@@ -35,11 +35,6 @@ def get_args():
         required=True,
         help='Which model to train. Acceptable values: simulator, evaluator. Example: simulator')
     parser.add_argument(
-        '--default',
-        type=bool,
-        default=False,
-        help='Train the model with the default parameters (optional). Example: True')
-    parser.add_argument(
         '--input_file',
         type=str,
         required=True,
@@ -49,6 +44,16 @@ def get_args():
         type=str,
         required=True,
         help='Output path. This is where the script saves the model image and the accompanying artifacts. Example: ./models')
+    parser.add_argument(
+        '--default',
+        type=bool,
+        default=False,
+        help='Train the model with the default parameters (optional). This feature is mainly used during the research phase. Example: True')
+    parser.add_argument(
+        '--feature_size',
+        type=str,
+        default="base",
+        help='Specify the feature size to train the model (optional). Acceptable values: small, base (default), large. This fature is mainly used during the research phase.Example: large')
     args, _ = parser.parse_known_args()
     return args
 
@@ -62,15 +67,15 @@ def main():
     start = time.time()
     args = get_args()
     default = "default" if args.default else "tuned"
-    mf = os.path.join(args.output_dir, "{0}_{1}_{2}.model".format(args.model, args.algorithm, default))
-    sf = os.path.join(args.output_dir, "{0}_{1}_{2}_stats.txt".format(args.model, args.algorithm, default))
-    imf = os.path.join(args.output_dir, "{0}_{1}_{2}_matrix.png".format(args.model, args.algorithm, default))
-    imlf = os.path.join(args.output_dir, "{0}_{1}_{2}_curves.png".format(args.model, args.algorithm, default))
+    mf = os.path.join(args.output_dir, "{0}_{1}_{2}_{3}.model".format(args.model, args.algorithm, default, args.feature_size))
+    sf = os.path.join(args.output_dir, "{0}_{1}_{2}_{3}_stats.txt".format(args.model, args.algorithm, default, args.feature_size))
+    imf = os.path.join(args.output_dir, "{0}_{1}_{2}_{3}_matrix.png".format(args.model, args.algorithm, default, args.feature_size))
+    imlf = os.path.join(args.output_dir, "{0}_{1}_{2}_{3}_curves.png".format(args.model, args.algorithm, default, args.feature_size))
     c.create_dir(mf)
 
     print("Started {0} training employing {1} algorithm".format(args.model, c.algorithms[args.algorithm]))
     df = pd.read_csv(args.input_file)
-    columns, label = c.get_columns_label(args.model)
+    columns, label = c.get_columns_label(args.model,args.feature_size)
     data = df[columns]
     labels = df[label]
     # split to train/test 70/30
@@ -88,6 +93,8 @@ def main():
     dump(model, mf)
 
     with open(sf, 'w') as f:
+        print('Features:\n', file=f)
+        print(columns, file=f)
         print('Parameters in use:\n', file=f)
         print(model.get_params(), file=f)
         print(
@@ -98,19 +105,19 @@ def main():
 
     sns.heatmap(pd.DataFrame(matrix), annot=True, fmt="d", cmap='Set2')
     plt.savefig(imf)
-    plt.close('all')
-    # chart model learning curves
-    train_sizes, train_scores, validation_scores = learning_curve(estimator=model, X=train, y=train_class, cv=3)
-    train_scores_mean = train_scores.mean(axis=1)
-    validation_scores_mean = validation_scores.mean(axis=1)
-    _ = plt.plot(train_sizes, train_scores_mean, 'o-', label='Training error')
-    _ = plt.plot(train_sizes, validation_scores_mean, 'o-', label='Validation error')
-
-    _ = plt.ylabel('Error', fontsize=14)
-    _ = plt.xlabel('Training set size', fontsize=14)
-    _ = plt.legend()
-    _ = plt.ylim(1.5, 0)
-    plt.savefig(imlf)
+    # plt.close('all')
+    # # chart model learning curves
+    # train_sizes, train_scores, validation_scores = learning_curve(estimator=model, X=train, y=train_class, cv=3)
+    # train_scores_mean = train_scores.mean(axis=1)
+    # validation_scores_mean = validation_scores.mean(axis=1)
+    # _ = plt.plot(train_sizes, train_scores_mean, 'o-', label='Training error')
+    # _ = plt.plot(train_sizes, validation_scores_mean, 'o-', label='Validation error')
+    #
+    # _ = plt.ylabel('Error', fontsize=14)
+    # _ = plt.xlabel('Training set size', fontsize=14)
+    # _ = plt.legend()
+    # _ = plt.ylim(1.5, 0)
+    # plt.savefig(imlf)
 
     print("Finished. Elapsed time(sec): {0}".format(time.time() - start))
 

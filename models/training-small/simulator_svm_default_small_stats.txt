@@ -1,0 +1,19 @@
+Features:
+
+['24', '26', '22', '18', '20']
+Parameters in use:
+
+{'C': 1.0, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': -1, 'probability': False, 'random_state': None, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+simulator model with Support Vector Machine algorithm score: 0.8091
+              precision    recall  f1-score   support
+
+           1       0.94      0.89      0.92      3968
+           2       0.82      0.73      0.77      3058
+           3       0.58      0.74      0.65      1168
+           4       0.59      0.75      0.66       477
+           5       0.53      0.91      0.67       144
+
+   micro avg       0.81      0.81      0.81      8815
+   macro avg       0.69      0.80      0.73      8815
+weighted avg       0.83      0.81      0.81      8815
+

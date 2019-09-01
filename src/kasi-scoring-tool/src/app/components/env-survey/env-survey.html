@@ -1,6 +1,6 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper #stepper>
     <!-- answer order 24,26,22,18,20,23,19,16,21,25 -->
-    <mat-step [stepControl]="stepOne">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['16']}} <span
                     class="kasi-answer">{{countriesRef[survey.q8]}}</span></span></ng-template>
         <country-selector [(country)]="survey.q8"></country-selector>
@@ -8,49 +8,49 @@
             <button mat-button color="primary" matStepperNext>Next</button>
         </div>
     </mat-step>
-    <mat-step [stepControl]="stepTwo">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['24']}} <span
                     class="kasi-answer">{{ref22_23_24[survey.q1]}}</span></span>
         </ng-template>
         <multi-choice-step [choices]="ref22_23_24" [(choice)]="survey.q1">
         </multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepThree">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['26']}} <span
                     class="kasi-answer">{{ref26[survey.q2]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref26" [(choice)]="survey.q2"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepFour">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['22']}} <span
                     class="kasi-answer">{{ref22_23_24[survey.q3]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref22_23_24" [(choice)]="survey.q3"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepFive">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['18']}} <span
                     class="kasi-answer">{{ref18[survey.q4]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref18" [(choice)]="survey.q4"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepSix">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['20']}} <span
                     class="kasi-answer">{{ref20[survey.q5]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref20" [(choice)]="survey.q5"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepSeven">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['23']}} <span
                     class="kasi-answer">{{ref22_23_24[survey.q6]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref22_23_24" [(choice)]="survey.q6"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepEight">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['19']}} <span
                     class="kasi-answer">{{amountsPerCountryRef[survey.q8][survey.q7]}}</span></span></ng-template>
         <multi-choice-step [choices]="amountsPerCountryRef[survey.q8]" [(choice)]="survey.q7"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepNine">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['21']}} <span
                     class="kasi-answer">{{ref21[survey.q9]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref21" [(choice)]="survey.q9"></multi-choice-step>
     </mat-step>
-    <mat-step [stepControl]="stepTen">
+    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['25']}} <span
                     class="kasi-answer">{{ref25[survey.q10]}}</span></span></ng-template>
         <multi-choice-step [choices]="ref25" [(choice)]="survey.q10"></multi-choice-step>
@@ -58,7 +58,7 @@
     <mat-step>
         <ng-template matStepLabel>
             <mat-chip-list>
-                <mat-chip color="accent"  (click)="predict()" selected>Simulate</mat-chip>
+                <mat-chip color="accent" (click)="predict()" selected>Simulate</mat-chip>
                 <mat-chip color="accent" (click)="reset()">Reset</mat-chip>
             </mat-chip-list>
         </ng-template>

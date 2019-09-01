@@ -1,0 +1,19 @@
+Features:
+
+['24', '18', '22', '23', '20', '26', '19', '25', '16']
+Parameters in use:
+
+{'C': 1.0, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': -1, 'probability': False, 'random_state': None, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+evaluator model with Support Vector Machine algorithm score: 0.9441
+              precision    recall  f1-score   support
+
+           1       0.98      0.96      0.97      4053
+           2       0.93      0.94      0.94      3249
+           3       0.88      0.93      0.90      1272
+           4       0.81      0.83      0.82       209
+           5       0.75      0.66      0.70        32
+
+   micro avg       0.94      0.94      0.94      8815
+   macro avg       0.87      0.86      0.87      8815
+weighted avg       0.94      0.94      0.94      8815
+
