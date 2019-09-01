@@ -41,7 +41,6 @@ export const options22_23_24 = {
     1: 'Always', 2: 'Most of the time', 3: 'About half the time', 4: 'Occasionally',
     5: 'Never'
 }
-export const optionMap22_23_24 = new Map(Object.entries(options22_23_24));
 
 export const options26 = {
     1: 'To cover regular expenses (Rent, clothing, home appliances, etc.)',
@@ -49,7 +48,6 @@ export const options26 = {
     3: 'To invest or cover business expenses (Merchandise, salaries, etc..)',
     4: 'To pay off other debts', 5: "I don't know"
 }
-export const optionMap26 = new Map(Object.entries(options26));
 
 export const countries = {
     1: 'Cameroon', 2: "Cote d'Ivoire", 3: 'Ghana', 4: 'Kenya', 5: 'Nigeria',
@@ -61,7 +59,6 @@ export const options11 = {
     1: "Under 17", 2: "18-24", 3: "25-29", 4: "30-34", 5: "35-39", 6: "40-44",
     7: "45-54", 8: "55-64", 9: "65+"
 };
-export const optionMap11 = new Map(Object.entries(options11));
 
 export const options12 = {
     1: "No formal schooling", 2: "High school, no diploma", 3: "High school diploma",
@@ -69,25 +66,21 @@ export const options12 = {
     6: "Master's degree", 7: "Doctorate degree",
     9: "Currently studying", 10: "Professional Qualification e.g. CIMA"
 };
-export const optionMap12 = new Map(Object.entries(options12));
 
 export const options18 = { 1: 'More than 4 times', 2: 'Between 2-3 times', 3: 'Once', 4: 'Never' };
-export const optionMap18 = new Map(Object.entries(options18));
 
 export const options20 = { 1: 'Family', 2: 'Friends', 3: 'Business colleagues', 4: "Other" };
-export const optionMap20 = new Map(Object.entries(options20));
 
 export const options19 = { 1: 'Micro', 2: 'Small', 3: 'Medium', 4: 'Large' };
-export const optionMap19 = new Map(Object.entries(options19));
 
 export const amountsPerCounty = {
-    1: new Map(Object.entries({ 1: "Less than 10001 (in CFA)", 2: "At least 10001 but less than 59001", 3: "At least 59001 but less than  290001", 4: "More than 290001" })),
-    2: new Map(Object.entries({ 1: "Less than 10001 (in CFA)", 2: "At least 10001 but less than 59001", 3: "At least 59001 but less than  290001", 4: "More than 290001" })),
-    3: new Map(Object.entries({ 1: "Less than 91 (in GHS)", 2: "At least 91 but less than 445", 3: "At least 445 but less than 2201", 4: "More than 2201" })),
-    4: new Map(Object.entries({ 1: "Less than 2000 (in KES)", 2: "At leats 2000 but less than 10500", 3: "At least 10500 but less than 50000", 4: "More than 50000" })),
-    5: new Map(Object.entries({ 1: "Less than 6001 (in NGN)", 2: "At least 6001 but less than  31001", 3: "At least 31001 but less than 160001", 4: "More than 160001" })),
-    6: new Map(Object.entries({ 1: "Less than 251 (in ZAR)", 2: "At least 251 but less than  1201", 3: "At least 1201 but less than 6401", 4: "More than 6401" })),
-    7: new Map(Object.entries({ 1: "Less than 45000 (in TZS)", 2: "At least 45000 but less than 200000", 3: "At least 200000 but less than 1000001", 4: "More than 1000001" }))
+    1: { 1: "Less than 10001 (in CFA)", 2: "At least 10001 but less than 59001", 3: "At least 59001 but less than  290001", 4: "More than 290001" },
+    2: { 1: "Less than 10001 (in CFA)", 2: "At least 10001 but less than 59001", 3: "At least 59001 but less than  290001", 4: "More than 290001" },
+    3: { 1: "Less than 91 (in GHS)", 2: "At least 91 but less than 445", 3: "At least 445 but less than 2201", 4: "More than 2201" },
+    4: { 1: "Less than 2000 (in KES)", 2: "At leats 2000 but less than 10500", 3: "At least 10500 but less than 50000", 4: "More than 50000" },
+    5: { 1: "Less than 6001 (in NGN)", 2: "At least 6001 but less than  31001", 3: "At least 31001 but less than 160001", 4: "More than 160001" },
+    6: { 1: "Less than 251 (in ZAR)", 2: "At least 251 but less than  1201", 3: "At least 1201 but less than 6401", 4: "More than 6401" },
+    7: { 1: "Less than 45000 (in TZS)", 2: "At least 45000 but less than 200000", 3: "At least 200000 but less than 1000001", 4: "More than 1000001" }
 }
 
 export const options21 = {
@@ -95,18 +88,10 @@ export const options21 = {
     3: 'At least 3 months but less than 6 months', 4: 'At least 6 months but less than 12 months',
     5: 'One year or more', 6: "Never - I don't expect to get repaid"
 };
-export const optionMap21 = new Map(Object.entries(options21));
 
 export const options25 = {
     1: 'Every time', 2: 'At least 9 out of 10 times', 3: 'At least 7-8 out of 10 times',
     4: 'At least 5-6 out of 10 times', 5: 'Less than 5 out of 10 times'
 };
-export const optionMap25 = new Map(Object.entries(options25));
-
-export const options36 = {
-    1: 'Less than 5%', 2: '5% -10%', 3: '10% - 20%', 4: '20% - 30%', 5: '30% - 40%', 6: '40% - 50%',
-    7: 'More than half of my income goes to pay off rent', 8: "Don't Know"
-};
-export const optionMap36 = new Map(Object.entries(options36));
 
 export const creditScore = { 1: "Very Poor", 2: "Poor", 3: "Fair", 4: "Good", 5: "Very Good" };

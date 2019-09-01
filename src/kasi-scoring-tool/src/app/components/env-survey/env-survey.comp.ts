@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { questions, countryMap, optionMap22_23_24, optionMap26, optionMap36, optionMap18, optionMap20, optionMap25, amountsPerCounty } from 'types/dictionaries';
-import { StepPosition, SimulatorSurvey } from 'types/definitions';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatVerticalStepper } from '@angular/material/stepper';
+import { ModelService } from 'src/app/services/model.service';
+import { survey2ModelInput } from 'src/app/utils/generic';
+import { EndPoint, ModelPrediction, SimulatorSurvey, StepPosition } from 'types/definitions';
+import { amountsPerCounty, countries, options18, options20, options21, options22_23_24, options25, options26, questions } from 'types/dictionaries';
 
 
 @Component({
@@ -11,22 +12,22 @@ import { MatVerticalStepper } from '@angular/material/stepper';
   styleUrls: ['env-survey.scss']
 })
 export class EnvSurveyComponent {
+  @Output() score = new EventEmitter<number>();
   Questions = questions;
-  Map22_23_24 = optionMap22_23_24;
-  Map26 = optionMap26;
-  Map18 = optionMap18;
-  Map20 = optionMap20;
-  Map25 = optionMap25;
-  Map36 = optionMap36;
-  CountryMap = countryMap;
-  AmountsPerCountry = amountsPerCounty;
+  ref22_23_24 = options22_23_24;
+  ref26 = options26;
+  ref18 = options18;
+  ref20 = options20;
+  ref25 = options25;
+  ref21 = options21;
+  countriesRef = countries;
+  amountsPerCountryRef = amountsPerCounty;
   survey: SimulatorSurvey;
   StepPositionRef = StepPosition;
-
   @ViewChild("stepper", { static: false })
   private stepper: MatVerticalStepper;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private modelService: ModelService) {
     this.setDefaultValues();
   }
 
@@ -35,7 +36,13 @@ export class EnvSurveyComponent {
     this.setDefaultValues();
   }
 
+  predict() {
+    this.modelService.predict(EndPoint.Simulator, survey2ModelInput(this.survey)).subscribe(
+      (data: ModelPrediction) => { this.score.emit(data.category); }
+    );
+  }
+
   private setDefaultValues() {
-    this.survey = { q1: "3", q2: "2", q3: "3", q4: "2", q5: "2", q6: "3", q7: "1", q8: "1", q9: "8", q10: "3" };
+    this.survey = { q1: 3, q2: 2, q3: 3, q4: 2, q5: 2, q6: 3, q7: 1, q8: 1, q9: 2, q10: 3 };
   }
 }

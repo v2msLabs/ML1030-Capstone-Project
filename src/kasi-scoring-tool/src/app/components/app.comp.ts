@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { AppRouts, AppNames } from 'types/definitions';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { AppName, AppRout } from 'types/definitions';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,10 @@ import { AppRouts, AppNames } from 'types/definitions';
   styleUrls: ['app.scss']
 })
 export class AppComponent {
-  activeApp = AppNames.Simulator;
-  AppRoutsRef = AppRouts;
-  AppNameRef = AppNames;
+  @Input() score: number;
+  activeApp = AppName.Simulator;
+  AppRoutsRef = AppRout;
+  AppNameRef = AppName;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     router.events.subscribe(e => {
@@ -21,22 +22,32 @@ export class AppComponent {
     });
   }
 
-  navigate(path: AppRouts) {
+  navigate(path: AppRout) {
     this.router.navigate([path]);
     this.setAppName(path);
 
   }
-  
 
-  private setAppName(path: string | AppRouts) {
+  onActivate(componentReference: any) {
+    if ( componentReference && componentReference.score){
+      this.score = 0;
+      componentReference.score.subscribe((score:number) => {
+        this.score = score; 
+     })
+    }
+
+  }
+
+
+  private setAppName(path: string | AppRout) {
     if (!path) {
       return;
     }
-    let p = path.replace("/","")
-    if (p === AppRouts.Simulator) {
-      this.activeApp = AppNames.Simulator;
+    let p = path.replace("/", "")
+    if (p === AppRout.Simulator) {
+      this.activeApp = AppName.Simulator;
     } else {
-      this.activeApp = AppNames.LenderEvaluator;
+      this.activeApp = AppName.LenderEvaluator;
     }
   }
 

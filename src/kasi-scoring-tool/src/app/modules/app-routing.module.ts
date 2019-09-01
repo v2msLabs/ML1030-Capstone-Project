@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { EnvSurveyComponent } from 'components/env-survey/env-survey.comp';
 import { LenderSurveyComponent } from 'components/lender-survey/lender-survey.comp';
-import { AppRouts } from 'types/definitions';
+import { AppRout } from 'types/definitions';
 
 
 const routes: Routes = [
-  { path: AppRouts.Simulator, component: EnvSurveyComponent },
-  { path: AppRouts.LenderEvaluator, component: LenderSurveyComponent },
+  { path: AppRout.Simulator, component: EnvSurveyComponent },
+  { path: AppRout.LenderEvaluator, component: LenderSurveyComponent },
   {
-    path: '**', redirectTo: AppRouts.Simulator, pathMatch: 'full'
+    path: '**', redirectTo: AppRout.Simulator, pathMatch: 'full'
   }
 ];
 

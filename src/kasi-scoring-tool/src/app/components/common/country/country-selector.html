@@ -1,5 +1,5 @@
 <mat-form-field>
     <mat-select [(value)]="country" (selectionChange)="onCountryChange()">
-        <mat-option *ngFor="let country of countryMapRef|keyvalue" [value]="country.key">{{country.value}}</mat-option>
+        <mat-option *ngFor="let country of countriesRef|keyvalue" [value]="getCountryCode(country.key)">{{country.value}}</mat-option>
     </mat-select>
 </mat-form-field>

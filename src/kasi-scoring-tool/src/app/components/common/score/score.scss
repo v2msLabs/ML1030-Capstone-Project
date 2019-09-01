@@ -1,0 +1,30 @@
+$very_poor: rgb(204, 13, 13);
+$poor: rgb(241, 135, 36);
+$fair: rgb(109, 105, 105);
+$good: rgb(0, 128, 107);
+$very_good: rgb(2, 126, 22);
+
+.kasi-category {
+  font-size: 20px;
+  font-weight: bold;
+  color:white!important;
+}
+.kasi-fair {
+  background-color: $fair !important;
+}
+
+.kasi-poor {
+  background-color: $poor !important;
+}
+
+.kasi-very-poor {
+  background-color: $very_poor !important;
+}
+
+.kasi-good {
+  background-color: $good !important;
+}
+
+.kasi-very-good {
+  background-color: $very_good !important;
+}

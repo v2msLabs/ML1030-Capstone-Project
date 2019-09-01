@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { countries, countryMap } from 'types/dictionaries';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { countryMap } from 'types/dictionaries';
 
 @Component({
     selector: 'country-selector',
@@ -7,11 +7,16 @@ import { countries, countryMap } from 'types/dictionaries';
     styleUrls: ['country-selector.scss']
 })
 export class CountrySelectorComponent {
-    @Input() country:string;
-    @Output() countryChange = new EventEmitter<string>();
-    countryMapRef = countryMap;
+    @Input() country: number;
+    @Output() countryChange = new EventEmitter<number>();
+    countriesRef = countryMap;
 
     onCountryChange() {
+        console.log(this.country)
         this.countryChange.emit(this.country);
+    }
+
+    getCountryCode(code: string): number {
+        return parseInt(code);
     }
 }
