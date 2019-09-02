@@ -52,8 +52,8 @@ def get_args():
     parser.add_argument(
         '--feature_size',
         type=str,
-        default="base",
-        help='Specify the feature size to train the model (optional). Acceptable values: small, base (default), large. This fature is mainly used during the research phase.Example: large')
+        default="large",
+        help='Specify the feature size to train the model (optional). Acceptable values: small, base , large (default). This fature is mainly used during the research phase.Example: large')
     args, _ = parser.parse_known_args()
     return args
 
@@ -105,19 +105,19 @@ def main():
 
     sns.heatmap(pd.DataFrame(matrix), annot=True, fmt="d", cmap='Set2')
     plt.savefig(imf)
-    # plt.close('all')
-    # # chart model learning curves
-    # train_sizes, train_scores, validation_scores = learning_curve(estimator=model, X=train, y=train_class, cv=3)
-    # train_scores_mean = train_scores.mean(axis=1)
-    # validation_scores_mean = validation_scores.mean(axis=1)
-    # _ = plt.plot(train_sizes, train_scores_mean, 'o-', label='Training error')
-    # _ = plt.plot(train_sizes, validation_scores_mean, 'o-', label='Validation error')
-    #
-    # _ = plt.ylabel('Error', fontsize=14)
-    # _ = plt.xlabel('Training set size', fontsize=14)
-    # _ = plt.legend()
-    # _ = plt.ylim(1.5, 0)
-    # plt.savefig(imlf)
+    plt.close('all')
+    # chart model learning curves
+    train_sizes, train_scores, validation_scores = learning_curve(estimator=model, X=train, y=train_class, cv=3)
+    train_scores_mean = train_scores.mean(axis=1)
+    validation_scores_mean = validation_scores.mean(axis=1)
+    _ = plt.plot(train_sizes, train_scores_mean, 'o-', label='Training error')
+    _ = plt.plot(train_sizes, validation_scores_mean, 'o-', label='Validation error')
+
+    _ = plt.ylabel('Error', fontsize=14)
+    _ = plt.xlabel('Training set size', fontsize=14)
+    _ = plt.legend()
+    _ = plt.ylim(1.5, 0)
+    plt.savefig(imlf)
 
     print("Finished. Elapsed time(sec): {0}".format(time.time() - start))
 

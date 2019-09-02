@@ -348,7 +348,7 @@ data exploration, feature engineering and model training.
 \subsubsection{Demographic Stats}\label{demographic-stats}}
 
 It is useful to understand who took the survey. This knowledge will
-ultimately gives us the answers about the money market participants in
+ultimately give us the answers about the money market participants in
 Africa.
 
 \begin{Schunk}
@@ -549,9 +549,15 @@ categories 1 and 2 (\emph{Very Poor} and \emph{Poor}) dominate. The
 lending climate is visibly better in Cameroon, Cote d'Ivoire and South
 Africa. It is also worth mentioning that categories 4 and 5 (\emph{Good}
 and \emph{Very Good}) do not have that much data. The situation is even
-worse with the lender categories. Thus prior to model training we would
-have to upsmple the training data sets to bring all categories to the
-same level.
+worse with the lender categories. Thus prior to the model training we
+would have to upsmple the training data sets to bring all categories to
+the same level.
+
+Overall looking at the credit and lender scores of the population we
+observe that the destribution pattern is very similar between all sevent
+African countries. Thus if KASI Insight adds more countries to the fold
+there is no need to retrain the models assuming that the newly added
+countries have the same category distribution\ldots{}
 
 \hypertarget{feature-selection-and-engineering}{%
 \section{Feature Selection and
@@ -582,7 +588,7 @@ colors. As we can observe none of the features have strong correlation.
 \begin{Schunk}
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{../../artifacts/cmatrix} 
+{\centering \includegraphics[width=0.75\linewidth]{../../artifacts/cmatrix} 
 
 }
 
@@ -971,81 +977,38 @@ Evaluation}\label{lender-score-feature-impoirtance-evaluation}}
 \subsection{Takeways}\label{takeways}}
 
 We have applied two mathematical algorithms to identify the most
-significant features for credit score and lender score labels. Both
-methods have selected almost the same features. After some analysis we
-have selected top ten features for each label.
+significant features for credit score and lender score labels. To no
+surprise both methods have sucesfully identified the feature that have
+been used to cacluclate the credit/ lender categories. We have decided
+to select the top features that have distinctively higher score as a
+base-line. During the model training and evaluation phase we will
+increase/decrease the number of features to estimate the effect of the
+input data dimentionality change the model accuracy.
 
-\hypertarget{top-ten-credit-score-features}{%
-\subsubsection{Top Ten Credit Score
-Features}\label{top-ten-credit-score-features}}
+\hypertarget{top-seven-credit-score-features}{%
+\subsubsection{Top Seven Credit Score
+Features}\label{top-seven-credit-score-features}}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
-\begin{minipage}[b]{0.05\columnwidth}\raggedright
-Num\strut
-\end{minipage} & \begin{minipage}[b]{0.89\columnwidth}\raggedright
-Feature\strut
-\end{minipage}\tabularnewline
+Num & Feature\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-24\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Do you receive your money back in time?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-26\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-What's the most common use of the money you lend?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-22\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Do you include either interest or a lending fee when you lend?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-18\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Over the past 3 months, how many times have you lent someone
-money?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-20\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Who did you lend money to in the past 3 months?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-23\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Do you request guarantees when you lend?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-19\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-On average how much do you lend in general?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-16\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Country\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-21\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-When you lend money, when do you usually expect to get it repaid?\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-25\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-Assuming that you have lent money at least ten times, how often would
-you get your money repaid?\strut
-\end{minipage}\tabularnewline
+24 & Do you receive your money back in time?\tabularnewline
+26 & What's the most common use of the money you lend?\tabularnewline
+22 & Do you include either interest or a lending fee when you
+lend?\tabularnewline
+18 & Over the past 3 months, how many times have you lent someone
+money?\tabularnewline
+20 & Who did you lend money to in the past 3 months?\tabularnewline
+23 & Do you request guarantees when you lend?\tabularnewline
+19 & On average how much do you lend in general?\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{top-ten-lender-score-features}{%
-\subsubsection{Top Ten Lender Score
-Features}\label{top-ten-lender-score-features}}
+\hypertarget{top-nine-lender-score-features}{%
+\subsubsection{Top Nine Lender Score
+Features}\label{top-nine-lender-score-features}}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
@@ -1103,61 +1066,358 @@ you get your money repaid?\strut
 \end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
 Country\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright
-12\strut
-\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
-What's your highest level of education?\strut
-\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
-
-Later we will applly the top 10 features to train the base-line models.
-Then we will try to increase/decrease the number of features and
-evaluate the dimentionality change effect on the model accuracy.
 
 \hypertarget{model-evaluation-and-selection}{%
 \subsection{Model Evaluation and
 Selection}\label{model-evaluation-and-selection}}
 
+After we cleaned and normalized the data, labled all observations and
+gained deep understanding about the features we are ready to start model
+training and evaluation. To gain the best result possible we will
+explore and evaluate three algorthim to train the models. They are:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Support Vector Machine} (SVM). The greatest strength of SVM is
+  that it has multiple Kernel implementations, that can be tuned to
+  explain multi-dimensional space with high accuracy
+\item
+  \textbf{Random Forest} (RF). Random forest belongs to the class of
+  ensemble models. It has many hyperparameters that could be tuned to
+  achieve high accuracy. The random forest algorithm is not demanding in
+  terms of the data preparation, which makes it the first choice in many
+  real-life scenarios
+\item
+  \textbf{Gradient Boosting Machine} (GBM). GBM is an ensemble model as
+  well. It uses the concept of trees just like the RF model does but
+  applies it differently. GBT builds the trees one at a time, where each
+  new tree helps to correct errors made by previously trained tree. the
+  GBM.
+\end{itemize}
+
+\hypertarget{evaluation-metrics}{%
+\subsubsection{Evaluation Metrics}\label{evaluation-metrics}}
+
+We believe that the best model has to classify all five categories as
+accurate as possible. The winning model also would have to identify true
+positives and true negatives for each category equally well. Thus we
+choose the muticlass confusion matrix and F1 scores to evalue the
+models. The higher the F1 score for each category - the better the model
+performes.
+
+We also take into consideration the model training and inference speed.
+
+\hypertarget{model-training-and-evaluation-methodology}{%
+\subsubsection{Model Training and Evaluation
+Methodology}\label{model-training-and-evaluation-methodology}}
+
+\begin{itemize}
+\tightlist
+\item
+  We begin with the splitting the available data into the training
+  (70\%) and test (30\%) sets.
+\item
+  We upsample the training data set employing \emph{SMOTE} algorithm.
+\item
+  We evaluate the three algorthims we have described above. We will be
+  using the deafult algorithm parameters and top features (see
+  \emph{Feature Evaluation} paragraph for more details) to fit the
+  models.
+\item
+  We select the algorithm that has the best evaluation metrcis.
+\item
+  Then we evaluate the winning algorithm fitting it with the smaller and
+  larger feature sets.
+\item
+  If the data dimentionality change makes positive impact on the the
+  winning algorithm we select this feature set for the model.
+\item
+  We hyper-tune the algorithm parameters in effort to achieve even
+  better model performance
+\end{itemize}
+
+\hypertarget{lending-environment-simulator-model}{%
+\subsubsection{Lending Environment Simulator
+Model}\label{lending-environment-simulator-model}}
+
+Following the steps outlined in the previous section we have recieved
+the following performances stats.
+
+\hypertarget{svm}{%
+\paragraph{SVM}\label{svm}}
+
+\begin{verbatim}
+              precision    recall  f1-score   support
+       1       0.97      0.95      0.96      3935
+       2       0.92      0.90      0.91      3114
+       3       0.81      0.89      0.85      1122
+       4       0.81      0.85      0.83       487
+       5       0.81      0.89      0.85       157
+       
+micro avg      0.92      0.92      0.92      8815
+macro avg      0.86      0.90      0.88      8815
+weighted avg   0.92      0.92      0.92      8815
+
+Overall algorithm accuracy: 0.9199
+\end{verbatim}
+
+\hypertarget{random-forest}{%
+\paragraph{Random Forest}\label{random-forest}}
+
+\begin{verbatim}
+              precision    recall  f1-score   support
+       1       0.98      0.96      0.97      3902
+       2       0.93      0.93      0.93      3161
+       3       0.86      0.90      0.88      1150
+       4       0.86      0.84      0.85       464
+       5       0.86      0.87      0.87       138
+       
+ micro avg     0.94      0.94      0.94      8815
+ macro avg     0.90      0.90      0.90      8815
+ weighted avg  0.94      0.94      0.94      8815
+ 
+ Overall algorithm accuracy: 0.9372
+\end{verbatim}
+
+\hypertarget{gradient-boosting}{%
+\paragraph{Gradient Boosting}\label{gradient-boosting}}
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+       1       0.98      0.92      0.95      3948
+       2       0.85      0.87      0.86      3117
+       3       0.70      0.67      0.69      1149
+       4       0.60      0.82      0.70       471
+       5       0.60      0.88      0.71       130
+       
+ micro avg     0.86      0.86      0.86      8815
+ macro avg     0.75      0.83      0.78      8815
+ weighted avg  0.87      0.86      0.87      8815
+ 
+ Overall algorithm accuracy: 0.8635
+\end{verbatim}
+
+\hypertarget{winning-model}{%
+\subsubsection{Winning Model}\label{winning-model}}
+
+The \textbf{Random Forest} algorithm has come up on top. This model
+classifies all categories much better then the other two algorithms and
+demonstrates a nice balance between the recall and presision metrics.
+The Random forest algorithm is also the fastest to train.
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Category & \textbf{RF f1-score} & SVM f1-score & GB
+f1-score\tabularnewline
+\midrule
+\endhead
+1 & \textbf{0.97} & 0.96 & 0.95\tabularnewline
+2 & \textbf{0.93} & 0.91 & 0.86\tabularnewline
+3 & \textbf{0.88} & 0.85 & 0.69\tabularnewline
+4 & \textbf{0.85} & 0.83 & 0.70\tabularnewline
+5 & \textbf{0.87} & 0.85 & 0.71\tabularnewline
+Accuracy & \textbf{0.9372} & 0.9199 & 0.8635\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{dimentionality-change}{%
+\subsubsection{Dimentionality Change}\label{dimentionality-change}}
+
+The winning algorithm performs quite spectacular. It employs the
+\textbf{seven} top features we have identified in the \emph{Feature
+Selection} section. Let's see how the input data dimentionality change
+affects the model performance. Firstly we reduce the number of features
+to \textbf{five}.
+
+Top five features
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Num & Feature\tabularnewline
+\midrule
+\endhead
+24 & Do you receive your money back in time?\tabularnewline
+26 & What's the most common use of the money you lend?\tabularnewline
+22 & Do you include either interest or a lending fee when you
+lend?\tabularnewline
+18 & Over the past 3 months, how many times have you lent someone
+money?\tabularnewline
+20 & Who did you lend money to in the past 3 months?\tabularnewline
+\bottomrule
+\end{longtable}
+
+Model Performance:
+
+\begin{verbatim}
+         precision    recall  f1-score   support
+       1       0.94      0.91      0.92      3858
+       2       0.84      0.74      0.79      3150
+       3       0.58      0.73      0.65      1210
+       4       0.55      0.71      0.62       464
+       5       0.55      0.89      0.68       133
+
+micro avg      0.81      0.81      0.81      8815
+macro avg      0.69      0.80      0.73      8815
+weighted avg   0.83      0.81      0.82      8815
+
+Overall algorithm accuracy: 0.8635
+\end{verbatim}
+
+Evidently the dimentionality reduction caused the model performance
+deteriorate greatly. Now let's increase the number of features to
+\textbf{nine}.
+
+Top nine features:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Num & Feature\tabularnewline
+\midrule
+\endhead
+24 & Do you receive your money back in time?\tabularnewline
+26 & What's the most common use of the money you lend?\tabularnewline
+22 & Do you include either interest or a lending fee when you
+lend?\tabularnewline
+18 & Over the past 3 months, how many times have you lent someone
+money?\tabularnewline
+20 & Who did you lend money to in the past 3 months?\tabularnewline
+23 & Do you request guarantees when you lend?\tabularnewline
+19 & On average how much do you lend in general?\tabularnewline
+16 & Country\tabularnewline
+21 & When you lend money, when do you usually expect to get it
+repaid?\tabularnewline
+\bottomrule
+\end{longtable}
+
+Model Performance:
+
+0.9547
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+
+       1       0.99      0.98      0.98      3893
+       2       0.96      0.96      0.96      3159
+       3       0.89      0.92      0.91      1151
+       4       0.85      0.87      0.86       482
+       5       0.88      0.88      0.88       130
+
+ micro avg     0.95      0.95      0.95      8815
+ macro avg     0.91      0.92      0.92      8815
+ weighted avg  0.96      0.95      0.95      8815
+ 
+ Overall algorithm accuracy: 0.9547
+\end{verbatim}
+
+The dimentionality increase gave us an overall perfromance boost of
+almost \textbf{2\%}. It might not seem much. Let see how performance of
+each category has been affected.
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Category & 7 Features & 9 Features & Gain (\%)\tabularnewline
+\midrule
+\endhead
+1 & 0.96 & 0.98 & 2\tabularnewline
+\textbf{2} & \textbf{0.93} & \textbf{0.96} & \textbf{3}\tabularnewline
+\textbf{3} & \textbf{0.88} & \textbf{0.91} & \textbf{3}\tabularnewline
+4 & 0.85 & 0.86 & 1\tabularnewline
+5 & 0.87 & 0.88 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+Evdently categories 2 (\emph{Poor}) and 3 (\emph{Fair}) have benefited
+the most form the dimentionality increase. Ultimately it is up to the
+business to decised if 3\% accuracy gain is worth the training time and
+user interface complexity increase. KASI Insight represantative has
+opted for higher accuracy.
+
+\hypertarget{hyper-parameter-tuning}{%
+\subsubsection{Hyper-parameter Tuning}\label{hyper-parameter-tuning}}
+
+Hyper-parameter tuning is ususally the last step in effort to improve
+the model performance. We will employ \emph{Grid Search} algorithm with
+\textbf{three-fold cross validation} to identify the best model
+parameters. The parameter grid look as follows:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Patameter & Values\tabularnewline
+\midrule
+\endhead
+Number of Estimators & 200, 300, 400\tabularnewline
+Minimum Sample Split & 5, 10, 20, 30, 40\tabularnewline
+Maximum Features & `auto', `sqrt'\tabularnewline
+Bootstrap: & True, False\tabularnewline
+\bottomrule
+\end{longtable}
+
+The hyper-parameter tuning gave us another \textbf{0.5\%} performnace
+gain.
+
+\hypertarget{final-simulator-model-stats}{%
+\subsubsection{Final Simulator Model
+Stats}\label{final-simulator-model-stats}}
+
+\begin{itemize}
+\tightlist
+\item
+  Number of features: \textbf{9}
+\item
+  Overall algorithm accuracy: \textbf{0.9594}
+\end{itemize}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../models/training/simulator_rf_tuned_large_matrix} 
+
+}
+
+\caption[Simulator Model Confusion Matrix]{Simulator Model Confusion Matrix}\label{fig:simulator_cm}
+\end{figure}
+\end{Schunk}
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+
+       1       0.99      0.99      0.99      3940
+       2       0.96      0.96      0.96      3098
+       3       0.91      0.90      0.90      1154
+       4       0.83      0.88      0.86       471
+       5       0.89      0.87      0.88       152
+
+ micro avg     0.96      0.96      0.96      8815
+ macro avg     0.92      0.92      0.92      8815
+ weighted avg  0.96      0.96      0.96      8815
+\end{verbatim}
+
+Lastly we are going to review the model learning and vaidation curves.
+As per figure \ref{fig:simulator_lc} the model was learning more about
+the data as the training size grew. When the training size reached about
+30,000 observations the validation curve converged with the training one
+indicating that the further increase in the training set size will not
+likely result in better model performance.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../models/training/simulator_rf_tuned_large_curves} 
+
+}
+
+\caption[Simulator Model Learning Curves]{Simulator Model Learning Curves}\label{fig:simulator_lc}
+\end{figure}
+\end{Schunk}
+
 \hypertarget{lender-evaluator}{%
 \subsection{Lender Evaluator}\label{lender-evaluator}}
 
-\hypertarget{classification-model-evaluation-and-selection}{%
-\section{Classification Model Evaluation and
-Selection}\label{classification-model-evaluation-and-selection}}
-
-\hypertarget{lending-environment-simulator}{%
-\subsection{Lending Environment
-Simulator}\label{lending-environment-simulator}}
-
-\hypertarget{random-forest}{%
-\subsubsection{Random Forest}\label{random-forest}}
-
-\hypertarget{svm}{%
-\subsubsection{SVM}\label{svm}}
-
-\hypertarget{gradient-boosting-machine}{%
-\subsubsection{Gradient Boosting
-Machine}\label{gradient-boosting-machine}}
-
-\hypertarget{winning-solution}{%
-\subsubsection{Winning Solution}\label{winning-solution}}
-
-\hypertarget{lender-evaluator-1}{%
-\subsection{Lender Evaluator}\label{lender-evaluator-1}}
-
-\hypertarget{random-forest-1}{%
-\subsubsection{Random Forest}\label{random-forest-1}}
-
-\hypertarget{svm-1}{%
-\subsubsection{SVM}\label{svm-1}}
-
-\hypertarget{gradient-boosting-machine-1}{%
-\subsubsection{Gradient Boosting
-Machine}\label{gradient-boosting-machine-1}}
-
-\hypertarget{winning-solution-1}{%
-\subsubsection{Winning Solution}\label{winning-solution-1}}
+Noe we are going to repeate all the same steps to find thebest model for
+the \emph{Lender Evaluator} tool.
 
 \hypertarget{model-deployment}{%
 \section{Model Deployment}\label{model-deployment}}

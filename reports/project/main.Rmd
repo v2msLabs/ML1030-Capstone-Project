@@ -25,7 +25,6 @@ py_config()
 ```
 ```{python echo=FALSE, message=FALSE, warnings=FALSE}
 import pandas as pd
-from tabulate import tabulate
 pd.set_option('display.max_columns', 50)
 pd.set_option('display.width', 100)
 pd.options.display.float_format = '{:,.2f}'.format
@@ -117,7 +116,7 @@ Evidently now all the data is categorized, the missing values imputed. From this
 
 ### Demographic Stats
 
-It is useful to understand who took the survey. This knowledge will ultimately gives us the answers about the money market participants in Africa.
+It is useful to understand who took the survey. This knowledge will ultimately give us the answers about the money market participants in Africa.
 
 ```{r pc, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Participation per Country"}
 include_graphics("../../artifacts/obs_per_country.png") 
@@ -183,7 +182,9 @@ include_graphics("../../artifacts/bcategories.png")
 include_graphics("../../artifacts/lcategories.png")
 ```
 
-As we can observe overall the lending environmnet is not very promising; categories 1 and 2 (*Very Poor* and *Poor*) dominate. The lending climate is visibly better in Cameroon, Cote d'Ivoire and South Africa. It is also worth mentioning that categories 4 and 5 (*Good* and *Very Good*) do not have that much data. The situation is even worse with the lender categories. Thus prior to model training we would have to upsmple the training data sets to bring all categories to the same level.   
+As we can observe overall the lending environmnet is not very promising; categories 1 and 2 (*Very Poor* and *Poor*) dominate. The lending climate is visibly better in Cameroon, Cote d'Ivoire and South Africa. It is also worth mentioning that categories 4 and 5 (*Good* and *Very Good*) do not have that much data. The situation is even worse with the lender categories. Thus prior to the model training we would have to upsmple the training data sets to bring all categories to the same level.
+
+Overall looking at the credit and lender scores of the population we observe that the destribution pattern is very similar between all sevent African countries. Thus if KASI Insight adds more countries to the fold there is no need to retrain the models assuming that the newly added countries have the same category distribution...
 
 # Feature Selection and Engineering
 
@@ -193,7 +194,7 @@ The data set has 38 columns. We potentially, could employ all of them to fit the
 
 Strongly correlated features are redundant thus they could be dropped without impacting the model performance. Figure \ref{fig:cmatrix} depicts a correlation heatmap of all 38 data set features. The correlated features would be rendered either in deep black or very light colors. As we can observe none of the features have strong correlation.
 
-```{r cmatrix, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Feature Correlation"}
+```{r cmatrix, out.width = "75%", echo=FALSE, fig.align='center', fig.cap="Feature Correlation"}
 include_graphics("../../artifacts/cmatrix.png")
 ```
 
@@ -272,9 +273,9 @@ include_graphics("../../artifacts/lfimportance.png")
 
 ## Takeways
 
-We have applied two mathematical algorithms to identify the most significant features for credit score and lender score labels. Both methods have selected almost the same features. After some analysis we have selected top ten features for each label. 
+We have applied two mathematical algorithms to identify the most significant features for credit score and lender score labels. To no surprise both methods have sucesfully identified the feature that have been used to cacluclate the credit/ lender categories. We have decided to select the top features that have distinctively higher score as a base-line. During the model training and evaluation phase  we will increase/decrease the number of features to estimate the effect of the input data dimentionality change the model accuracy.
 
-### Top Ten Credit Score Features 
+### Top Seven Credit Score Features 
 
 Num | Feature                                                         
 ----|------------------------------------------------------------------
@@ -285,12 +286,9 @@ Num | Feature
 20 | Who did you lend money to in the past 3 months? 
 23 | Do you request guarantees when you lend? 
 19 | On average how much do you lend in general?
-16 | Country | 595.87
-21 | When you lend money, when do you usually expect to get it repaid?
-25 | Assuming that you have lent money at least ten times, how often would you get your money repaid?
 
 
-### Top Ten Lender Score Features
+### Top Nine Lender Score Features
 
 Num | Feature                                                         
 ----|------------------------------------------------------------------
@@ -302,41 +300,218 @@ Num | Feature
 26 | What's the most common use of the money you lend?
 19 | On average how much do you lend in general?
 25 | Assuming that you have lent money at least ten times, how often would you get your money repaid?
-16 | Country | 595.87
-12 | What's your highest level of education?
-
-Later we will applly the top 10 features to train the base-line models. Then we will try to increase/decrease the number of features and evaluate the dimentionality change effect on the model accuracy.
+16 | Country
 
 
 ## Model Evaluation and Selection
 
+After we cleaned and normalized the data, labled all observations and gained deep understanding about the features we are ready to start model training and evaluation. To gain the best result possible we will explore and evaluate three algorthim to train the models. They are:
+
+ * **Support Vector Machine** (SVM). The greatest strength of SVM is that it has multiple Kernel implementations, that can be tuned to explain multi-dimensional space with high accuracy
+  * **Random Forest** (RF). Random forest belongs to the class of ensemble models. It has many hyperparameters that could be tuned to achieve high accuracy. The random forest algorithm is not demanding in terms of the data preparation, which makes it the first choice in many real-life scenarios
+  * **Gradient Boosting Machine** (GBM). GBM is an ensemble model as well. It uses the concept of trees just like the RF model does but applies it differently. GBT builds the trees one at a time, where each new tree helps to correct errors made by previously trained tree. the GBM.
+
+### Evaluation Metrics
+
+We believe that the best model has to classify all five categories as accurate as possible. The winning model also would have to identify true positives and true negatives for each category equally well. Thus we choose the muticlass confusion matrix and F1 scores to evalue the models. The higher the F1 score for each category - the better the model performes.
+
+We also take into consideration the model training and inference speed.
+
+
+### Model Training and Evaluation Methodology
+
+- We begin with the splitting the available data into the training (70%) and test (30%) sets.
+- We upsample the training data set employing *SMOTE* algorithm.
+- We evaluate the three algorthims we have described above. We will be using the deafult algorithm parameters and top features (see *Feature Evaluation* paragraph for more details) to fit the models. 
+- We select the algorithm that has the best evaluation metrcis.
+- Then we evaluate the winning algorithm fitting it with the smaller and larger feature sets.
+- If the data dimentionality change makes positive impact on the the winning algorithm we select this feature set for the model.
+- We hyper-tune the algorithm parameters in effort to achieve even better model performance
+
+
+### Lending Environment Simulator Model
+
+Following the steps outlined in the previous section we have recieved the following performances stats.
+
+#### SVM
+
+                  precision    recall  f1-score   support
+           1       0.97      0.95      0.96      3935
+           2       0.92      0.90      0.91      3114
+           3       0.81      0.89      0.85      1122
+           4       0.81      0.85      0.83       487
+           5       0.81      0.89      0.85       157
+           
+    micro avg      0.92      0.92      0.92      8815
+    macro avg      0.86      0.90      0.88      8815
+    weighted avg   0.92      0.92      0.92      8815
+    
+    Overall algorithm accuracy: 0.9199
+    
+#### Random Forest
+
+                  precision    recall  f1-score   support
+           1       0.98      0.96      0.97      3902
+           2       0.93      0.93      0.93      3161
+           3       0.86      0.90      0.88      1150
+           4       0.86      0.84      0.85       464
+           5       0.86      0.87      0.87       138
+           
+     micro avg     0.94      0.94      0.94      8815
+     macro avg     0.90      0.90      0.90      8815
+     weighted avg  0.94      0.94      0.94      8815
+     
+     Overall algorithm accuracy: 0.9372
+
+#### Gradient Boosting
+
+              precision    recall  f1-score   support
+           1       0.98      0.92      0.95      3948
+           2       0.85      0.87      0.86      3117
+           3       0.70      0.67      0.69      1149
+           4       0.60      0.82      0.70       471
+           5       0.60      0.88      0.71       130
+           
+     micro avg     0.86      0.86      0.86      8815
+     macro avg     0.75      0.83      0.78      8815
+     weighted avg  0.87      0.86      0.87      8815
+     
+     Overall algorithm accuracy: 0.8635
+
+
+### Winning Model
+
+The **Random Forest** algorithm has come up on top. This model classifies all categories much better then the other two algorithms and demonstrates a nice balance between the recall and presision metrics. The Random forest algorithm is also the fastest to train.
+
+ Category | **RF f1-score** | SVM f1-score | GB f1-score 
+----------|-------------|--------------|-------------
+ 1        |  **0.97**       |  0.96        |  0.95
+ 2        |  **0.93**       |  0.91        |  0.86
+ 3        |  **0.88**       |  0.85        |  0.69
+ 4        |  **0.85**       |  0.83        |  0.70
+ 5        |  **0.87**       |  0.85        |  0.71
+ Accuracy |  **0.9372**     |  0.9199      |  0.8635        
+
+
+### Dimentionality Change
+
+The winning algorithm performs quite spectacular. It employs the **seven** top features we have identified in the *Feature Selection* section. Let's see how the input data dimentionality change affects the model performance. Firstly we reduce the number of features to **five**.
+
+Top five features
+
+Num | Feature                                                         
+----|------------------------------------------------------------------
+24 | Do you receive your money back in time? 
+26 | What's the most common use of the money you lend?
+22 | Do you include either interest or a lending fee when you lend?
+18 | Over the past 3 months, how many times have you lent someone money?
+20 | Who did you lend money to in the past 3 months?
+
+Model Performance:
+
+             precision    recall  f1-score   support
+           1       0.94      0.91      0.92      3858
+           2       0.84      0.74      0.79      3150
+           3       0.58      0.73      0.65      1210
+           4       0.55      0.71      0.62       464
+           5       0.55      0.89      0.68       133
+
+    micro avg      0.81      0.81      0.81      8815
+    macro avg      0.69      0.80      0.73      8815
+    weighted avg   0.83      0.81      0.82      8815
+
+    Overall algorithm accuracy: 0.8635
+    
+Evidently the dimentionality reduction caused the model performance deteriorate greatly. Now let's increase the number of features to **nine**.
+
+Top nine features:
+
+Num | Feature                                                         
+----|------------------------------------------------------------------
+24 | Do you receive your money back in time? 
+26 | What's the most common use of the money you lend?
+22 | Do you include either interest or a lending fee when you lend?
+18 | Over the past 3 months, how many times have you lent someone money?
+20 | Who did you lend money to in the past 3 months? 
+23 | Do you request guarantees when you lend? 
+19 | On average how much do you lend in general?
+16 | Country
+21 | When you lend money, when do you usually expect to get it repaid?
+
+Model Performance:
+
+ 0.9547
+ 
+              precision    recall  f1-score   support
+
+           1       0.99      0.98      0.98      3893
+           2       0.96      0.96      0.96      3159
+           3       0.89      0.92      0.91      1151
+           4       0.85      0.87      0.86       482
+           5       0.88      0.88      0.88       130
+
+     micro avg     0.95      0.95      0.95      8815
+     macro avg     0.91      0.92      0.92      8815
+     weighted avg  0.96      0.95      0.95      8815
+     
+     Overall algorithm accuracy: 0.9547
+
+The dimentionality increase gave us an overall perfromance boost of almost **2%**. It might not seem much. Let see how performance of each category has been affected.
+
+ Category | 7 Features | 9 Features |  Gain (%)
+----------|------------|------------|----------    
+ 1        |  0.96      | 0.98       | 2
+**2**        |  **0.93**      | **0.96**       | **3**
+**3**        |  **0.88**      | **0.91**       | **3** 
+ 4        |  0.85      | 0.86       | 1
+ 5        |  0.87      | 0.88       | 1
+
+Evdently categories 2 (*Poor*) and 3 (*Fair*) have benefited the most form the dimentionality increase. Ultimately it is up to the business to decised if 3%  accuracy gain is worth the training time and user interface complexity increase. KASI Insight represantative has opted for higher accuracy.
+
+### Hyper-parameter Tuning
+
+Hyper-parameter tuning is ususally the last step in effort to improve the model performance. We will employ *Grid Search* algorithm with **three-fold cross validation** to identify the best model parameters. The parameter grid look as follows:
+
+ Patameter            |    Values 
+----------------------|--------------------
+Number of Estimators  | 200, 300, 400
+Minimum Sample Split  | 5, 10, 20, 30, 40
+Maximum Features      | 'auto', 'sqrt'
+Bootstrap:            | True, False
+
+The hyper-parameter tuning gave us another **0.5%** performnace gain.
+
+### Final Simulator Model Stats
+
+- Number of features: **9**
+- Overall algorithm accuracy: **0.9594**
+
+```{r simulator_cm, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Simulator Model Confusion Matrix"}
+include_graphics("../../models/training/simulator_rf_tuned_large_matrix.png")
+```
+
+              precision    recall  f1-score   support
+
+           1       0.99      0.99      0.99      3940
+           2       0.96      0.96      0.96      3098
+           3       0.91      0.90      0.90      1154
+           4       0.83      0.88      0.86       471
+           5       0.89      0.87      0.88       152
+
+     micro avg     0.96      0.96      0.96      8815
+     macro avg     0.92      0.92      0.92      8815
+     weighted avg  0.96      0.96      0.96      8815
+
+Lastly we are going to review the model learning and vaidation curves. As per figure \ref{fig:simulator_lc} the model was learning more about the data as the training size grew. When the training size reached about 30,000 observations the validation curve converged with the training one indicating that the further increase in the training set size will not likely result in better model performance.
+
+```{r simulator_lc, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Simulator Model Learning Curves"}
+include_graphics("../../models/training/simulator_rf_tuned_large_curves.png")
+```
+
+
 ## Lender Evaluator
 
-
-# Classification Model Evaluation and Selection
-
-## Lending Environment Simulator
-
-### Random Forest
-
-### SVM
-
-### Gradient Boosting Machine
-
-### Winning Solution
-
-
-## Lender Evaluator
-
-
-### Random Forest
-
-### SVM
-
-### Gradient Boosting Machine
-
-### Winning Solution
-
+Noe we are going to repeate all the same steps to find thebest model for the *Lender Evaluator* tool.
 
 
 # Model Deployment

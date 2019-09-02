@@ -41,6 +41,12 @@ def get_args():
         type=str,
         required=True,
         help='Output path. This is where the script saves the recommended hyper-parameters as a text file. Example: ./tuning')
+    parser.add_argument(
+        '--feature_size',
+        type=str,
+        default="large",
+        help='Specify the feature size to train the model (optional). Acceptable values: small, base , large (default). This fature is mainly used during the research phase.Example: large')
+
     args, _ = parser.parse_known_args()
     return args
 
@@ -53,19 +59,21 @@ Main entry point of the script that starts the tuning process
 def main():
     start = time.time()
     args = get_args()
-    file = os.path.join(args.output_dir, "{0}_{1}_tuning.txt".format(args.model, args.algorithm))
+    file = os.path.join(args.output_dir, "{0}_{1}_{2}_tuning.txt".format(args.model, args.algorithm, args.feature_size))
     c.create_dir(file)
     print("Started {0} hyper-parameter tuning for {1}".format(c.algorithms[args.algorithm], args.model))
     gs, params = c.get_gridsearch_instance(args.algorithm)
     df = pd.read_csv(args.input_file)
-    columns, label = c.get_columns_label(args.model)
+    columns, label = c.get_columns_label(args.model,args.feature_size)
     data = df[columns]
     credit_score = df[label]
     # upsample
     train, train_class = SMOTE().fit_resample(data, credit_score)
     with open(file, 'w') as f:
+        print('Parameters in use:\n', file=f)
         print(params, file=f)
         print(label, file=f)
+        print('Features:\n', file=f)
         print(columns, file=f)
         _ = gs.fit(train, train_class)
         print("Best {0} algorithm score: {1}".format(c.algorithms[args.algorithm], gs.best_score_), file=f)

@@ -1,0 +1,13 @@
+Parameters in use:
+
+{'n_estimators': [200, 300, 400], 'min_samples_split': [5, 10, 20, 30, 40], 'max_features': ['auto', 'sqrt'], 'bootstrap': [True, False]}
+credit_score_category
+Features:
+
+['24', '26', '22', '18', '20', '23', '19', '16', '21']
+Best Random Forest algorithm score: 0.9332163564235582
+Best hyper-parameters:
+	bootstrap: False
+	max_features: 'auto'
+	min_samples_split: 5
+	n_estimators: 400

@@ -36,7 +36,7 @@ The feature size can also be specified
 """
 
 
-def get_columns_label(model,feature_size="base"):
+def get_columns_label(model,feature_size="large"):
     if model == simulator_model:
         if feature_size == feature_base:
             columns = simulator_columns_base

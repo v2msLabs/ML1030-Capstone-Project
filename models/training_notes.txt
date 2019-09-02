@@ -1,22 +1,22 @@
 ===========================================================================
-base evaluator rf is the best
+samll simulator rf is the best
 ===========================================================================
-['24', '18', '22', '23', '20', '26', '19', '25', '16']
+['24', '26', '22', '18', '20']
 Parameters in use:
 
 {'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'auto', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
-evaluator model with Random Forest algorithm score: 0.9687
+simulator model with Random Forest algorithm score: 0.8138
               precision    recall  f1-score   support
 
-           1       0.99      0.99      0.99      4086
-           2       0.97      0.97      0.97      3266
-           3       0.93      0.93      0.93      1185
-           4       0.85      0.81      0.83       251
-           5       0.84      0.59      0.70        27
+           1       0.94      0.91      0.92      3858
+           2       0.84      0.74      0.79      3150
+           3       0.58      0.73      0.65      1210
+           4       0.55      0.71      0.62       464
+           5       0.55      0.89      0.68       133
 
-   micro avg       0.97      0.97      0.97      8815
-   macro avg       0.92      0.86      0.88      8815
-weighted avg       0.97      0.97      0.97      8815
+   micro avg       0.81      0.81      0.81      8815
+   macro avg       0.69      0.80      0.73      8815
+weighted avg       0.83      0.81      0.82      8815
 ===========================================================================
 base simulator rf is the best
 ===========================================================================
@@ -36,6 +36,46 @@ simulator model with Random Forest algorithm score: 0.9372
    micro avg       0.94      0.94      0.94      8815
    macro avg       0.90      0.90      0.90      8815
 weighted avg       0.94      0.94      0.94      8815
+
+===========================================================================
+large simulator rf is the best
+===========================================================================
+
+['24', '26', '22', '18', '20', '23', '19', '16', '21']
+Parameters in use:
+
+{'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'auto', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
+simulator model with Random Forest algorithm score: 0.9547
+              precision    recall  f1-score   support
+
+           1       0.99      0.98      0.98      3893
+           2       0.96      0.96      0.96      3159
+           3       0.89      0.92      0.91      1151
+           4       0.85      0.87      0.86       482
+           5       0.88      0.88      0.88       130
+
+   micro avg       0.95      0.95      0.95      8815
+   macro avg       0.91      0.92      0.92      8815
+weighted avg       0.96      0.95      0.95      8815
+===========================================================================
+base evaluator rf is the best
+===========================================================================
+['24', '18', '22', '23', '20', '26', '19', '25', '16']
+Parameters in use:
+
+{'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'auto', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
+evaluator model with Random Forest algorithm score: 0.9687
+              precision    recall  f1-score   support
+
+           1       0.99      0.99      0.99      4086
+           2       0.97      0.97      0.97      3266
+           3       0.93      0.93      0.93      1185
+           4       0.85      0.81      0.83       251
+           5       0.84      0.59      0.70        27
+
+   micro avg       0.97      0.97      0.97      8815
+   macro avg       0.92      0.86      0.88      8815
+weighted avg       0.97      0.97      0.97      8815
 ===========================================================================
 samll evaluator rf is the best
 ===========================================================================
@@ -55,25 +95,6 @@ evaluator model with Random Forest algorithm score: 0.9756
    micro avg       0.98      0.98      0.98      8815
    macro avg       0.92      0.89      0.90      8815
 weighted avg       0.98      0.98      0.98      8815
-===========================================================================
-samll simulator rf is the best
-===========================================================================
-['24', '26', '22', '18', '20']
-Parameters in use:
-
-{'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'auto', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
-simulator model with Random Forest algorithm score: 0.8138
-              precision    recall  f1-score   support
-
-           1       0.94      0.91      0.92      3858
-           2       0.84      0.74      0.79      3150
-           3       0.58      0.73      0.65      1210
-           4       0.55      0.71      0.62       464
-           5       0.55      0.89      0.68       133
-
-   micro avg       0.81      0.81      0.81      8815
-   macro avg       0.69      0.80      0.73      8815
-weighted avg       0.83      0.81      0.82      8815
 
 ===========================================================================
 large evaluator rf is the best
@@ -96,23 +117,13 @@ evaluator model with Random Forest algorithm score: 0.9755
    macro avg       0.96      0.90      0.93      8815
 weighted avg       0.98      0.98      0.98      8815
 
-===========================================================================
-large simulator rf is the best
-===========================================================================
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-['24', '26', '22', '18', '20', '23', '19', '16', '21']
-Parameters in use:
+BEST EVALUATOR
 
-{'bootstrap': True, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'auto', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
-simulator model with Random Forest algorithm score: 0.9547
-              precision    recall  f1-score   support
+LARGE RF EVALUATOR
 
-           1       0.99      0.98      0.98      3893
-           2       0.96      0.96      0.96      3159
-           3       0.89      0.92      0.91      1151
-           4       0.85      0.87      0.86       482
-           5       0.88      0.88      0.88       130
+BEST SIMULATOR
 
-   micro avg       0.95      0.95      0.95      8815
-   macro avg       0.91      0.92      0.92      8815
-weighted avg       0.96      0.95      0.95      8815
+LARGE RF SIMULATOR
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

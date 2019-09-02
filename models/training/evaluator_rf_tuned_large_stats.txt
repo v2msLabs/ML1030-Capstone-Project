@@ -1,0 +1,19 @@
+Features:
+
+['24', '18', '22', '23', '20', '26', '19', '25', '16', '21']
+Parameters in use:
+
+{'bootstrap': False, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 400, 'n_jobs': None, 'oob_score': False, 'random_state': None, 'verbose': 0, 'warm_start': False}
+evaluator model with Random Forest algorithm score: 0.9756
+              precision    recall  f1-score   support
+
+           1       0.99      0.99      0.99      4110
+           2       0.98      0.98      0.98      3237
+           3       0.94      0.96      0.95      1217
+           4       0.90      0.82      0.86       214
+           5       0.96      0.73      0.83        37
+
+   micro avg       0.98      0.98      0.98      8815
+   macro avg       0.95      0.90      0.92      8815
+weighted avg       0.98      0.98      0.98      8815
+
