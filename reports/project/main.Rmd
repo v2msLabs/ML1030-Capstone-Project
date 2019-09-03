@@ -36,12 +36,12 @@ pd.options.display.float_format = '{:,.2f}'.format
 # Objectives
 
 
-# GitHub
+# Project Artifacts
 
 
 # Data Analysis
 
-As it has been mentioned KASI Insight does not posess personal financial data that could be used to identify and predict client credit worthiness. In this project we are using the survey data collected by KASI Insight over years from seven African countries. The survey targets people who lend money on regular basis. The survey contains questions pertaining to the borrowing habits of the people the lenders deal with, asks respondents  what they feel about the economy in a given country, etc. KASI insight has collected almost **30,000** records over a course of last three years.
+As it has been mentioned KASI Insight does not posses personal financial data that could be used to identify and predict client credit worthiness. In this project we are using the survey data collected by KASI Insight over years from seven African countries. The survey targets people who lend money on regular basis. The survey contains questions pertaining to the borrowing habits of the people the lenders deal with, asks respondents  what they feel about the economy in a given country, etc. KASI insight has collected almost **30,000** records over a course of last three years.
 
 
 ## Data Dictionary
@@ -92,19 +92,19 @@ ID  | Question/Column
 
 The survey data could be split into three major categories:
 
-- Demographice Statistics
+- Demographic Statistics
 - Economic Sentiment
 - Spending and Borrowing habits
 
-Each question/column should be trated as a catigorical value.
+Each question/column should be treated as a categorical value.
 
 ## Data Exploration
 
-Let's take a look at the raw survey data. Though the survey multi-choice questions are catergories in nature, the survey answers are stored in alphanumeric format. Overtime some questions have been rephrased. Thus in some cases the answers that pertain to the same category vary. Another problem with the raw data set is the missing values.
+Let's take a look at the raw survey data. Though the survey multi-choice questions are categories in nature, the survey answers are stored in alphanumeric format. Overtime some questions have been rephrased. Thus in some cases the answers that pertain to the same category vary. Another problem with the raw data set is the missing values.
 
 **TO DO: insert the sample of raw data here**
 
-To ractify the problems stated above we have developed a data processing algorithm that normalized and categorised the answers converting them into numeric form. The data processing script also imputes the missing data with the most frequently occuring value for a given category. The clean data set stats are depicted below. **Note**: the column numbers corespond to the question numbers as described in *Data Dictionary* paragraph.
+To rectify the problems stated above we have developed a data processing algorithm that normalized and categorized the answers converting them into numeric form. The data processing script also imputes the missing data with the most frequently occurring value for a given category. The clean data set stats are depicted below. **Note**: the column numbers correspond to the question numbers as described in *Data Dictionary* paragraph.
 
 ```{python echo=FALSE}
 input_path = "../../data/processed/clean_data.csv"
@@ -130,24 +130,24 @@ include_graphics("../../artifacts/participant_education.png")
 ```{r pms, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Marital Status of Participants"}
 include_graphics("../../artifacts/participant_marital.png")
 ```
-As per the charts submitted above we can canlude that:
+As per the charts submitted above we can conclude that:
 
-- Camerun has the highest number of obervations and Tansania ihas the smallets representation, where the rest of the countries or more or less equaly represented.
-- Males dominate in the money lending business. Kenya though makes an exception where number of femail participants is very close to the male population
-- In general people in *30-34* age group are the most active, followed by *25-29* and *18-24* age groups respectively. In Kenya, unlike other countries, the yonger generation is more active.
-- Majority of money lenders are either salaried or comission-based employees. Again Kenya makes an exption. The second largest group of the money lenders is the busines owners.
+- Cameroon has the highest number of observations and Tanzania has the smallest representation, where the rest of the countries or more or less equally represented.
+- Males dominate in the money lending business. Kenya though makes an exception where number of female participants is very close to the male population
+- In general people in *30-34* age group are the most active, followed by *25-29* and *18-24* age groups respectively. In Kenya, unlike other countries, the younger generation is more active.
+- Majority of money lenders are either salaried or commission-based employees. Again Kenya makes an exception. The second largest group of the money lenders is the business owners.
 - Education-wise people with the bachelor's degree and skilled trade workers dominate. 
 - Married people tend to lend money more often...
 
 ### Economic Sentiment
 
-Now let's see what the money lenders think about the state of the economy in ther respective countries. The questions where asked in the six-month perspective in the future from the date of survey.
+Now let's see what the money lenders think about the state of the economy in their respective countries. The questions where asked in the six-month perspective in the future from the date of survey.
 
 ```{r esent, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Economic Sentiment"}
 include_graphics("../../artifacts/sentiment.png") 
 ```
 
-Evidently majority of the survey participants think that the economic situation in their country will be stable over a course of next six months. Many people in Kenya, Nigeria and Ghana find it more diffiult to find a job. Remarkably, despite the fact that people believe that the economic conditions are stable,  citisens of all counties are not shure if they are going to meet their reqular expences.
+Evidently majority of the survey participants think that the economic situation in their country will be stable over a course of next six months. Many people in Kenya, Nigeria and Ghana find it more difficult to find a job. Remarkably, despite the fact that people believe that the economic conditions are stable,  citizens of all counties are not sure if they are going to meet their regular expenses.
 
 
 ### Spending and Borrowing Habits
@@ -165,14 +165,14 @@ include_graphics("../../artifacts/payment.png")
 ```
 
 - Majority of population take either small or micro loans (the exact amounts are country specific).
-- It is quite remarkable that the lenders do not charge fees or interest regularly (if at all) more often than not. The Cameroonians make an exception. In opposite the majority of South African lenders never change interest. We have conducted furhter data research that have proved that many people tend to lend to friends and familty. This fact explains why the fees and interest on loans are waived.
-- People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to cover business-related expenses. Citizens of other countries mainly use loan to either cover one-time or or unexpected expences (wedding, medical emergency..) or make ends meet (pay rent, buy clothes, etc.) 
-- Interestingly people in all countries do not watch how they spend the borrowed money. This fact probably explains why the question *Will you be able to meet your reqular expenses?* genrates uncertain answers (see **Economic Sentiment** paragraph for futher details).
+- It is quite remarkable that the lenders do not charge fees or interest regularly (if at all) more often than not. The Cameroonians make an exception. In opposite the majority of South African lenders never change interest. We have conducted further data research that have proved that many people tend to lend to friends and family. This fact explains why the fees and interest on loans are waived.
+- People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to cover business-related expenses. Citizens of other countries mainly use loan to either cover one-time or or unexpected expenses (wedding, medical emergency..) or make ends meet (pay rent, buy clothes, etc.) 
+- Interestingly people in all countries do not watch how they spend the borrowed money. This fact probably explains why the question *Will you be able to meet your regular expenses?* generates uncertain answers (see **Economic Sentiment** paragraph for further details).
 
 
 ## Data Distribution between Categories
 
-There are five credit categories for borrowers and five lender categories. To train the robust classification models we have to ensure that each category has enough observations to support the model traing. Let's review the data distribution between the borrower and lender categories. 
+There are five credit categories for borrowers and five lender categories. To train the robust classification models we have to ensure that each category has enough observations to support the model training. Let's review the data distribution between the borrower and lender categories. 
 
 ```{r dc, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Data Distribution per Credit Categories"}
 include_graphics("../../artifacts/bcategories.png") 
@@ -182,13 +182,13 @@ include_graphics("../../artifacts/bcategories.png")
 include_graphics("../../artifacts/lcategories.png")
 ```
 
-As we can observe overall the lending environmnet is not very promising; categories 1 and 2 (*Very Poor* and *Poor*) dominate. The lending climate is visibly better in Cameroon, Cote d'Ivoire and South Africa. It is also worth mentioning that categories 4 and 5 (*Good* and *Very Good*) do not have that much data. The situation is even worse with the lender categories. Thus prior to the model training we would have to upsmple the training data sets to bring all categories to the same level.
+As we can observe overall the lending environment is not very promising; categories 1 and 2 (*Very Poor* and *Poor*) dominate. The lending climate is visibly better in Cameroon, Cote d'Ivoire and South Africa. It is also worth mentioning that categories 4 and 5 (*Good* and *Very Good*) do not have that much data. The situation is even worse with the lender categories. Thus prior to the model training we would have to upsample the training data sets to bring all categories to the same level.
 
-Overall looking at the credit and lender scores of the population we observe that the destribution pattern is very similar between all sevent African countries. Thus if KASI Insight adds more countries to the fold there is no need to retrain the models assuming that the newly added countries have the same category distribution...
+Overall looking at the credit and lender scores of the population we observe that the distribution pattern is very similar between all seven African countries. Thus if KASI Insight adds more countries to the fold there is no need to retrain the models assuming that the newly added countries have the same category distribution...
 
 # Feature Selection and Engineering
 
-The data set has 38 columns. We potentially, could employ all of them to fit the models. But this is not the optimal approach. Not all data elements contribute to the category identification equally, some may not contribute at all, so why keep them? Another consideration is that the large and wide data sets make model training much longer, affect the accuracy and speed of the models negatively. Also many input variables add complexity to the user interface making it hard to implement, maintain and use. Thus we have opted to evaluated available data features. The ultimate goal is to undersatand the relationship between the features and the response variables and select the most infulential ones.
+The data set has 38 columns. We potentially, could employ all of them to fit the models. But this is not the optimal approach. Not all data elements contribute to the category identification equally, some may not contribute at all, so why keep them? Another consideration is that the large and wide data sets make model training much longer, affect the accuracy and speed of the models negatively. Also many input variables add complexity to the user interface making it hard to implement, maintain and use. Thus we have opted to evaluated available data features. The ultimate goal is to understand the relationship between the features and the response variables and select the most influential ones.
 
 ## Feature Correlation Matrix
 
@@ -200,7 +200,7 @@ include_graphics("../../artifacts/cmatrix.png")
 
 ## Univariate Feature Selection
 
-Univariate feature selection examines each feature individually to determine the strength of the relationship of the feature with the response variable. Next two paragraphs examine relationship between top 20 features and credint and lender categories respectively.
+Univariate feature selection examines each feature individually to determine the strength of the relationship of the feature with the response variable. Next two paragraphs examine relationship between top 20 features and credit and lender categories respectively.
 
 ### Credit Score Univariate Feature Selection
 
@@ -259,21 +259,21 @@ Num | Feature                                                          | Score
 
 We measure the importance of a feature by calculating the increase in the model’s prediction error after permuting the feature. A feature is “important” if shuffling its values increases the model error, because in this case the model relied on the feature for the prediction. A feature is “unimportant” if shuffling its values leaves the model error unchanged, because in this case the model ignored the feature for the prediction.
 
-### Credit Score Feature Impoirtance Evaluation
+### Credit Score Feature Importance Evaluation
 
 ```{r cfi, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Credit Score Feature Impoirtance"}
 include_graphics("../../artifacts/cfimportance.png")
 ```
 
-### Lender Score Feature Impoirtance Evaluation
+### Lender Score Feature Importance Evaluation
 
 ```{r lfi, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Lender Score Feature Impoirtance"}
 include_graphics("../../artifacts/lfimportance.png")
 ```
 
-## Takeways
+## Takeaways
 
-We have applied two mathematical algorithms to identify the most significant features for credit score and lender score labels. To no surprise both methods have sucesfully identified the feature that have been used to cacluclate the credit/ lender categories. We have decided to select the top features that have distinctively higher score as a base-line. During the model training and evaluation phase  we will increase/decrease the number of features to estimate the effect of the input data dimentionality change the model accuracy.
+We have applied two mathematical algorithms to identify the most significant features for credit score and lender score labels. To no surprise both methods have successfully identified the feature that have been used to calculate the credit/ lender categories. We have decided to select the top features that have distinctively higher score as a base-line. During the model training and evaluation phase  we will increase/decrease the number of features to estimate the effect of the input data dimentionality change the model accuracy.
 
 ### Top Seven Credit Score Features 
 
@@ -305,33 +305,36 @@ Num | Feature
 
 ## Model Evaluation and Selection
 
-After we cleaned and normalized the data, labled all observations and gained deep understanding about the features we are ready to start model training and evaluation. To gain the best result possible we will explore and evaluate three algorthim to train the models. They are:
+After we cleaned and normalized the data, labeled all observations and gained deep understanding about the features we are ready to start model training and evaluation. To gain the best result possible we will explore and evaluate three algorithm to train the models. They are:
 
  * **Support Vector Machine** (SVM). The greatest strength of SVM is that it has multiple Kernel implementations, that can be tuned to explain multi-dimensional space with high accuracy
-  * **Random Forest** (RF). Random forest belongs to the class of ensemble models. It has many hyperparameters that could be tuned to achieve high accuracy. The random forest algorithm is not demanding in terms of the data preparation, which makes it the first choice in many real-life scenarios
+  * **Random Forest** (RF). Random forest belongs to the class of ensemble models. It has many hyper-parameters that could be tuned to achieve high accuracy. The random forest algorithm is not demanding in terms of the data preparation, which makes it the first choice in many real-life scenarios
   * **Gradient Boosting Machine** (GBM). GBM is an ensemble model as well. It uses the concept of trees just like the RF model does but applies it differently. GBT builds the trees one at a time, where each new tree helps to correct errors made by previously trained tree. the GBM.
 
 ### Evaluation Metrics
 
-We believe that the best model has to classify all five categories as accurate as possible. The winning model also would have to identify true positives and true negatives for each category equally well. Thus we choose the muticlass confusion matrix and F1 scores to evalue the models. The higher the F1 score for each category - the better the model performes.
+We believe that the best model has to classify all five categories as accurate as possible. The winning model also would have to identify true positives and true negatives for each category equally well. Thus we choose the multiclass confusion matrix and F1 scores to evaluate the models. The higher the F1 score for each category - the better the model performs.
 
 We also take into consideration the model training and inference speed.
 
 
 ### Model Training and Evaluation Methodology
 
+- For the base-line models training we will use top seven feature for the simulator and top nine feature for the evaluator respectively.
 - We begin with the splitting the available data into the training (70%) and test (30%) sets.
 - We upsample the training data set employing *SMOTE* algorithm.
-- We evaluate the three algorthims we have described above. We will be using the deafult algorithm parameters and top features (see *Feature Evaluation* paragraph for more details) to fit the models. 
-- We select the algorithm that has the best evaluation metrcis.
+- We evaluate the three algorithms we have described above. We will be using the default algorithm parameters and top features (see *Feature Evaluation* paragraph for more details) to fit the models. 
+- We select the algorithm that has the best evaluation metrics.
 - Then we evaluate the winning algorithm fitting it with the smaller and larger feature sets.
 - If the data dimentionality change makes positive impact on the the winning algorithm we select this feature set for the model.
-- We hyper-tune the algorithm parameters in effort to achieve even better model performance
+- Finally we hyper-tune the algorithm parameters in effort to achieve even better model performance
 
 
 ### Lending Environment Simulator Model
 
-Following the steps outlined in the previous section we have recieved the following performances stats.
+
+Following the steps outlined in the previous section we have received the following performances stats:
+
 
 #### SVM
 
@@ -379,9 +382,9 @@ Following the steps outlined in the previous section we have recieved the follow
      Overall algorithm accuracy: 0.8635
 
 
-### Winning Model
+### The Best Lending Environment Simulator Model
 
-The **Random Forest** algorithm has come up on top. This model classifies all categories much better then the other two algorithms and demonstrates a nice balance between the recall and presision metrics. The Random forest algorithm is also the fastest to train.
+The **Random Forest** algorithm has come up on top. This model classifies all categories much better then the other two algorithms and demonstrates a nice balance between the recall and precision metrics. The Random forest algorithm is also the fastest to train.
 
  Category | **RF f1-score** | SVM f1-score | GB f1-score 
 ----------|-------------|--------------|-------------
@@ -440,8 +443,6 @@ Num | Feature
 
 Model Performance:
 
- 0.9547
- 
               precision    recall  f1-score   support
 
            1       0.99      0.98      0.98      3893
@@ -456,30 +457,30 @@ Model Performance:
      
      Overall algorithm accuracy: 0.9547
 
-The dimentionality increase gave us an overall perfromance boost of almost **2%**. It might not seem much. Let see how performance of each category has been affected.
+The dimentionality increase gave us a performance boost of almost **2%**. It might not seem much. Let see how performance of each category has been affected.
 
- Category | 7 Features | 9 Features |  Gain (%)
-----------|------------|------------|----------    
- 1        |  0.96      | 0.98       | 2
-**2**        |  **0.93**      | **0.96**       | **3**
-**3**        |  **0.88**      | **0.91**       | **3** 
- 4        |  0.85      | 0.86       | 1
- 5        |  0.87      | 0.88       | 1
+ Category | 5 Features | 7 Features (base line) | **9 Features** |  Gain (%)
+----------|------------|------------------------|----------------|-----------    
+ 1        |  0.92      |  0.96                  | **0.98**       | 2
+ 2        |  0.79      |  0.93                  | **0.96**       | 3
+ 3        |  0.65      |  0.88                  | **0.91**       | 3 
+ 4        |  0.62      |  0.85                  | **0.86**       | 1
+ 5        |  0.68      |  0.87                  | **0.88**       | 1
 
-Evdently categories 2 (*Poor*) and 3 (*Fair*) have benefited the most form the dimentionality increase. Ultimately it is up to the business to decised if 3%  accuracy gain is worth the training time and user interface complexity increase. KASI Insight represantative has opted for higher accuracy.
+Evidently categories 2 (*Poor*) and 3 (*Fair*) have benefited the most form the dimentionality increase. Ultimately it is up to the business to decide if 3%  accuracy gain is worth the training time and user interface complexity increase. KASI Insight representative has opted for higher accuracy.
 
 ### Hyper-parameter Tuning
 
-Hyper-parameter tuning is ususally the last step in effort to improve the model performance. We will employ *Grid Search* algorithm with **three-fold cross validation** to identify the best model parameters. The parameter grid look as follows:
+Hyper-parameter tuning is usually the last step in effort to improve the model performance. We will employ *Grid Search* algorithm with **three-fold cross validation** to identify the best model parameters. The parameter grid look as follows:
 
- Patameter            |    Values 
+ Parameter            |    Values 
 ----------------------|--------------------
 Number of Estimators  | 200, 300, 400
 Minimum Sample Split  | 5, 10, 20, 30, 40
 Maximum Features      | 'auto', 'sqrt'
 Bootstrap:            | True, False
 
-The hyper-parameter tuning gave us another **0.5%** performnace gain.
+The hyper-parameter tuning gave us another **0.5%** performance gain.
 
 ### Final Simulator Model Stats
 
@@ -502,7 +503,7 @@ include_graphics("../../models/training/simulator_rf_tuned_large_matrix.png")
      macro avg     0.92      0.92      0.92      8815
      weighted avg  0.96      0.96      0.96      8815
 
-Lastly we are going to review the model learning and vaidation curves. As per figure \ref{fig:simulator_lc} the model was learning more about the data as the training size grew. When the training size reached about 30,000 observations the validation curve converged with the training one indicating that the further increase in the training set size will not likely result in better model performance.
+Lastly we are going to review the model learning and validation curves. As per figure \ref{fig:simulator_lc} the model was learning more about the data as the training size grew. When the training size reached about 30,000 observations the validation curve converged with the training one indicating that the further increase in the training set size will not likely result in better model performance.
 
 ```{r simulator_lc, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Simulator Model Learning Curves"}
 include_graphics("../../models/training/simulator_rf_tuned_large_curves.png")
@@ -511,7 +512,201 @@ include_graphics("../../models/training/simulator_rf_tuned_large_curves.png")
 
 ## Lender Evaluator
 
-Noe we are going to repeate all the same steps to find thebest model for the *Lender Evaluator* tool.
+Without further due let's apply the same methodology to select *Lender Evaluator* classifier.
+
+#### SVM
+
+
+              precision    recall  f1-score   support
+
+           1       0.98      0.96      0.97      4053
+           2       0.93      0.94      0.94      3249
+           3       0.88      0.93      0.90      1272
+           4       0.81      0.83      0.82       209
+           5       0.75      0.66      0.70        32
+
+    micro avg      0.94      0.94      0.94      8815
+    macro avg      0.87      0.86      0.87      8815
+    weighted avg   0.94      0.94      0.94      8815
+
+    Overall algorithm accuracy: 0.9441
+
+
+#### Random Forest
+
+              precision    recall  f1-score   support
+
+           1       0.99      0.98      0.99      4038
+           2       0.97      0.98      0.97      3289
+           3       0.95      0.95      0.95      1261
+           4       0.89      0.82      0.85       197
+           5       0.89      0.53      0.67        30
+
+    micro avg      0.97      0.97      0.97      8815
+    macro avg      0.94      0.85      0.89      8815
+    weighted avg   0.97      0.97      0.97      8815
+
+    Overall algorithm accuracy: 0.972
+    
+
+#### Gradient Boosting
+
+
+              precision    recall  f1-score   support
+
+           1       0.99      0.95      0.97      4066
+           2       0.92      0.92      0.92      3261
+           3       0.81      0.87      0.84      1218
+           4       0.67      0.86      0.75       235
+           5       0.68      0.80      0.74        35
+
+    micro avg      0.93      0.93      0.93      8815
+    macro avg      0.81      0.88      0.84      8815
+    weighted avg   0.93      0.93      0.93      8815
+
+    Overall algorithm accuracy: 0.925
+    
+### The Best Lender Evaluator Model
+
+Again the **Random Forest** algorithm proved to be the most accurate. Though it does not identify category 5 observations as well as the other two algorithm we hope that the input data dimentionality increase and hyper-parameter tuning will rectify the problem.
+
+
+ Category | **RF f1-score** | SVM f1-score | GB f1-score 
+----------|-------------|--------------|-------------
+ 1        |  **0.99**       |  0.97        |  0.97
+ 2        |  **0.97**       |  0.94        |  0.92
+ 3        |  **0.95**       |  0.90        |  0.84
+ 4        |  **0.85**       |  0.82        |  0.75
+ 5        |  **0.67**       |  0.70        |  0.74
+ Accuracy |  **0.972**     |  0.9441      |  0.925    
+ 
+ 
+### Dimentionality Change
+
+Let's evaluate how the number of features affect the accuracy of the model. Just like in the case of the simulator model we begin with the smaller feature set, namely seven.
+
+Top seven features:
+
+Num | Feature                                                         
+----|------------------------------------------------------------------
+24 | Do you receive your money back in time? 
+26 | What's the most common use of the money you lend?
+22 | Do you include either interest or a lending fee when you lend?
+18 | Over the past 3 months, how many times have you lent someone money?
+20 | Who did you lend money to in the past 3 months? 
+23 | Do you request guarantees when you lend? 
+19 | On average how much do you lend in general?
+
+
+Model Performance:
+
+          precision    recall  f1-score   support
+
+           1       0.99      0.97      0.98      4005
+           2       0.96      0.95      0.95      3330
+           3       0.89      0.95      0.92      1252
+           4       0.84      0.92      0.88       205
+           5       0.84      0.70      0.76        23
+
+    micro avg      0.96      0.96      0.96      8815
+    macro avg      0.90      0.90      0.90      8815
+    weighted avg   0.96      0.96      0.96      8815 
+
+    Overall algorithm accuracy: 0.9585    
+    
+Surprisingly the dimentionality reduction resulted in better model performance!  
+
+
+Top ten features:
+
+Num | Feature                                                         
+----|------------------------------------------------------------------
+24 | Do you receive your money back in time? 
+18 | Over the past 3 months, how many times have you lent someone money?
+22 | Do you include either interest or a lending fee when you lend?
+23 | Do you request guarantees when you lend?
+20 | Who did you lend money to in the past 3 months? 
+26 | What's the most common use of the money you lend?
+19 | On average how much do you lend in general?
+25 | Assuming that you have lent money at least ten times, how often would you get your money repaid?
+16 | Country
+21 | When you lend money, when do you usually expect to get it repaid?
+
+
+Model Performance:
+
+              precision    recall  f1-score   support
+
+           1       0.99      0.99      0.99      4058
+           2       0.97      0.98      0.97      3216
+           3       0.94      0.96      0.95      1273
+           4       0.92      0.85      0.88       229
+           5       0.97      0.74      0.84        39
+
+    micro avg      0.98      0.98      0.98      8815
+    macro avg      0.96      0.90      0.93      8815
+    weighted avg   0.98      0.98      0.98      8815
+
+    Overall algorithm accuracy: 0.975
+    
+    
+
+The dimentionality increase yields the best performance. The category 5 identification has been improved the most. The top ten feature set is an ultimate winner.
+
+
+ Category | 7 Features** | 9 Features (base-line) | **10 Features** |  Gain (%)
+----------|----------------|------------------------|-------------|-----------    
+ 1        |  0.98      |  0.99                  | **0.99**        | 0
+ 2        |  0.95      |  0.97                  | **0.97**        | 0
+ 3        |  0.92      |  0.95                  | **0.95**        | 0 
+ 4        |  0.88      |  0.85                  | **0.88**        | 3
+ 5        |  0.76      |  0.67                  | **0.84**        | 17
+ 
+
+### Hyper-parameter Tuning 
+
+The selected model demonstrates quite spectacular accuracy. We could potentially improve the identification of the category # 5. We are going to apply Grid Search algorithm again trying to find the optimal hyper-parameters.
+
+Parameter grid:
+
+ Parameter            |    Values 
+----------------------|--------------------
+Number of Estimators  | 200, 300, 400
+Minimum Sample Split  | 5, 10, 20, 30, 40
+Maximum Features      | 'auto', 'sqrt'
+Bootstrap:            | True, False
+
+The hyper-parameter tuning has demonstrated similar to the default parameter performance.
+
+
+### Final Evaluator Model Stats
+
+- Number of features: **10**
+- Overall algorithm accuracy: **0.9756**
+
+```{r evaluator_cm, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Evaluator Model Confusion Matrix"}
+include_graphics("../../models/training/evaluator_rf_tuned_large_matrix.png")
+```
+
+           precision    recall  f1-score   support
+
+           1       0.99      0.99      0.99      4110
+           2       0.98      0.98      0.98      3237
+           3       0.94      0.96      0.95      1217
+           4       0.90      0.82      0.86       214
+           5       0.96      0.73      0.83        37
+
+    micro avg      0.98      0.98      0.98      8815
+    macro avg      0.95      0.90      0.92      8815
+    weighted avg   0.98      0.98      0.98      8815
+
+Lastly we are going to review the model learning and validation curves. As per figure \ref{fig:evaluator_lc} the model was learning more about the data as the training size grew. When the training size reached about 30,000 observations the validation curve converged with the training one indicating that the further increase in the training set size will not likely result in better model performance.
+
+```{r evaluator_lc, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Eval Model Learning Curves"}
+include_graphics("../../models/training/evaluator_rf_tuned_large_curves.png")
+```
+
+
 
 
 # Model Deployment

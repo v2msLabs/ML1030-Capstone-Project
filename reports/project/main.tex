@@ -16,13 +16,13 @@ In
 \hypertarget{objectives}{%
 \section{Objectives}\label{objectives}}
 
-\hypertarget{github}{%
-\section{GitHub}\label{github}}
+\hypertarget{project-artifacts}{%
+\section{Project Artifacts}\label{project-artifacts}}
 
 \hypertarget{data-analysis}{%
 \section{Data Analysis}\label{data-analysis}}
 
-As it has been mentioned KASI Insight does not posess personal financial
+As it has been mentioned KASI Insight does not posses personal financial
 data that could be used to identify and predict client credit
 worthiness. In this project we are using the survey data collected by
 KASI Insight over years from seven African countries. The survey targets
@@ -258,32 +258,32 @@ The survey data could be split into three major categories:
 \begin{itemize}
 \tightlist
 \item
-  Demographice Statistics
+  Demographic Statistics
 \item
   Economic Sentiment
 \item
   Spending and Borrowing habits
 \end{itemize}
 
-Each question/column should be trated as a catigorical value.
+Each question/column should be treated as a categorical value.
 
 \hypertarget{data-exploration}{%
 \subsection{Data Exploration}\label{data-exploration}}
 
 Let's take a look at the raw survey data. Though the survey multi-choice
-questions are catergories in nature, the survey answers are stored in
+questions are categories in nature, the survey answers are stored in
 alphanumeric format. Overtime some questions have been rephrased. Thus
 in some cases the answers that pertain to the same category vary.
 Another problem with the raw data set is the missing values.
 
 \textbf{TO DO: insert the sample of raw data here}
 
-To ractify the problems stated above we have developed a data processing
-algorithm that normalized and categorised the answers converting them
+To rectify the problems stated above we have developed a data processing
+algorithm that normalized and categorized the answers converting them
 into numeric form. The data processing script also imputes the missing
-data with the most frequently occuring value for a given category. The
+data with the most frequently occurring value for a given category. The
 clean data set stats are depicted below. \textbf{Note}: the column
-numbers corespond to the question numbers as described in \emph{Data
+numbers correspond to the question numbers as described in \emph{Data
 Dictionary} paragraph.
 
 \begin{Schunk}
@@ -395,26 +395,26 @@ Africa.
 \end{figure}
 \end{Schunk}
 
-As per the charts submitted above we can canlude that:
+As per the charts submitted above we can conclude that:
 
 \begin{itemize}
 \tightlist
 \item
-  Camerun has the highest number of obervations and Tansania ihas the
-  smallets representation, where the rest of the countries or more or
-  less equaly represented.
+  Cameroon has the highest number of observations and Tanzania has the
+  smallest representation, where the rest of the countries or more or
+  less equally represented.
 \item
   Males dominate in the money lending business. Kenya though makes an
-  exception where number of femail participants is very close to the
+  exception where number of female participants is very close to the
   male population
 \item
   In general people in \emph{30-34} age group are the most active,
   followed by \emph{25-29} and \emph{18-24} age groups respectively. In
-  Kenya, unlike other countries, the yonger generation is more active.
+  Kenya, unlike other countries, the younger generation is more active.
 \item
-  Majority of money lenders are either salaried or comission-based
-  employees. Again Kenya makes an exption. The second largest group of
-  the money lenders is the busines owners.
+  Majority of money lenders are either salaried or commission-based
+  employees. Again Kenya makes an exception. The second largest group of
+  the money lenders is the business owners.
 \item
   Education-wise people with the bachelor's degree and skilled trade
   workers dominate.
@@ -426,7 +426,7 @@ As per the charts submitted above we can canlude that:
 \subsubsection{Economic Sentiment}\label{economic-sentiment}}
 
 Now let's see what the money lenders think about the state of the
-economy in ther respective countries. The questions where asked in the
+economy in their respective countries. The questions where asked in the
 six-month perspective in the future from the date of survey.
 
 \begin{Schunk}
@@ -442,10 +442,10 @@ six-month perspective in the future from the date of survey.
 
 Evidently majority of the survey participants think that the economic
 situation in their country will be stable over a course of next six
-months. Many people in Kenya, Nigeria and Ghana find it more diffiult to
-find a job. Remarkably, despite the fact that people believe that the
-economic conditions are stable, citisens of all counties are not shure
-if they are going to meet their reqular expences.
+months. Many people in Kenya, Nigeria and Ghana find it more difficult
+to find a job. Remarkably, despite the fact that people believe that the
+economic conditions are stable, citizens of all counties are not sure if
+they are going to meet their regular expenses.
 
 \hypertarget{spending-and-borrowing-habits}{%
 \subsubsection{Spending and Borrowing
@@ -496,20 +496,20 @@ since it affects the most the credit score of the population.
   It is quite remarkable that the lenders do not charge fees or interest
   regularly (if at all) more often than not. The Cameroonians make an
   exception. In opposite the majority of South African lenders never
-  change interest. We have conducted furhter data research that have
-  proved that many people tend to lend to friends and familty. This fact
+  change interest. We have conducted further data research that have
+  proved that many people tend to lend to friends and family. This fact
   explains why the fees and interest on loans are waived.
 \item
   People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to
   cover business-related expenses. Citizens of other countries mainly
-  use loan to either cover one-time or or unexpected expences (wedding,
+  use loan to either cover one-time or or unexpected expenses (wedding,
   medical emergency..) or make ends meet (pay rent, buy clothes, etc.)
 \item
   Interestingly people in all countries do not watch how they spend the
   borrowed money. This fact probably explains why the question
-  \emph{Will you be able to meet your reqular expenses?} genrates
+  \emph{Will you be able to meet your regular expenses?} generates
   uncertain answers (see \textbf{Economic Sentiment} paragraph for
-  futher details).
+  further details).
 \end{itemize}
 
 \hypertarget{data-distribution-between-categories}{%
@@ -518,9 +518,9 @@ Categories}\label{data-distribution-between-categories}}
 
 There are five credit categories for borrowers and five lender
 categories. To train the robust classification models we have to ensure
-that each category has enough observations to support the model traing.
-Let's review the data distribution between the borrower and lender
-categories.
+that each category has enough observations to support the model
+training. Let's review the data distribution between the borrower and
+lender categories.
 
 \begin{Schunk}
 \begin{figure}[H]
@@ -544,17 +544,17 @@ categories.
 \end{figure}
 \end{Schunk}
 
-As we can observe overall the lending environmnet is not very promising;
+As we can observe overall the lending environment is not very promising;
 categories 1 and 2 (\emph{Very Poor} and \emph{Poor}) dominate. The
 lending climate is visibly better in Cameroon, Cote d'Ivoire and South
 Africa. It is also worth mentioning that categories 4 and 5 (\emph{Good}
 and \emph{Very Good}) do not have that much data. The situation is even
 worse with the lender categories. Thus prior to the model training we
-would have to upsmple the training data sets to bring all categories to
+would have to upsample the training data sets to bring all categories to
 the same level.
 
 Overall looking at the credit and lender scores of the population we
-observe that the destribution pattern is very similar between all sevent
+observe that the distribution pattern is very similar between all seven
 African countries. Thus if KASI Insight adds more countries to the fold
 there is no need to retrain the models assuming that the newly added
 countries have the same category distribution\ldots{}
@@ -571,8 +571,8 @@ large and wide data sets make model training much longer, affect the
 accuracy and speed of the models negatively. Also many input variables
 add complexity to the user interface making it hard to implement,
 maintain and use. Thus we have opted to evaluated available data
-features. The ultimate goal is to undersatand the relationship between
-the features and the response variables and select the most infulential
+features. The ultimate goal is to understand the relationship between
+the features and the response variables and select the most influential
 ones.
 
 \hypertarget{feature-correlation-matrix}{%
@@ -603,7 +603,7 @@ Selection}\label{univariate-feature-selection}}
 Univariate feature selection examines each feature individually to
 determine the strength of the relationship of the feature with the
 response variable. Next two paragraphs examine relationship between top
-20 features and credint and lender categories respectively.
+20 features and credit and lender categories respectively.
 
 \hypertarget{credit-score-univariate-feature-selection}{%
 \subsubsection{Credit Score Univariate Feature
@@ -943,9 +943,9 @@ feature is ``unimportant'' if shuffling its values leaves the model
 error unchanged, because in this case the model ignored the feature for
 the prediction.
 
-\hypertarget{credit-score-feature-impoirtance-evaluation}{%
-\subsubsection{Credit Score Feature Impoirtance
-Evaluation}\label{credit-score-feature-impoirtance-evaluation}}
+\hypertarget{credit-score-feature-importance-evaluation}{%
+\subsubsection{Credit Score Feature Importance
+Evaluation}\label{credit-score-feature-importance-evaluation}}
 
 \begin{Schunk}
 \begin{figure}[H]
@@ -958,9 +958,9 @@ Evaluation}\label{credit-score-feature-impoirtance-evaluation}}
 \end{figure}
 \end{Schunk}
 
-\hypertarget{lender-score-feature-impoirtance-evaluation}{%
-\subsubsection{Lender Score Feature Impoirtance
-Evaluation}\label{lender-score-feature-impoirtance-evaluation}}
+\hypertarget{lender-score-feature-importance-evaluation}{%
+\subsubsection{Lender Score Feature Importance
+Evaluation}\label{lender-score-feature-importance-evaluation}}
 
 \begin{Schunk}
 \begin{figure}[H]
@@ -973,14 +973,14 @@ Evaluation}\label{lender-score-feature-impoirtance-evaluation}}
 \end{figure}
 \end{Schunk}
 
-\hypertarget{takeways}{%
-\subsection{Takeways}\label{takeways}}
+\hypertarget{takeaways}{%
+\subsection{Takeaways}\label{takeaways}}
 
 We have applied two mathematical algorithms to identify the most
 significant features for credit score and lender score labels. To no
-surprise both methods have sucesfully identified the feature that have
-been used to cacluclate the credit/ lender categories. We have decided
-to select the top features that have distinctively higher score as a
+surprise both methods have successfully identified the feature that have
+been used to calculate the credit/ lender categories. We have decided to
+select the top features that have distinctively higher score as a
 base-line. During the model training and evaluation phase we will
 increase/decrease the number of features to estimate the effect of the
 input data dimentionality change the model accuracy.
@@ -1073,10 +1073,10 @@ Country\strut
 \subsection{Model Evaluation and
 Selection}\label{model-evaluation-and-selection}}
 
-After we cleaned and normalized the data, labled all observations and
+After we cleaned and normalized the data, labeled all observations and
 gained deep understanding about the features we are ready to start model
 training and evaluation. To gain the best result possible we will
-explore and evaluate three algorthim to train the models. They are:
+explore and evaluate three algorithm to train the models. They are:
 
 \begin{itemize}
 \tightlist
@@ -1086,7 +1086,7 @@ explore and evaluate three algorthim to train the models. They are:
   explain multi-dimensional space with high accuracy
 \item
   \textbf{Random Forest} (RF). Random forest belongs to the class of
-  ensemble models. It has many hyperparameters that could be tuned to
+  ensemble models. It has many hyper-parameters that could be tuned to
   achieve high accuracy. The random forest algorithm is not demanding in
   terms of the data preparation, which makes it the first choice in many
   real-life scenarios
@@ -1104,9 +1104,9 @@ explore and evaluate three algorthim to train the models. They are:
 We believe that the best model has to classify all five categories as
 accurate as possible. The winning model also would have to identify true
 positives and true negatives for each category equally well. Thus we
-choose the muticlass confusion matrix and F1 scores to evalue the
+choose the multiclass confusion matrix and F1 scores to evaluate the
 models. The higher the F1 score for each category - the better the model
-performes.
+performs.
 
 We also take into consideration the model training and inference speed.
 
@@ -1117,17 +1117,20 @@ Methodology}\label{model-training-and-evaluation-methodology}}
 \begin{itemize}
 \tightlist
 \item
+  For the base-line models training we will use top seven feature for
+  the simulator and top nine feature for the evaluator respectively.
+\item
   We begin with the splitting the available data into the training
   (70\%) and test (30\%) sets.
 \item
   We upsample the training data set employing \emph{SMOTE} algorithm.
 \item
-  We evaluate the three algorthims we have described above. We will be
-  using the deafult algorithm parameters and top features (see
+  We evaluate the three algorithms we have described above. We will be
+  using the default algorithm parameters and top features (see
   \emph{Feature Evaluation} paragraph for more details) to fit the
   models.
 \item
-  We select the algorithm that has the best evaluation metrcis.
+  We select the algorithm that has the best evaluation metrics.
 \item
   Then we evaluate the winning algorithm fitting it with the smaller and
   larger feature sets.
@@ -1135,16 +1138,16 @@ Methodology}\label{model-training-and-evaluation-methodology}}
   If the data dimentionality change makes positive impact on the the
   winning algorithm we select this feature set for the model.
 \item
-  We hyper-tune the algorithm parameters in effort to achieve even
-  better model performance
+  Finally we hyper-tune the algorithm parameters in effort to achieve
+  even better model performance
 \end{itemize}
 
 \hypertarget{lending-environment-simulator-model}{%
 \subsubsection{Lending Environment Simulator
 Model}\label{lending-environment-simulator-model}}
 
-Following the steps outlined in the previous section we have recieved
-the following performances stats.
+Following the steps outlined in the previous section we have received
+the following performances stats:
 
 \hypertarget{svm}{%
 \paragraph{SVM}\label{svm}}
@@ -1200,12 +1203,13 @@ Overall algorithm accuracy: 0.9199
  Overall algorithm accuracy: 0.8635
 \end{verbatim}
 
-\hypertarget{winning-model}{%
-\subsubsection{Winning Model}\label{winning-model}}
+\hypertarget{the-best-lending-environment-simulator-model}{%
+\subsubsection{The Best Lending Environment Simulator
+Model}\label{the-best-lending-environment-simulator-model}}
 
 The \textbf{Random Forest} algorithm has come up on top. This model
 classifies all categories much better then the other two algorithms and
-demonstrates a nice balance between the recall and presision metrics.
+demonstrates a nice balance between the recall and precision metrics.
 The Random forest algorithm is also the fastest to train.
 
 \begin{longtable}[]{@{}llll@{}}
@@ -1294,8 +1298,6 @@ repaid?\tabularnewline
 
 Model Performance:
 
-0.9547
-
 \begin{verbatim}
           precision    recall  f1-score   support
 
@@ -1312,40 +1314,41 @@ Model Performance:
  Overall algorithm accuracy: 0.9547
 \end{verbatim}
 
-The dimentionality increase gave us an overall perfromance boost of
-almost \textbf{2\%}. It might not seem much. Let see how performance of
-each category has been affected.
+The dimentionality increase gave us a performance boost of almost
+\textbf{2\%}. It might not seem much. Let see how performance of each
+category has been affected.
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtable}[]{@{}lllll@{}}
 \toprule
-Category & 7 Features & 9 Features & Gain (\%)\tabularnewline
+Category & 5 Features & 7 Features (base line) & \textbf{9 Features} &
+Gain (\%)\tabularnewline
 \midrule
 \endhead
-1 & 0.96 & 0.98 & 2\tabularnewline
-\textbf{2} & \textbf{0.93} & \textbf{0.96} & \textbf{3}\tabularnewline
-\textbf{3} & \textbf{0.88} & \textbf{0.91} & \textbf{3}\tabularnewline
-4 & 0.85 & 0.86 & 1\tabularnewline
-5 & 0.87 & 0.88 & 1\tabularnewline
+1 & 0.92 & 0.96 & \textbf{0.98} & 2\tabularnewline
+2 & 0.79 & 0.93 & \textbf{0.96} & 3\tabularnewline
+3 & 0.65 & 0.88 & \textbf{0.91} & 3\tabularnewline
+4 & 0.62 & 0.85 & \textbf{0.86} & 1\tabularnewline
+5 & 0.68 & 0.87 & \textbf{0.88} & 1\tabularnewline
 \bottomrule
 \end{longtable}
 
-Evdently categories 2 (\emph{Poor}) and 3 (\emph{Fair}) have benefited
+Evidently categories 2 (\emph{Poor}) and 3 (\emph{Fair}) have benefited
 the most form the dimentionality increase. Ultimately it is up to the
-business to decised if 3\% accuracy gain is worth the training time and
-user interface complexity increase. KASI Insight represantative has
+business to decide if 3\% accuracy gain is worth the training time and
+user interface complexity increase. KASI Insight representative has
 opted for higher accuracy.
 
 \hypertarget{hyper-parameter-tuning}{%
 \subsubsection{Hyper-parameter Tuning}\label{hyper-parameter-tuning}}
 
-Hyper-parameter tuning is ususally the last step in effort to improve
-the model performance. We will employ \emph{Grid Search} algorithm with
+Hyper-parameter tuning is usually the last step in effort to improve the
+model performance. We will employ \emph{Grid Search} algorithm with
 \textbf{three-fold cross validation} to identify the best model
 parameters. The parameter grid look as follows:
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
-Patameter & Values\tabularnewline
+Parameter & Values\tabularnewline
 \midrule
 \endhead
 Number of Estimators & 200, 300, 400\tabularnewline
@@ -1355,7 +1358,7 @@ Bootstrap: & True, False\tabularnewline
 \bottomrule
 \end{longtable}
 
-The hyper-parameter tuning gave us another \textbf{0.5\%} performnace
+The hyper-parameter tuning gave us another \textbf{0.5\%} performance
 gain.
 
 \hypertarget{final-simulator-model-stats}{%
@@ -1395,7 +1398,7 @@ Stats}\label{final-simulator-model-stats}}
  weighted avg  0.96      0.96      0.96      8815
 \end{verbatim}
 
-Lastly we are going to review the model learning and vaidation curves.
+Lastly we are going to review the model learning and validation curves.
 As per figure \ref{fig:simulator_lc} the model was learning more about
 the data as the training size grew. When the training size reached about
 30,000 observations the validation curve converged with the training one
@@ -1416,8 +1419,318 @@ likely result in better model performance.
 \hypertarget{lender-evaluator}{%
 \subsection{Lender Evaluator}\label{lender-evaluator}}
 
-Noe we are going to repeate all the same steps to find thebest model for
-the \emph{Lender Evaluator} tool.
+Without further due let's apply the same methodology to select
+\emph{Lender Evaluator} classifier.
+
+\hypertarget{svm-1}{%
+\paragraph{SVM}\label{svm-1}}
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+
+       1       0.98      0.96      0.97      4053
+       2       0.93      0.94      0.94      3249
+       3       0.88      0.93      0.90      1272
+       4       0.81      0.83      0.82       209
+       5       0.75      0.66      0.70        32
+
+micro avg      0.94      0.94      0.94      8815
+macro avg      0.87      0.86      0.87      8815
+weighted avg   0.94      0.94      0.94      8815
+
+Overall algorithm accuracy: 0.9441
+\end{verbatim}
+
+\hypertarget{random-forest-1}{%
+\paragraph{Random Forest}\label{random-forest-1}}
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+
+       1       0.99      0.98      0.99      4038
+       2       0.97      0.98      0.97      3289
+       3       0.95      0.95      0.95      1261
+       4       0.89      0.82      0.85       197
+       5       0.89      0.53      0.67        30
+
+micro avg      0.97      0.97      0.97      8815
+macro avg      0.94      0.85      0.89      8815
+weighted avg   0.97      0.97      0.97      8815
+
+Overall algorithm accuracy: 0.972
+\end{verbatim}
+
+\hypertarget{gradient-boosting-1}{%
+\paragraph{Gradient Boosting}\label{gradient-boosting-1}}
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+
+       1       0.99      0.95      0.97      4066
+       2       0.92      0.92      0.92      3261
+       3       0.81      0.87      0.84      1218
+       4       0.67      0.86      0.75       235
+       5       0.68      0.80      0.74        35
+
+micro avg      0.93      0.93      0.93      8815
+macro avg      0.81      0.88      0.84      8815
+weighted avg   0.93      0.93      0.93      8815
+
+Overall algorithm accuracy: 0.925
+\end{verbatim}
+
+\hypertarget{the-best-lender-evaluator-model}{%
+\subsubsection{The Best Lender Evaluator
+Model}\label{the-best-lender-evaluator-model}}
+
+Again the \textbf{Random Forest} algorithm proved to be the most
+accurate. Though it does not identify category 5 observations as well as
+the other two algorithm we hope that the input data dimentionality
+increase and hyper-parameter tuning will rectify the problem.
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Category & \textbf{RF f1-score} & SVM f1-score & GB
+f1-score\tabularnewline
+\midrule
+\endhead
+1 & \textbf{0.99} & 0.97 & 0.97\tabularnewline
+2 & \textbf{0.97} & 0.94 & 0.92\tabularnewline
+3 & \textbf{0.95} & 0.90 & 0.84\tabularnewline
+4 & \textbf{0.85} & 0.82 & 0.75\tabularnewline
+5 & \textbf{0.67} & 0.70 & 0.74\tabularnewline
+Accuracy & \textbf{0.972} & 0.9441 & 0.925\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{dimentionality-change-1}{%
+\subsubsection{Dimentionality Change}\label{dimentionality-change-1}}
+
+Let's evaluate how the number of features affect the accuracy of the
+model. Just like in the case of the simulator model we begin with the
+smaller feature set, namely seven.
+
+Top seven features:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Num & Feature\tabularnewline
+\midrule
+\endhead
+24 & Do you receive your money back in time?\tabularnewline
+26 & What's the most common use of the money you lend?\tabularnewline
+22 & Do you include either interest or a lending fee when you
+lend?\tabularnewline
+18 & Over the past 3 months, how many times have you lent someone
+money?\tabularnewline
+20 & Who did you lend money to in the past 3 months?\tabularnewline
+23 & Do you request guarantees when you lend?\tabularnewline
+19 & On average how much do you lend in general?\tabularnewline
+\bottomrule
+\end{longtable}
+
+Model Performance:
+
+\begin{verbatim}
+      precision    recall  f1-score   support
+
+       1       0.99      0.97      0.98      4005
+       2       0.96      0.95      0.95      3330
+       3       0.89      0.95      0.92      1252
+       4       0.84      0.92      0.88       205
+       5       0.84      0.70      0.76        23
+
+micro avg      0.96      0.96      0.96      8815
+macro avg      0.90      0.90      0.90      8815
+weighted avg   0.96      0.96      0.96      8815 
+
+Overall algorithm accuracy: 0.9585    
+\end{verbatim}
+
+Surprisingly the dimentionality reduction resulted in better model
+performance!
+
+Top ten features:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright
+Num\strut
+\end{minipage} & \begin{minipage}[b]{0.89\columnwidth}\raggedright
+Feature\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+24\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you receive your money back in time?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+18\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Over the past 3 months, how many times have you lent someone
+money?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+22\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you include either interest or a lending fee when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+23\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Do you request guarantees when you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+20\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Who did you lend money to in the past 3 months?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+26\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+What's the most common use of the money you lend?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+19\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+On average how much do you lend in general?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+25\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Assuming that you have lent money at least ten times, how often would
+you get your money repaid?\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+Country\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright
+21\strut
+\end{minipage} & \begin{minipage}[t]{0.89\columnwidth}\raggedright
+When you lend money, when do you usually expect to get it repaid?\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Model Performance:
+
+\begin{verbatim}
+          precision    recall  f1-score   support
+
+       1       0.99      0.99      0.99      4058
+       2       0.97      0.98      0.97      3216
+       3       0.94      0.96      0.95      1273
+       4       0.92      0.85      0.88       229
+       5       0.97      0.74      0.84        39
+
+micro avg      0.98      0.98      0.98      8815
+macro avg      0.96      0.90      0.93      8815
+weighted avg   0.98      0.98      0.98      8815
+
+Overall algorithm accuracy: 0.975
+\end{verbatim}
+
+The dimentionality increase yields the best performance. The category 5
+identification has been improved the most. The top ten feature set is an
+ultimate winner.
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Category & 7 Features** & 9 Features (base-line) & \textbf{10 Features}
+& Gain (\%)\tabularnewline
+\midrule
+\endhead
+1 & 0.98 & 0.99 & \textbf{0.99} & 0\tabularnewline
+2 & 0.95 & 0.97 & \textbf{0.97} & 0\tabularnewline
+3 & 0.92 & 0.95 & \textbf{0.95} & 0\tabularnewline
+4 & 0.88 & 0.85 & \textbf{0.88} & 3\tabularnewline
+5 & 0.76 & 0.67 & \textbf{0.84} & 17\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{hyper-parameter-tuning-1}{%
+\subsubsection{Hyper-parameter Tuning}\label{hyper-parameter-tuning-1}}
+
+The selected model demonstrates quite spectacular accuracy. We could
+potentially improve the identification of the category \# 5. We are
+going to apply Grid Search algorithm again trying to find the optimal
+hyper-parameters.
+
+Parameter grid:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Parameter & Values\tabularnewline
+\midrule
+\endhead
+Number of Estimators & 200, 300, 400\tabularnewline
+Minimum Sample Split & 5, 10, 20, 30, 40\tabularnewline
+Maximum Features & `auto', `sqrt'\tabularnewline
+Bootstrap: & True, False\tabularnewline
+\bottomrule
+\end{longtable}
+
+The hyper-parameter tuning has demonstrated similar to the default
+parameter performance.
+
+\hypertarget{final-evaluator-model-stats}{%
+\subsubsection{Final Evaluator Model
+Stats}\label{final-evaluator-model-stats}}
+
+\begin{itemize}
+\tightlist
+\item
+  Number of features: \textbf{10}
+\item
+  Overall algorithm accuracy: \textbf{0.9756}
+\end{itemize}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../models/training/evaluator_rf_tuned_large_matrix} 
+
+}
+
+\caption[Evaluator Model Confusion Matrix]{Evaluator Model Confusion Matrix}\label{fig:evaluator_cm}
+\end{figure}
+\end{Schunk}
+
+\begin{verbatim}
+       precision    recall  f1-score   support
+
+       1       0.99      0.99      0.99      4110
+       2       0.98      0.98      0.98      3237
+       3       0.94      0.96      0.95      1217
+       4       0.90      0.82      0.86       214
+       5       0.96      0.73      0.83        37
+
+micro avg      0.98      0.98      0.98      8815
+macro avg      0.95      0.90      0.92      8815
+weighted avg   0.98      0.98      0.98      8815
+\end{verbatim}
+
+Lastly we are going to review the model learning and validation curves.
+As per figure \ref{fig:evaluator_lc} the model was learning more about
+the data as the training size grew. When the training size reached about
+30,000 observations the validation curve converged with the training one
+indicating that the further increase in the training set size will not
+likely result in better model performance.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{../../models/training/evaluator_rf_tuned_large_curves} 
+
+}
+
+\caption[Eval Model Learning Curves]{Eval Model Learning Curves}\label{fig:evaluator_lc}
+\end{figure}
+\end{Schunk}
 
 \hypertarget{model-deployment}{%
 \section{Model Deployment}\label{model-deployment}}
