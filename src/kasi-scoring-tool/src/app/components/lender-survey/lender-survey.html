@@ -1,5 +1,5 @@
 <mat-vertical-stepper #stepper>
-    <!-- answer order 24,18,22,23,20,26,19,25,16,12,11,21 -->
+    <!-- answer order 24,18,22,23,20,26,19,25,16,21 -->
     <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['16']}} <span
                     class="kasi-answer">{{countriesRef[survey.q9]}}</span></span></ng-template>
@@ -51,19 +51,9 @@
         <multi-choice-step [choices]="ref25" [(choice)]="survey.q8"></multi-choice-step>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['12']}} <span
-                    class="kasi-answer">{{ref12[survey.q10]}}</span></span></ng-template>
-        <multi-choice-step [choices]="ref12" [(choice)]="survey.q10"></multi-choice-step>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['11']}} <span
-                    class="kasi-answer">{{ref11[survey.q11]}}</span></span></ng-template>
-        <multi-choice-step [choices]="ref11" [(choice)]="survey.q11"></multi-choice-step>
-    </mat-step>
-    <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['21']}} <span
-                    class="kasi-answer">{{ref21[survey.q12]}}</span></span></ng-template>
-        <multi-choice-step [choices]="ref21" [(choice)]="survey.q12"></multi-choice-step>
+                    class="kasi-answer">{{ref21[survey.q10]}}</span></span></ng-template>
+        <multi-choice-step [choices]="ref21" [(choice)]="survey.q10"></multi-choice-step>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>
@@ -74,3 +64,4 @@
         </ng-template>
     </mat-step>
 </mat-vertical-stepper>
+<spinner [display]="displaySpinner"></spinner>

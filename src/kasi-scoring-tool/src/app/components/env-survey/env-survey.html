@@ -1,5 +1,5 @@
 <mat-vertical-stepper #stepper>
-    <!-- answer order 24,26,22,18,20,23,19,16,21,25 -->
+    <!-- answer order 24,26,22,18,20,23,19,16,21 -->
     <mat-step>
         <ng-template matStepLabel><span class="kasi-wrap">{{Questions['16']}} <span
                     class="kasi-answer">{{countriesRef[survey.q8]}}</span></span></ng-template>
@@ -51,11 +51,6 @@
         <multi-choice-step [choices]="ref21" [(choice)]="survey.q9"></multi-choice-step>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel><span class="kasi-wrap">{{Questions['25']}} <span
-                    class="kasi-answer">{{ref25[survey.q10]}}</span></span></ng-template>
-        <multi-choice-step [choices]="ref25" [(choice)]="survey.q10"></multi-choice-step>
-    </mat-step>
-    <mat-step>
         <ng-template matStepLabel>
             <mat-chip-list>
                 <mat-chip color="accent" (click)="predict()" selected>Simulate</mat-chip>
@@ -64,3 +59,4 @@
         </ng-template>
     </mat-step>
 </mat-vertical-stepper>
+<spinner [display]="displaySpinner"></spinner>

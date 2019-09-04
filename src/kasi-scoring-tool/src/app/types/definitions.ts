@@ -27,12 +27,10 @@ export interface SimulatorSurvey{
     q7:number;
     q8:number;
     q9:number;
-    q10:number;
 }
 
 export interface LenderScoreSurvey extends SimulatorSurvey {
-    q11:number;
-    q12:number;
+    q10:number;
 }
 
 export interface ModelPrediction {
