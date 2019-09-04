@@ -29,12 +29,12 @@ export class EnvSurveyComponent {
 
   constructor(private modelService: ModelService) {
     this.setDefaultValues();
-    this.score.emit(undefined);
   }
 
   reset() {
     this.stepper.reset();
     this.setDefaultValues();
+    this.score.emit(undefined);
   }
 
   predict() {
