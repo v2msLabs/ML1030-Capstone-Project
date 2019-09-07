@@ -1,11 +1,96 @@
 % !TeX root = RJwrapper.tex
-\title{Lending Environment Simulator \& Lender Evaluation Tool}
+\title{Credit Score Estimator and Lender Evaluation Tool}
 \author{by Vadim Spirkov, Murlidhar Loka}
 
 \maketitle
 
 \abstract{%
-In
+In the word of financial credit the industry practitioners are topically
+confronted by the following questions:
+
+\begin{itemize}
+\item
+  How strong are my potential business partners financially so my
+  organization can create a long term relationship with them?
+\item
+  How much risk is involved in dealing with a particular person or a
+  business so I could manage it better?
+\end{itemize}
+
+To answer such questions the credit industry has developed a few scoring
+techniques to evaluate credit risk of a business or a person. These
+scoring algorithms traditionally use historical financial data to
+forecast a near-term outlook and a long-term viability scenario. In
+recent years Machine-Learning software took the industry by storm
+offering in-depth understanding of the valuable connections between
+pieces of data. It is hard for human analysts alone to match the speed,
+efficiency and accuracy of ML models, particularly in the
+high-dimensional, large-volume data space.
+
+This paper applies rather an unorthodox approach to a credit evaluation
+problem. Before we proceed any further we would like to introduce our
+business partner - KASI Insight. KASI Insights is an award-winning and
+leading provider of consumer data, measures and insights to understand
+average African consumer. Every month, the company listens to Africans
+and turns survey based data into actionable insights. Through its
+self-service platform, the clients of the firm leverage consumer
+insights at scale, identify early signs of market shifts and unlock
+market-creating opportunities for their businesses. (Ref:\cite{kasi})
+
+One of the groups KASI Insight surveys are people who actively lend
+money to other community members. In Africa money lending between the
+individuals is very common and popular. This practice, in fact, is a
+substitution to the small loan franchises, which are wide-spread in
+Western countries. The firm leverages the wisdom of the crowd to
+evaluate lending activities within a community over time to compute a
+community-based score. Thus KASI's surveys provide risk profile of the
+population in a given area through the eyes of the lender. KASI Insight
+team was very interested in finding out:
+
+\begin{itemize}
+\item
+  If the collected data could be translated into an individual credit
+  score.
+\item
+  Whether there are any other applications of the collected data
+  possible.
+\item
+  What useful or even commercially successful products could be created
+  based on the available data.
+\end{itemize}
+
+Learning the business model of the company, the data it possesses we
+have quickly realized that the traditional approach to the credit score
+evaluation will not work in this particular case; KASI Insight does not
+own financial data\ldots{} So we asked ourselves:
+
+\begin{itemize}
+\item
+  How can we apply the survey data collected by KASI Insight over years
+  to evaluate credit score of the community members?
+\item
+  Could the data be used to create other valuable products?
+\item
+  How can we employ Machine Learning techniques to produce a valuable
+  content for KASI Insight?
+\end{itemize}
+
+This paper addresses all those questions. It provides in-depth analysis
+of the survey data, explains its deficiency and offer means to fix the
+data problems. In close collaboration with KASI Insight team, we design
+two Machine-Learning based products that, we hope, will extend KASI
+Insight offering to its business partners. They are:
+
+\begin{itemize}
+\item
+  Credit Score Estimator model
+\item
+  Lender Evaluator model
+\end{itemize}
+
+The paper walks the reader through the product design process, justifies
+each solution, evaluates the results. In the end we provide a brief
+overview of the turn-key solution we developed for KASI Insight.
 }
 
 % Any extra LaTeX you need in the preamble

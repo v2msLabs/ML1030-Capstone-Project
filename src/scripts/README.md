@@ -33,7 +33,7 @@ At the moment of writing the following algorithm have been considered:
 * Support Vector Machine
 * Gradient Boosting Classifier
 
-To execute the script run `kasi_tune --algoritm [algorithm] --model [siulator/evaluator] --input_file [path_to_clean_data_file] --output_dir [path_to_the_output_directory]`
+To execute the script run `kasi_tune --algoritm [algorithm] --model [siulator/evaluator] --input_file [path_to_clean_data_file] --output_dir [path_to_the_output_directory] --feature_size [small/base/large(default)]`
 
 Example: `kasi_tune --algorithm rf --model simulator --input_file ../clean/clean_data.csv --output_dir ./tuning`
  
@@ -49,7 +49,7 @@ The model training script trains either simulator or evaluator model employing o
 The script can either apply parameters found during the algorithm tuning exercise (default behaviour).
 Or it can use default algorithm settings (the --default parameter should be set to *True*)
 
-To execute the script run `kasi_train --algoritm [algorithm] --model [siulator/evaluator] --input_file [path_to_clean_data_file] --output_dir [path_to_the_output_directory] --default`
+To execute the script run `kasi_train --algoritm [algorithm] --model [siulator/evaluator] --input_file [path_to_clean_data_file] --output_dir [path_to_the_output_directory] --default --feature_size [small/base/large(default)]`
 
 Example: `kasi_train --algorithm rf --model simulator --input_file ../clean/clean_data.csv --output_dir ./training`
 
@@ -62,13 +62,14 @@ The script generates a number of artifacts, namely:
 
 The generated file have the following naming convention:
 
-`[model]_[algorithm]_[params]_[purpose].extension`
+`[model]_[algorithm]_[params]_[feature_size]_[purpose].extension`
 
 Where
 
 - model: `simultor` or `evaluator`
 - algorithm: `rf`, `gb` or `svm`
 - params: `tuned` or `default`
+- feature_size (default - large): `small`, `base`, `large`
 - purpose (optional): `curves`, `stats`, `matrx`
 - extension: `txt`, `model`, `png`
 
