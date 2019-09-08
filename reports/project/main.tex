@@ -1,5 +1,5 @@
 % !TeX root = RJwrapper.tex
-\title{Credit Score Estimator and Lender Evaluation Tool}
+\title{Lending Environment Simulator and Lender Evaluation Tool}
 \author{by Vadim Spirkov, Murlidhar Loka}
 
 \maketitle
@@ -28,12 +28,12 @@ efficiency and accuracy of ML models, particularly in the
 high-dimensional, large-volume data space.
 
 This paper applies rather an unorthodox approach to a credit evaluation
-problem. Before we proceed any further we would like to introduce our
-business partner - KASI Insight. KASI Insights is an award-winning and
-leading provider of consumer data, measures and insights to understand
-average African consumer. Every month, the company listens to Africans
-and turns survey based data into actionable insights. Through its
-self-service platform, the clients of the firm leverage consumer
+problem. But before we proceed any further we would like to introduce
+our business partner - KASI Insight. KASI Insights is an award-winning
+and leading provider of consumer data, measures and insights to
+understand average African consumer. Every month, the company listens to
+Africans and turns survey based data into actionable insights. Through
+its self-service platform, the clients of the firm leverage consumer
 insights at scale, identify early signs of market shifts and unlock
 market-creating opportunities for their businesses. (Ref:\cite{kasi})
 
@@ -83,9 +83,9 @@ Insight offering to its business partners. They are:
 
 \begin{itemize}
 \item
-  Credit Score Estimator model
+  Lending Environment Simulator
 \item
-  Lender Evaluator model
+  Lender Evaluator
 \end{itemize}
 
 The paper walks the reader through the product design process, justifies
@@ -98,23 +98,114 @@ overview of the turn-key solution we developed for KASI Insight.
 \hypertarget{background}{%
 \section{Background}\label{background}}
 
+Let's breifly review how KASI Infight collects and uses the data.
+
+\begin{itemize}
+\item
+  Samples from the community who have lent money (lenders) are pooled
+  and asked questions about borrowers within the community based on
+  their personal experience.
+\item
+  The responses to the survey are inputted into KASI Insight credit
+  model and a community score is computed. The score is assigned to all
+  members of the community.
+\end{itemize}
+
+After intial assesment of the process and the data we understood that
+the existing apporach were not suatable for Machine-Learning
+application. We brainstormed and suggested two ways to utilize the
+available data.
+
+Firstly we put ourseves in the shoes of a lender. Being a lender we
+would be intrested to know how our lending pattern would affect our
+profit. For example if we strart lending money to the business colleges
+instead of family. Or we increase the interest, or we decrease the
+interest and increase the amount, etc. Then we though if we were a
+banker who were contemplating to establish a quick loan business in a
+specific area how would we evaluate, at least intially the credit
+worthiness of the pupluation. This is who we came up with the
+\textbf{Lending Environment Simulator} concept. This ML model could be
+trained on the servey answers to assign a credit category. To implement
+such a model we would have to have the labels for all observations; we
+did not have them. We discussed the problem with KASI Insight team. They
+came up with the credit category formula, which we describe below
+
+\hypertarget{credit-category-assignment-process}{%
+\subsection{Credit Category Assignment
+Process}\label{credit-category-assignment-process}}
+
+KASI team assigned weights to the survey answers that pertain to lending
+practice. Based on the answers of each observation we calculated the
+score, which was used to assign one of the five categories as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Very Poor} - the credit score less than \textbf{350}
+\item
+  \textbf{Poor} - the credit score is between \textbf{350 and 550}
+\item
+  \textbf{Fair} - the credit score is between \textbf{550 and 650}
+\item
+  \textbf{Good} - the credit score lies between \textbf{650 and 750}
+\item
+  \textbf{Very Good} - the credit score is higher tan \textbf{750}
+\end{itemize}
+
+and this is how we labled all observation to train the simulator
+classifier.
+
+\hypertarget{lender-evaluator}{%
+\subsection{Lender Evaluator}\label{lender-evaluator}}
+
+How else could we possibly use the data our business partner collected?
+We though if we were a financial insitution and wnated to have a proxy
+to conduct money lending business in our behalf in various communities
+how would we evaluate the business savvines of potential candidates?
+This is how we came up with the concept of \textbf{Lender Evaluator}
+model. I believed that the survey KASI Insight conducts not only reflet
+the credit wothiness of the general public but also describe the
+proficiency, knowledge and experience of the lender as a business
+partner. We only needed the formulat to evaluate the answers correctly.
+Again KASI Insight team was very instrumental. They created another
+formula to calculate the lender score based on the survey answers. We
+took similar to the simulator model approach, only applied different
+weights to the answers to calculate the lender score. Again based on
+each observation score we assigned the category. The categories for
+lenders are identical to the credit categories listed above.
+
 \hypertarget{objectives}{%
 \section{Objectives}\label{objectives}}
+
+Through exploring and applying the latest Machine-Learning techniques we
+aim to deliver two ML models:
+
+\begin{itemize}
+\item
+  Lending Environmnet Simulator
+\item
+  Lender Evaluator
+\end{itemize}
+
+We hope that these models will be included into the product line-up of
+KASI Insight allowing our business partner to explore new business
+opportunities. We will deliver the turn-key solution that would include
+the user interface to demonstrate the model performance in real life.
+THe final product will also include a docker image to simplify the model
+deployment into production environment on the AWS cloud.
 
 \hypertarget{project-artifacts}{%
 \section{Project Artifacts}\label{project-artifacts}}
 
+All project artifacts, technical guides, this report could be found at
+\href{https://github.com/v2msLabs/ML1030-Capstone-Project}{GitHub}
+
 \hypertarget{data-analysis}{%
 \section{Data Analysis}\label{data-analysis}}
 
-As it has been mentioned KASI Insight does not posses personal financial
-data that could be used to identify and predict client credit
-worthiness. In this project we are using the survey data collected by
-KASI Insight over years from seven African countries. The survey targets
-people who lend money on regular basis. The survey contains questions
-pertaining to the borrowing habits of the people the lenders deal with,
-asks respondents what they feel about the economy in a given country,
-etc. KASI insight has collected almost \textbf{30,000} records over a
+As it has been already stated in this project we are using the survey
+data collected by KASI Insight over years from seven African countries.
+So far KASI insight has collected almost \textbf{30,000} records over a
 course of last three years.
 
 \hypertarget{data-dictionary}{%
@@ -343,11 +434,11 @@ The survey data could be split into three major categories:
 \begin{itemize}
 \tightlist
 \item
-  Demographic Statistics
+  Demographic Statistics.
 \item
-  Economic Sentiment
+  Economic Sentiment.
 \item
-  Spending and Borrowing habits
+  Spending and Borrowing habits.
 \end{itemize}
 
 Each question/column should be treated as a categorical value.
@@ -361,7 +452,39 @@ alphanumeric format. Overtime some questions have been rephrased. Thus
 in some cases the answers that pertain to the same category vary.
 Another problem with the raw data set is the missing values.
 
-\textbf{TO DO: insert the sample of raw data here}
+\begin{Schunk}
+\begin{Soutput}
+#>                             2                  3              4                  5
+#> 0  Difficult / Plus difficile           No / Non    More / Plus  Maybe / Peut-être
+#> 1  Difficult / Plus difficile           No / Non  Same / Pareil           No / Non
+#> 2               Same / Pareil  Maybe / Peut-être  Same / Pareil  Maybe / Peut-être
+#> 3               Same / Pareil           No / Non   Less / Moins           No / Non
+#> 4               Same / Pareil           No / Non   Less / Moins  Maybe / Peut-être
+\end{Soutput}
+\begin{Soutput}
+#>                          6                        7                        8               9
+#> 0      Improve / Améliorée      Improve / Améliorée      Improve / Améliorée  Female / Femme
+#> 1      Improve / Améliorée      Improve / Améliorée      Improve / Améliorée  Female / Femme
+#> 2  Stay the same / La même  Stay the same / La même  Stay the same / La même    Male / Homme
+#> 3      Worsen / Détériorée  Stay the same / La même  Stay the same / La même    Male / Homme
+#> 4      Worsen / Détériorée  Stay the same / La même      Worsen / Détériorée    Male / Homme
+\end{Soutput}
+\begin{Soutput}
+#>                                                   10     11                               12  \
+#> 0  Separated, but not divorced / Séparé mais pas ...  18-24   High school, no diploma / BEPC   
+#> 1                                 Dating / En couple  25-29      Bachelor’s degree / Licence   
+#> 2                                    Married / Marié  18-24  Currently studying / Aux études   
+#> 3                                    Married / Marié  40-44      Bachelor’s degree / Licence   
+#> 4                                    Married / Marié  35-39      Bachelor’s degree / Licence   
+#> 
+#>                                                   13  
+#> 0                        Salaried employee / Salarié  
+#> 1                        Salaried employee / Salarié  
+#> 2                           Unemployed / Sans emploi  
+#> 3                        Business owner / Commercant  
+#> 4  Commission-based employee / Employé sous commi...
+\end{Soutput}
+\end{Schunk}
 
 To rectify the problems stated above we have developed a data processing
 algorithm that normalized and categorized the answers converting them
@@ -1501,8 +1624,8 @@ likely result in better model performance.
 \end{figure}
 \end{Schunk}
 
-\hypertarget{lender-evaluator}{%
-\subsection{Lender Evaluator}\label{lender-evaluator}}
+\hypertarget{lender-evaluator-1}{%
+\subsection{Lender Evaluator}\label{lender-evaluator-1}}
 
 Without further due let's apply the same methodology to select
 \emph{Lender Evaluator} classifier.

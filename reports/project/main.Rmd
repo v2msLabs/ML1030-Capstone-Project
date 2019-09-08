@@ -1,5 +1,5 @@
 ---
-title: Credit Score Estimator and Lender Evaluation Tool
+title: Lending Environment Simulator and Lender Evaluation Tool
 author:
   - name: Vadim Spirkov
     affiliation: York University School of Continuing Studies
@@ -20,7 +20,7 @@ abstract: >
   
   
   
-  This paper applies rather an unorthodox approach to a credit evaluation problem. Before we proceed any further we would like to introduce our business partner - KASI Insight. KASI Insights is an award-winning and leading provider of consumer data, measures and insights to understand average African consumer. Every month, the company listens to Africans and turns survey based data into actionable insights. Through its self-service platform, the clients of the firm leverage consumer insights at scale, identify early signs of market shifts and unlock market-creating opportunities for their businesses. (Ref:\cite{kasi}) 
+  This paper applies rather an unorthodox approach to a credit evaluation problem. But before we proceed any further we would like to introduce our business partner - KASI Insight. KASI Insights is an award-winning and leading provider of consumer data, measures and insights to understand average African consumer. Every month, the company listens to Africans and turns survey based data into actionable insights. Through its self-service platform, the clients of the firm leverage consumer insights at scale, identify early signs of market shifts and unlock market-creating opportunities for their businesses. (Ref:\cite{kasi}) 
  
   
   
@@ -53,10 +53,10 @@ abstract: >
   This paper addresses all those questions. It provides in-depth analysis of the survey data, explains its deficiency and offer means to fix the data problems. In close collaboration with KASI Insight team, we design two Machine-Learning based products that, we hope, will extend KASI Insight offering to its business partners. They are:
   
   
-  - Credit Score Estimator model
+  - Lending Environment Simulator
   
   
-  - Lender Evaluator model
+  - Lender Evaluator
   
   
   The paper walks the reader through the product design process, justifies each solution, evaluates the results. In the end we provide a brief overview of the turn-key solution we developed for KASI Insight. 
@@ -85,17 +85,52 @@ pd.options.display.float_format = '{:,.2f}'.format
 
 # Background
 
+Let's breifly review how KASI Infight collects and uses the data.
+
+ - Samples from the community who have lent money (lenders) are pooled and asked questions about borrowers within the community based on their personal experience.
+ 
+ - The responses to the survey are inputted into KASI Insight credit model and a community score is computed. The score is assigned to all members of the community.
+ 
+After intial assesment of the process and the data we understood that the existing apporach were not suatable for Machine-Learning application. We brainstormed and suggested two ways to utilize the available data. 
+
+Firstly we put ourseves in the shoes of a lender. Being a lender we would be intrested to know how our lending pattern would affect our profit. For example if we strart lending money to the business colleges instead of family. Or we increase the interest, or we decrease the interest and increase the amount, etc. Then we though if we were a banker who were contemplating to establish a quick loan business in a specific area how would we evaluate, at least intially the credit worthiness of the pupluation. This is who we came up with the **Lending Environment Simulator** concept. This ML model could be trained on the servey answers to assign a credit category. To implement such a model we would have to have the labels for all observations; we did not have them. We discussed the problem with KASI Insight team. They came up with the credit category formula, which we describe below
+
+## Credit Category Assignment Process
+
+KASI team assigned weights to the survey answers that pertain to lending practice. Based on the answers of each observation we calculated the score, which was used to assign one of the five categories as follows:
+
+ * **Very Poor** - the credit score less than **350**
+ * **Poor** - the credit score is between **350 and 550**
+ * **Fair** - the credit score is between **550 and 650**
+ * **Good** - the credit score lies between **650 and 750**
+ * **Very Good** - the credit score is higher tan **750**
+
+and this is how we labled all observation to train the simulator classifier.
+
+## Lender Evaluator
+
+How else could we possibly use the data our business partner collected? We though if we were a financial insitution and wnated to have a proxy to conduct money lending business in our behalf in various communities how would we evaluate the business savvines of potential candidates? This is how we came up with the concept of **Lender Evaluator** model. I believed that the survey KASI Insight conducts not only reflet the credit wothiness of the general public but also describe the proficiency, knowledge and experience of the lender as a business partner. We only needed the formulat to evaluate the answers correctly. Again KASI Insight team was very instrumental. They created another formula to calculate the lender score based on the survey answers. We took similar to the simulator model approach, only applied different weights to the answers to calculate the lender score. Again based on each observation score we assigned the category. The categories for lenders are identical to the credit categories listed above. 
+
 
 # Objectives
+
+Through exploring and applying the latest Machine-Learning techniques we aim to deliver two ML models:
+  
+  - Lending Environmnet Simulator
+  
+  - Lender Evaluator
+  
+We hope that these models will be included into the product line-up of KASI Insight allowing our business partner to explore new business opportunities. We will deliver the turn-key solution that would include the user interface to demonstrate the model performance in real life. THe final product will also include a docker image to simplify the model deployment into production environment on the AWS cloud.
 
 
 # Project Artifacts
 
+All project artifacts, technical guides, this report could be found at [GitHub](https://github.com/v2msLabs/ML1030-Capstone-Project) 
+
 
 # Data Analysis
 
-As it has been mentioned KASI Insight does not posses personal financial data that could be used to identify and predict client credit worthiness. In this project we are using the survey data collected by KASI Insight over years from seven African countries. The survey targets people who lend money on regular basis. The survey contains questions pertaining to the borrowing habits of the people the lenders deal with, asks respondents  what they feel about the economy in a given country, etc. KASI insight has collected almost **30,000** records over a course of last three years.
-
+As it has been already stated in this project we are using the survey data collected by KASI Insight over years from seven African countries. So far KASI insight has collected almost **30,000** records over a course of last three years.
 
 ## Data Dictionary
 
@@ -145,9 +180,9 @@ ID  | Question/Column
 
 The survey data could be split into three major categories:
 
-- Demographic Statistics
-- Economic Sentiment
-- Spending and Borrowing habits
+- Demographic Statistics.
+- Economic Sentiment.
+- Spending and Borrowing habits.
 
 Each question/column should be treated as a categorical value.
 
@@ -155,7 +190,15 @@ Each question/column should be treated as a categorical value.
 
 Let's take a look at the raw survey data. Though the survey multi-choice questions are categories in nature, the survey answers are stored in alphanumeric format. Overtime some questions have been rephrased. Thus in some cases the answers that pertain to the same category vary. Another problem with the raw data set is the missing values.
 
-**TO DO: insert the sample of raw data here**
+```{python echo=FALSE}
+import glob
+input_path_original = "../../data/original/**"
+paths = glob.glob(input_path_original)
+dfo = pd.concat([pd.read_csv(f,names=range(0,38),header=0,low_memory=False) for f in paths],ignore_index = True)
+print(dfo[[2,3,4,5]].head())
+print(dfo[[6,7,8,9]].head())
+print(dfo[[10,11,12,13]].head())
+```
 
 To rectify the problems stated above we have developed a data processing algorithm that normalized and categorized the answers converting them into numeric form. The data processing script also imputes the missing data with the most frequently occurring value for a given category. The clean data set stats are depicted below. **Note**: the column numbers correspond to the question numbers as described in *Data Dictionary* paragraph.
 
@@ -760,8 +803,6 @@ include_graphics("../../models/training/evaluator_rf_tuned_large_curves.png")
 ```
 
 
-
-
 # Model Deployment
 
 ## Architecture
@@ -770,6 +811,17 @@ include_graphics("../../models/training/evaluator_rf_tuned_large_curves.png")
 
 
 # Conclusion
+
+We started this project with leraning the business of KASI Insight - our partner. We explored the company data, understood the challenges and objectives. After gaining good feel about the company and its business we suggested a few concepts that we beleieved would allow our business partner to extend its business offering. The concept employed Machine-Learning techniques. Working closely with KASI Insight team we developed a methodology that allowed us to apply KASI Insight data to train the ML models. As a result of this close collaboration we came up with a project proposal that met the objectves of our business partner and allowed us hone our ML skills.  We promised to:
+
+ - Develop Lending Environment Simulator model
+ - Train Lender Evaluator model
+ - Deliver key-turn solution that would include:
+    - an on-line service that provides access the models
+    - a Web-based client that would demonstrate the models in action
+    - a docker image that would include all software tiers and be used for easy deployment of the system in cloud environment
+    
+We can proudly conclude that we have achieved all these goals.     
 
 
 \bibliography{RJreferences}
