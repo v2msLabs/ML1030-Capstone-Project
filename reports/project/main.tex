@@ -5,8 +5,8 @@
 \maketitle
 
 \abstract{%
-In the word of financial credit the industry practitioners are topically
-confronted by the following questions:
+In the world of financial credit the industry practitioners are
+topically confronted by the following questions:
 
 \begin{itemize}
 \item
@@ -98,7 +98,7 @@ overview of the turn-key solution we developed for KASI Insight.
 \hypertarget{background}{%
 \section{Background}\label{background}}
 
-Let's breifly review how KASI Infight collects and uses the data.
+Let's briefly review how KASI Insight collects and uses the data.
 
 \begin{itemize}
 \item
@@ -111,32 +111,33 @@ Let's breifly review how KASI Infight collects and uses the data.
   members of the community.
 \end{itemize}
 
-After intial assesment of the process and the data we understood that
-the existing apporach were not suatable for Machine-Learning
-application. We brainstormed and suggested two ways to utilize the
-available data.
+After initial assessment of the process and the data we understood that
+the existing approach was not suitable for Machine-Learning application.
+We brainstormed and suggested two ways to utilize the available data.
 
-Firstly we put ourseves in the shoes of a lender. Being a lender we
-would be intrested to know how our lending pattern would affect our
-profit. For example if we strart lending money to the business colleges
-instead of family. Or we increase the interest, or we decrease the
-interest and increase the amount, etc. Then we though if we were a
-banker who were contemplating to establish a quick loan business in a
-specific area how would we evaluate, at least intially the credit
-worthiness of the pupluation. This is who we came up with the
-\textbf{Lending Environment Simulator} concept. This ML model could be
-trained on the servey answers to assign a credit category. To implement
-such a model we would have to have the labels for all observations; we
-did not have them. We discussed the problem with KASI Insight team. They
-came up with the credit category formula, which we describe below
+Firstly we put ourselves in the shoes of a lender. Being a lender we
+would be interested to know how our lending pattern would affect our
+profit. For example if we start lending money to the business colleges
+instead of family. Or what if we increase the interest, or we decrease
+the interest and increase the amount or lending term, etc. Another use
+case we considered was if we were a banker who were contemplating to
+establish a quick loan business in a specific area how would we
+evaluate, at least initially the credit worthiness of the population?
+This is how we came up with the \textbf{Lending Environment Simulator}
+concept. This ML model could be trained on the survey answers to assign
+a credit category. To implement such a model we would have to have the
+labels for all observations; we did not have them. We discussed the
+problem with KASI Insight team. Our business partner came up with the
+credit category formula, which is described below.
 
 \hypertarget{credit-category-assignment-process}{%
 \subsection{Credit Category Assignment
 Process}\label{credit-category-assignment-process}}
 
-KASI team assigned weights to the survey answers that pertain to lending
-practice. Based on the answers of each observation we calculated the
-score, which was used to assign one of the five categories as follows:
+KASI team assigned weights to the survey answers that pertain to the
+lending practice. Based on the answers of each observation we calculated
+the score, which was used to assign one of the five categories as
+follows:
 
 \begin{itemize}
 \tightlist
@@ -149,30 +150,31 @@ score, which was used to assign one of the five categories as follows:
 \item
   \textbf{Good} - the credit score lies between \textbf{650 and 750}
 \item
-  \textbf{Very Good} - the credit score is higher tan \textbf{750}
+  \textbf{Very Good} - the credit score is higher than \textbf{750}
 \end{itemize}
 
-and this is how we labled all observation to train the simulator
+and this is how we labeled all observation to train the simulator
 classifier.
 
 \hypertarget{lender-evaluator}{%
 \subsection{Lender Evaluator}\label{lender-evaluator}}
 
 How else could we possibly use the data our business partner collected?
-We though if we were a financial insitution and wnated to have a proxy
+We though if we were a financial institution and wanted to have a proxy
 to conduct money lending business in our behalf in various communities
-how would we evaluate the business savvines of potential candidates?
-This is how we came up with the concept of \textbf{Lender Evaluator}
-model. I believed that the survey KASI Insight conducts not only reflet
-the credit wothiness of the general public but also describe the
+how would we evaluate the business savviness of the potential
+candidates? This is how we came up with the concept of \textbf{Lender
+Evaluator} model.
+
+We believed that the survey KASI Insight conducts not only reflect the
+credit worthiness of the general public but also describe the
 proficiency, knowledge and experience of the lender as a business
-partner. We only needed the formulat to evaluate the answers correctly.
-Again KASI Insight team was very instrumental. They created another
-formula to calculate the lender score based on the survey answers. We
-took similar to the simulator model approach, only applied different
-weights to the answers to calculate the lender score. Again based on
-each observation score we assigned the category. The categories for
-lenders are identical to the credit categories listed above.
+partner. We only needed the formula to evaluate the answers correctly in
+this particular context. Again KASI Insight team was very instrumental.
+They created another formula to calculate the lender score employing the
+survey answers. We took similar to the simulator model approach. Only
+the weights applied to the answers deferred. The categories for lenders
+were identical to the credit categories listed above.
 
 \hypertarget{objectives}{%
 \section{Objectives}\label{objectives}}
@@ -182,7 +184,7 @@ aim to deliver two ML models:
 
 \begin{itemize}
 \item
-  Lending Environmnet Simulator
+  Lending Environment Simulator
 \item
   Lender Evaluator
 \end{itemize}
@@ -191,8 +193,8 @@ We hope that these models will be included into the product line-up of
 KASI Insight allowing our business partner to explore new business
 opportunities. We will deliver the turn-key solution that would include
 the user interface to demonstrate the model performance in real life.
-THe final product will also include a docker image to simplify the model
-deployment into production environment on the AWS cloud.
+The final product will also include a docker image to simplify the model
+deployment into production environment on AWS cloud.
 
 \hypertarget{project-artifacts}{%
 \section{Project Artifacts}\label{project-artifacts}}
@@ -203,10 +205,10 @@ All project artifacts, technical guides, this report could be found at
 \hypertarget{data-analysis}{%
 \section{Data Analysis}\label{data-analysis}}
 
-As it has been already stated in this project we are using the survey
-data collected by KASI Insight over years from seven African countries.
-So far KASI insight has collected almost \textbf{30,000} records over a
-course of last three years.
+As it has been already stated we are dealing with the survey data
+collected by KASI Insight from seven African countries. So far KASI
+insight has collected almost \textbf{30,000} records over a course of
+last three years.
 
 \hypertarget{data-dictionary}{%
 \subsection{Data Dictionary}\label{data-dictionary}}
@@ -446,11 +448,12 @@ Each question/column should be treated as a categorical value.
 \hypertarget{data-exploration}{%
 \subsection{Data Exploration}\label{data-exploration}}
 
-Let's take a look at the raw survey data. Though the survey multi-choice
-questions are categories in nature, the survey answers are stored in
-alphanumeric format. Overtime some questions have been rephrased. Thus
-in some cases the answers that pertain to the same category vary.
-Another problem with the raw data set is the missing values.
+Let's take a look at the raw survey data (see the table below). Though
+the survey multi-choice questions are categories in nature, the survey
+answers are stored in alphanumeric format. Overtime some questions have
+been rephrased. Thus in some cases the answers that pertain to the same
+category vary. Another problem with the raw data set is the missing
+values.
 
 \begin{Schunk}
 \begin{Soutput}
@@ -492,7 +495,7 @@ into numeric form. The data processing script also imputes the missing
 data with the most frequently occurring value for a given category. The
 clean data set stats are depicted below. \textbf{Note}: the column
 numbers correspond to the question numbers as described in \emph{Data
-Dictionary} paragraph.
+Dictionary} section
 
 \begin{Schunk}
 \begin{Soutput}
@@ -603,13 +606,13 @@ Africa.
 \end{figure}
 \end{Schunk}
 
-As per the charts submitted above we can conclude that:
+As per the charts submitted above we may conclude that:
 
 \begin{itemize}
 \tightlist
 \item
   Cameroon has the highest number of observations and Tanzania has the
-  smallest representation, where the rest of the countries or more or
+  smallest representation, while the rest of the countries or more or
   less equally represented.
 \item
   Males dominate in the money lending business. Kenya though makes an
@@ -704,14 +707,15 @@ since it affects the most the credit score of the population.
   It is quite remarkable that the lenders do not charge fees or interest
   regularly (if at all) more often than not. The Cameroonians make an
   exception. In opposite the majority of South African lenders never
-  change interest. We have conducted further data research that have
+  charge the interest. We have conducted further data research that have
   proved that many people tend to lend to friends and family. This fact
   explains why the fees and interest on loans are waived.
 \item
   People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to
-  cover business-related expenses. Citizens of other countries mainly
-  use loan to either cover one-time or or unexpected expenses (wedding,
-  medical emergency..) or make ends meet (pay rent, buy clothes, etc.)
+  cover business-related expenses. Citizens of the other countries
+  mainly use the loans to either cover one-time/ unexpected expenses
+  (wedding, medical emergency..) or make ends meet (pay rent, buy
+  clothes, etc.)
 \item
   Interestingly people in all countries do not watch how they spend the
   borrowed money. This fact probably explains why the question
@@ -776,8 +780,8 @@ fit the models. But this is not the optimal approach. Not all data
 elements contribute to the category identification equally, some may not
 contribute at all, so why keep them? Another consideration is that the
 large and wide data sets make model training much longer, affect the
-accuracy and speed of the models negatively. Also many input variables
-add complexity to the user interface making it hard to implement,
+accuracy and speed of the models negatively. Also large input variable
+set adds complexity to the user interface making it hard to implement,
 maintain and use. Thus we have opted to evaluated available data
 features. The ultimate goal is to understand the relationship between
 the features and the response variables and select the most influential
@@ -811,7 +815,7 @@ Selection}\label{univariate-feature-selection}}
 Univariate feature selection examines each feature individually to
 determine the strength of the relationship of the feature with the
 response variable. Next two paragraphs examine relationship between top
-20 features and credit and lender categories respectively.
+20 features and the credit and lender categories respectively.
 
 \hypertarget{credit-score-univariate-feature-selection}{%
 \subsubsection{Credit Score Univariate Feature
@@ -1187,11 +1191,11 @@ Evaluation}\label{lender-score-feature-importance-evaluation}}
 We have applied two mathematical algorithms to identify the most
 significant features for credit score and lender score labels. To no
 surprise both methods have successfully identified the feature that have
-been used to calculate the credit/ lender categories. We have decided to
-select the top features that have distinctively higher score as a
-base-line. During the model training and evaluation phase we will
+been used to calculate the credit/ lender categories. We have selected
+the top features that have distinctively higher score as the base-line
+features sets. During the model training and evaluation phase we will
 increase/decrease the number of features to estimate the effect of the
-input data dimentionality change the model accuracy.
+input data dimentionality change on the model accuracy.
 
 \hypertarget{top-seven-credit-score-features}{%
 \subsubsection{Top Seven Credit Score
@@ -1283,27 +1287,26 @@ Selection}\label{model-evaluation-and-selection}}
 
 After we cleaned and normalized the data, labeled all observations and
 gained deep understanding about the features we are ready to start model
-training and evaluation. To gain the best result possible we will
-explore and evaluate three algorithm to train the models. They are:
+training and evaluation. To achieve the best result possible we will
+explore and evaluate three algorithms to train the models. They are:
 
 \begin{itemize}
 \tightlist
 \item
   \textbf{Support Vector Machine} (SVM). The greatest strength of SVM is
-  that it has multiple Kernel implementations, that can be tuned to
-  explain multi-dimensional space with high accuracy
+  that it has multiple Kernel implementations, that could be tuned to
+  explain multi-dimensional space with high accuracy.
 \item
   \textbf{Random Forest} (RF). Random forest belongs to the class of
   ensemble models. It has many hyper-parameters that could be tuned to
   achieve high accuracy. The random forest algorithm is not demanding in
   terms of the data preparation, which makes it the first choice in many
-  real-life scenarios
+  real-life scenarios.
 \item
   \textbf{Gradient Boosting Machine} (GBM). GBM is an ensemble model as
   well. It uses the concept of trees just like the RF model does but
-  applies it differently. GBT builds the trees one at a time, where each
-  new tree helps to correct errors made by previously trained tree. the
-  GBM.
+  applies it differently. GBM builds the trees one at a time, where each
+  new tree helps to correct errors made by previously trained tree.
 \end{itemize}
 
 \hypertarget{evaluation-metrics}{%
@@ -1314,9 +1317,8 @@ accurate as possible. The winning model also would have to identify true
 positives and true negatives for each category equally well. Thus we
 choose the multiclass confusion matrix and F1 scores to evaluate the
 models. The higher the F1 score for each category - the better the model
-performs.
-
-We also take into consideration the model training and inference speed.
+performs. We also take into consideration the model training and
+inference speed.
 
 \hypertarget{model-training-and-evaluation-methodology}{%
 \subsubsection{Model Training and Evaluation
@@ -1325,13 +1327,15 @@ Methodology}\label{model-training-and-evaluation-methodology}}
 \begin{itemize}
 \tightlist
 \item
-  For the base-line models training we will use top seven feature for
-  the simulator and top nine feature for the evaluator respectively.
+  For the base-line model training we will use top seven feature for the
+  simulator and top nine feature for the evaluator.
 \item
   We begin with the splitting the available data into the training
-  (70\%) and test (30\%) sets.
+  (70\%) and test (30\%) sets. We make sure that the training set has
+  all categories represented proportionally to the original data set.
 \item
-  We upsample the training data set employing \emph{SMOTE} algorithm.
+  We upsample the training data set employing \emph{SMOTE} algorithm
+  (Ref:\cite{smote}).
 \item
   We evaluate the three algorithms we have described above. We will be
   using the default algorithm parameters and top features (see
@@ -1349,6 +1353,34 @@ Methodology}\label{model-training-and-evaluation-methodology}}
   Finally we hyper-tune the algorithm parameters in effort to achieve
   even better model performance
 \end{itemize}
+
+\hypertarget{upsampled-training-data-sets}{%
+\subsubsection{Upsampled Training Data
+Sets}\label{upsampled-training-data-sets}}
+
+Let's take a quick look at the training sets after we applied
+\texttt{SMOTE} upsampling algorithm.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Simulator Model Training Set Size & Evaluator Model Training Set
+Size\tabularnewline
+\midrule
+\endhead
+\textbf{45895} & \textbf{47330}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.49\linewidth,height=0.2\textheight]{../../artifacts/upsampled_simulator} \includegraphics[width=0.49\linewidth,height=0.2\textheight]{../../artifacts/upsampled_evaluator} 
+
+}
+
+\caption[Upsampled Training Data Sets per Category for Sampler and Evaluator]{Upsampled Training Data Sets per Category for Sampler and Evaluator}\label{fig:upsampled}
+\end{figure}
+\end{Schunk}
 
 \hypertarget{lending-environment-simulator-model}{%
 \subsubsection{Lending Environment Simulator
@@ -1416,7 +1448,7 @@ Overall algorithm accuracy: 0.9199
 Model}\label{the-best-lending-environment-simulator-model}}
 
 The \textbf{Random Forest} algorithm has come up on top. This model
-classifies all categories much better then the other two algorithms and
+classifies all categories much better than the other two algorithms and
 demonstrates a nice balance between the recall and precision metrics.
 The Random forest algorithm is also the fastest to train.
 
@@ -1435,8 +1467,8 @@ Accuracy & \textbf{0.9372} & 0.9199 & 0.8635\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{dimentionality-change}{%
-\subsubsection{Dimentionality Change}\label{dimentionality-change}}
+\hypertarget{dimensionality-change}{%
+\subsubsection{Dimensionality Change}\label{dimensionality-change}}
 
 The winning algorithm performs quite spectacular. It employs the
 \textbf{seven} top features we have identified in the \emph{Feature
@@ -1523,8 +1555,8 @@ Model Performance:
 \end{verbatim}
 
 The dimentionality increase gave us a performance boost of almost
-\textbf{2\%}. It might not seem much. Let see how performance of each
-category has been affected.
+\textbf{2\%}. It might not seem much. Let see how the identification of
+each category by the model has been affected.
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
@@ -1542,15 +1574,15 @@ Gain (\%)\tabularnewline
 
 Evidently categories 2 (\emph{Poor}) and 3 (\emph{Fair}) have benefited
 the most form the dimentionality increase. Ultimately it is up to the
-business to decide if 3\% accuracy gain is worth the training time and
-user interface complexity increase. KASI Insight representative has
-opted for higher accuracy.
+business to decide if 2\% accuracy gain is worth the training time and
+user interface complexity increase. KASI Insight team has opted for the
+higher accuracy.
 
 \hypertarget{hyper-parameter-tuning}{%
 \subsubsection{Hyper-parameter Tuning}\label{hyper-parameter-tuning}}
 
-Hyper-parameter tuning is usually the last step in effort to improve the
-model performance. We will employ \emph{Grid Search} algorithm with
+The hyper-parameter tuning is usually the last step in effort to improve
+the model performance. We will employ \emph{Grid Search} algorithm with
 \textbf{three-fold cross validation} to identify the best model
 parameters. The parameter grid look as follows:
 
@@ -1584,7 +1616,7 @@ Stats}\label{final-simulator-model-stats}}
 \begin{Schunk}
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{../../models/training/simulator_rf_tuned_large_matrix} 
+{\centering \includegraphics[width=0.9\linewidth]{../../models/training/simulator_rf_tuned_large_matrix} 
 
 }
 
@@ -1694,7 +1726,7 @@ Model}\label{the-best-lender-evaluator-model}}
 Again the \textbf{Random Forest} algorithm proved to be the most
 accurate. Though it does not identify category 5 observations as well as
 the other two algorithm we hope that the input data dimentionality
-increase and hyper-parameter tuning will rectify the problem.
+increase and the hyper-parameter tuning will fix the problem.
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1711,8 +1743,8 @@ Accuracy & \textbf{0.972} & 0.9441 & 0.925\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{dimentionality-change-1}{%
-\subsubsection{Dimentionality Change}\label{dimentionality-change-1}}
+\hypertarget{dimensionality-change-1}{%
+\subsubsection{Dimensionality Change}\label{dimensionality-change-1}}
 
 Let's evaluate how the number of features affect the accuracy of the
 model. Just like in the case of the simulator model we begin with the
@@ -1863,8 +1895,8 @@ Category & 7 Features** & 9 Features (base-line) & \textbf{10 Features}
 \hypertarget{hyper-parameter-tuning-1}{%
 \subsubsection{Hyper-parameter Tuning}\label{hyper-parameter-tuning-1}}
 
-The selected model demonstrates quite spectacular accuracy. We could
-potentially improve the identification of the category \# 5. We are
+Though the selected model demonstrates quite spectacular accuracy we
+would want to improve the identification of the category \# 5. We are
 going to apply Grid Search algorithm again trying to find the optimal
 hyper-parameters.
 
@@ -1923,16 +1955,20 @@ weighted avg   0.98      0.98      0.98      8815
 \end{verbatim}
 
 Lastly we are going to review the model learning and validation curves.
-As per figure \ref{fig:evaluator_lc} the model was learning more about
-the data as the training size grew. When the training size reached about
-30,000 observations the validation curve converged with the training one
-indicating that the further increase in the training set size will not
-likely result in better model performance.
+Figure \ref{fig:evaluator_lc} is very similar to the simulator model
+training and validation curves. The validation error curve does exhibit
+interesting behavior. It is practically flat when the training set size
+seats between 17000 and 25000. Then the validation curve converges with
+training set curve. As we stated earlier the category \#4 and especially
+\#5 were scarcely populated. Though we upsampled the categories we think
+that the data lucks the variance. Probably if we collect more category 4
+and 5 observations and apply enriched data set for model training the
+model would perform better.
 
 \begin{Schunk}
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{../../models/training/evaluator_rf_tuned_large_curves} 
+{\centering \includegraphics[width=0.9\linewidth]{../../models/training/evaluator_rf_tuned_large_curves} 
 
 }
 
@@ -1943,44 +1979,103 @@ likely result in better model performance.
 \hypertarget{model-deployment}{%
 \section{Model Deployment}\label{model-deployment}}
 
+The simulator and evaluator models were deserialized and persisted as
+the pickle files. The model images were deployed to Flask Web
+Application server and exposed as RESTful Web services.
+
 \hypertarget{architecture}{%
 \subsection{Architecture}\label{architecture}}
+
+The following is the high-level description of the deployment
+architecture:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The front-end is a browser-based application developed using
+  JavaScript, HTML/CSS and Angular framework. It utilized Restful API to
+  communicate with the back-end.
+\item
+  The front-end Web application is packaged as a docker image and
+  deployed in AWS EC2 instance.
+\item
+  The back-end is developed in Python employing various Python
+  scientific libraries
+\item
+  The back-end code is hosted in Flask Web application server, which
+  exposes two end-points - one for each model.
+\item
+  Flask Web Application is deployed in separate AWS EC2 instance
+  utilizing the docker technology.
+\item
+  JSON Ajax POST request over HTTP is the exchange protocol between the
+  tiers.
+\end{enumerate}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/architecture} 
+
+}
+
+\caption[Deployment Architecture]{Deployment Architecture}\label{fig:arch}
+\end{figure}
+\end{Schunk}
 
 \hypertarget{docker}{%
 \subsection{Docker}\label{docker}}
 
+We opted to utilize \textbf{Docker} technology to simplify the
+deployment of the application to the cloud environment. Once the docker
+images are generated, same gets published within docker registry or with
+AWS ECR. The images can be pulled from the image repository for
+deployment in AWS EC2 or local server as per needs.
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1.15\linewidth]{../../artifacts/docker} 
+
+}
+
+\caption[Docker Image,Container and Registry]{Docker Image,Container and Registry}\label{fig:di}
+\end{figure}
+\end{Schunk}
+
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-We started this project with leraning the business of KASI Insight - our
-partner. We explored the company data, understood the challenges and
+We started this project with learning the business of KASI Insight - our
+partner. We explored the company data, understood its challenges and
 objectives. After gaining good feel about the company and its business
-we suggested a few concepts that we beleieved would allow our business
-partner to extend its business offering. The concept employed
-Machine-Learning techniques. Working closely with KASI Insight team we
-developed a methodology that allowed us to apply KASI Insight data to
-train the ML models. As a result of this close collaboration we came up
-with a project proposal that met the objectves of our business partner
-and allowed us hone our ML skills. We promised to:
+we suggested a few concepts that we believed would allow our business
+partner to extend its offering. The concepts employed Machine-Learning
+techniques. Working closely with KASI Insight team we developed a
+methodology that allowed us to apply KASI Insight data to train the ML
+models. As a result of this close collaboration we came up with a
+project proposal that met the objectives of our business partner and
+allowed us to hone our ML skills. We promised to:
 
 \begin{itemize}
 \tightlist
 \item
-  Develop Lending Environment Simulator model
+  Develop Lending Environment Simulator model.
 \item
-  Train Lender Evaluator model
+  Train Lender Evaluator model.
 \item
   Deliver key-turn solution that would include:
 
   \begin{itemize}
   \tightlist
   \item
-    an on-line service that provides access the models
+    an on-line service that provides access to the model algorithms.
   \item
-    a Web-based client that would demonstrate the models in action
+    a Web-based client that would demonstrate the models in action.
   \item
-    a docker image that would include all software tiers and be used for
-    easy deployment of the system in cloud environment
+    a Docker image that would include all software tiers and be used for
+    easy deployment of the system to cloud environment.
   \end{itemize}
 \end{itemize}
 

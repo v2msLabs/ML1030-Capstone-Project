@@ -85,19 +85,19 @@ pd.options.display.float_format = '{:,.2f}'.format
 
 # Background
 
-Let's breifly review how KASI Infight collects and uses the data.
+Let's briefly review how KASI Insight collects and uses the data.
 
  - Samples from the community who have lent money (lenders) are pooled and asked questions about borrowers within the community based on their personal experience.
  
  - The responses to the survey are inputted into KASI Insight credit model and a community score is computed. The score is assigned to all members of the community.
  
-After intial assesment of the process and the data we understood that the existing apporach were not suatable for Machine-Learning application. We brainstormed and suggested two ways to utilize the available data. 
+After initial assessment of the process and the data we understood that the existing approach was not suitable for Machine-Learning application. We brainstormed and suggested two ways to utilize the available data. 
 
-Firstly we put ourseves in the shoes of a lender. Being a lender we would be intrested to know how our lending pattern would affect our profit. For example if we strart lending money to the business colleges instead of family. Or we increase the interest, or we decrease the interest and increase the amount, etc. Then we though if we were a banker who were contemplating to establish a quick loan business in a specific area how would we evaluate, at least intially the credit worthiness of the pupluation. This is who we came up with the **Lending Environment Simulator** concept. This ML model could be trained on the servey answers to assign a credit category. To implement such a model we would have to have the labels for all observations; we did not have them. We discussed the problem with KASI Insight team. They came up with the credit category formula, which we describe below
+Firstly we put ourselves in the shoes of a lender. Being a lender we would be interested to know how our lending pattern would affect our profit. For example if we start lending money to the business colleges instead of family. Or what if we increase the interest, or we decrease the interest and increase the amount or lending term, etc. Another use case we considered was if we were a banker who were contemplating to establish a quick loan business in a specific area how would we evaluate, at least initially the credit worthiness of the population? This is how we came up with the **Lending Environment Simulator** concept. This ML model could be trained on the survey answers to assign a credit category. To implement such a model we would have to have the labels for all observations; we did not have them. We discussed the problem with KASI Insight team. Our business partner came up with the credit category formula, which is described below.
 
 ## Credit Category Assignment Process
 
-KASI team assigned weights to the survey answers that pertain to lending practice. Based on the answers of each observation we calculated the score, which was used to assign one of the five categories as follows:
+KASI team assigned weights to the survey answers that pertain to the lending practice. Based on the answers of each observation we calculated the score, which was used to assign one of the five categories as follows:
 
  * **Very Poor** - the credit score less than **350**
  * **Poor** - the credit score is between **350 and 550**
@@ -105,22 +105,24 @@ KASI team assigned weights to the survey answers that pertain to lending practic
  * **Good** - the credit score lies between **650 and 750**
  * **Very Good** - the credit score is higher than **750**
 
-and this is how we labled all observation to train the simulator classifier.
+and this is how we labeled all observation to train the simulator classifier.
 
 ## Lender Evaluator
 
-How else could we possibly use the data our business partner collected? We though if we were a financial insitution and wnated to have a proxy to conduct money lending business in our behalf in various communities how would we evaluate the business savvines of potential candidates? This is how we came up with the concept of **Lender Evaluator** model. I believed that the survey KASI Insight conducts not only reflet the credit wothiness of the general public but also describe the proficiency, knowledge and experience of the lender as a business partner. We only needed the formulat to evaluate the answers correctly. Again KASI Insight team was very instrumental. They created another formula to calculate the lender score based on the survey answers. We took similar to the simulator model approach, only applied different weights to the answers to calculate the lender score. Again based on each observation score we assigned the category. The categories for lenders are identical to the credit categories listed above. 
+How else could we possibly use the data our business partner collected? We though if we were a financial institution and wanted to have a proxy to conduct money lending business in our behalf in various communities how would we evaluate the business savviness of the potential candidates? This is how we came up with the concept of **Lender Evaluator** model.
+
+We believed that the survey KASI Insight conducts not only reflect the credit worthiness of the general public but also describe the proficiency, knowledge and experience of the lender as a business partner. We only needed the formula to evaluate the answers correctly in this particular context. Again KASI Insight team was very instrumental. They created another formula to calculate the lender score employing the survey answers. We took similar to the simulator model approach. Only the weights applied to the answers deferred. The categories for lenders were identical to the credit categories listed above. 
 
 
 # Objectives
 
 Through exploring and applying the latest Machine-Learning techniques we aim to deliver two ML models:
   
-  - Lending Environmnet Simulator
+  - Lending Environment Simulator
   
   - Lender Evaluator
   
-We hope that these models will be included into the product line-up of KASI Insight allowing our business partner to explore new business opportunities. We will deliver the turn-key solution that would include the user interface to demonstrate the model performance in real life. THe final product will also include a docker image to simplify the model deployment into production environment on the AWS cloud.
+We hope that these models will be included into the product line-up of KASI Insight allowing our business partner to explore new business opportunities. We will deliver the turn-key solution that would include the user interface to demonstrate the model performance in real life. The final product will also include a docker image to simplify the model deployment into production environment on AWS cloud.
 
 
 # Project Artifacts
@@ -130,7 +132,7 @@ All project artifacts, technical guides, this report could be found at [GitHub](
 
 # Data Analysis
 
-As it has been already stated in this project we are using the survey data collected by KASI Insight over years from seven African countries. So far KASI insight has collected almost **30,000** records over a course of last three years.
+As it has been already stated we are dealing with the survey data collected by KASI Insight from seven African countries. So far KASI insight has collected almost **30,000** records over a course of last three years.
 
 ## Data Dictionary
 
@@ -188,7 +190,7 @@ Each question/column should be treated as a categorical value.
 
 ## Data Exploration
 
-Let's take a look at the raw survey data. Though the survey multi-choice questions are categories in nature, the survey answers are stored in alphanumeric format. Overtime some questions have been rephrased. Thus in some cases the answers that pertain to the same category vary. Another problem with the raw data set is the missing values.
+Let's take a look at the raw survey data (see the table below). Though the survey multi-choice questions are categories in nature, the survey answers are stored in alphanumeric format. Overtime some questions have been rephrased. Thus in some cases the answers that pertain to the same category vary. Another problem with the raw data set is the missing values.
 
 ```{python echo=FALSE}
 import glob
@@ -200,7 +202,7 @@ print(dfo[[6,7,8,9]].head())
 print(dfo[[10,11,12,13]].head())
 ```
 
-To rectify the problems stated above we have developed a data processing algorithm that normalized and categorized the answers converting them into numeric form. The data processing script also imputes the missing data with the most frequently occurring value for a given category. The clean data set stats are depicted below. **Note**: the column numbers correspond to the question numbers as described in *Data Dictionary* paragraph.
+To rectify the problems stated above we have developed a data processing algorithm that normalized and categorized the answers converting them into numeric form. The data processing script also imputes the missing data with the most frequently occurring value for a given category. The clean data set stats are depicted below. **Note**: the column numbers correspond to the question numbers as described in *Data Dictionary* section
 
 ```{python echo=FALSE}
 input_path = "../../data/processed/clean_data.csv"
@@ -226,9 +228,9 @@ include_graphics("../../artifacts/participant_education.png")
 ```{r pms, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Marital Status of Participants"}
 include_graphics("../../artifacts/participant_marital.png")
 ```
-As per the charts submitted above we can conclude that:
+As per the charts submitted above we may conclude that:
 
-- Cameroon has the highest number of observations and Tanzania has the smallest representation, where the rest of the countries or more or less equally represented.
+- Cameroon has the highest number of observations and Tanzania has the smallest representation, while the rest of the countries or more or less equally represented.
 - Males dominate in the money lending business. Kenya though makes an exception where number of female participants is very close to the male population
 - In general people in *30-34* age group are the most active, followed by *25-29* and *18-24* age groups respectively. In Kenya, unlike other countries, the younger generation is more active.
 - Majority of money lenders are either salaried or commission-based employees. Again Kenya makes an exception. The second largest group of the money lenders is the business owners.
@@ -261,8 +263,8 @@ include_graphics("../../artifacts/payment.png")
 ```
 
 - Majority of population take either small or micro loans (the exact amounts are country specific).
-- It is quite remarkable that the lenders do not charge fees or interest regularly (if at all) more often than not. The Cameroonians make an exception. In opposite the majority of South African lenders never change interest. We have conducted further data research that have proved that many people tend to lend to friends and family. This fact explains why the fees and interest on loans are waived.
-- People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to cover business-related expenses. Citizens of other countries mainly use loan to either cover one-time or or unexpected expenses (wedding, medical emergency..) or make ends meet (pay rent, buy clothes, etc.) 
+- It is quite remarkable that the lenders do not charge fees or interest regularly (if at all) more often than not. The Cameroonians make an exception. In opposite the majority of South African lenders never charge the interest. We have conducted further data research that have proved that many people tend to lend to friends and family. This fact explains why the fees and interest on loans are waived.
+- People in Cameroon, Cote d'Ivoire and Tanzania spend the loans to cover business-related expenses. Citizens of the other countries mainly use the loans to either cover one-time/ unexpected expenses (wedding, medical emergency..) or make ends meet (pay rent, buy clothes, etc.) 
 - Interestingly people in all countries do not watch how they spend the borrowed money. This fact probably explains why the question *Will you be able to meet your regular expenses?* generates uncertain answers (see **Economic Sentiment** paragraph for further details).
 
 
@@ -284,7 +286,7 @@ Overall looking at the credit and lender scores of the population we observe tha
 
 # Feature Selection and Engineering
 
-The data set has 38 columns. We potentially, could employ all of them to fit the models. But this is not the optimal approach. Not all data elements contribute to the category identification equally, some may not contribute at all, so why keep them? Another consideration is that the large and wide data sets make model training much longer, affect the accuracy and speed of the models negatively. Also many input variables add complexity to the user interface making it hard to implement, maintain and use. Thus we have opted to evaluated available data features. The ultimate goal is to understand the relationship between the features and the response variables and select the most influential ones.
+The data set has 38 columns. We potentially, could employ all of them to fit the models. But this is not the optimal approach. Not all data elements contribute to the category identification equally, some may not contribute at all, so why keep them? Another consideration is that the large and wide data sets make model training much longer, affect the accuracy and speed of the models negatively. Also large input variable set adds complexity to the user interface making it hard to implement, maintain and use. Thus we have opted to evaluated available data features. The ultimate goal is to understand the relationship between the features and the response variables and select the most influential ones.
 
 ## Feature Correlation Matrix
 
@@ -296,7 +298,7 @@ include_graphics("../../artifacts/cmatrix.png")
 
 ## Univariate Feature Selection
 
-Univariate feature selection examines each feature individually to determine the strength of the relationship of the feature with the response variable. Next two paragraphs examine relationship between top 20 features and credit and lender categories respectively.
+Univariate feature selection examines each feature individually to determine the strength of the relationship of the feature with the response variable. Next two paragraphs examine relationship between top 20 features and the credit and lender categories respectively.
 
 ### Credit Score Univariate Feature Selection
 
@@ -369,7 +371,7 @@ include_graphics("../../artifacts/lfimportance.png")
 
 ## Takeaways
 
-We have applied two mathematical algorithms to identify the most significant features for credit score and lender score labels. To no surprise both methods have successfully identified the feature that have been used to calculate the credit/ lender categories. We have decided to select the top features that have distinctively higher score as a base-line. During the model training and evaluation phase  we will increase/decrease the number of features to estimate the effect of the input data dimentionality change the model accuracy.
+We have applied two mathematical algorithms to identify the most significant features for credit score and lender score labels. To no surprise both methods have successfully identified the feature that have been used to calculate the credit/ lender categories. We have selected the top features that have distinctively higher score as the base-line features sets. During the model training and evaluation phase we will increase/decrease the number of features to estimate the effect of the input data dimentionality change on the model accuracy.
 
 ### Top Seven Credit Score Features 
 
@@ -401,30 +403,39 @@ Num | Feature
 
 ## Model Evaluation and Selection
 
-After we cleaned and normalized the data, labeled all observations and gained deep understanding about the features we are ready to start model training and evaluation. To gain the best result possible we will explore and evaluate three algorithm to train the models. They are:
+After we cleaned and normalized the data, labeled all observations and gained deep understanding about the features we are ready to start model training and evaluation. To achieve the best result possible we will explore and evaluate three algorithms to train the models. They are:
 
- * **Support Vector Machine** (SVM). The greatest strength of SVM is that it has multiple Kernel implementations, that can be tuned to explain multi-dimensional space with high accuracy
-  * **Random Forest** (RF). Random forest belongs to the class of ensemble models. It has many hyper-parameters that could be tuned to achieve high accuracy. The random forest algorithm is not demanding in terms of the data preparation, which makes it the first choice in many real-life scenarios
-  * **Gradient Boosting Machine** (GBM). GBM is an ensemble model as well. It uses the concept of trees just like the RF model does but applies it differently. GBT builds the trees one at a time, where each new tree helps to correct errors made by previously trained tree. the GBM.
+ * **Support Vector Machine** (SVM). The greatest strength of SVM is that it has multiple Kernel implementations, that could be tuned to explain multi-dimensional space with high accuracy.
+  * **Random Forest** (RF). Random forest belongs to the class of ensemble models. It has many hyper-parameters that could be tuned to achieve high accuracy. The random forest algorithm is not demanding in terms of the data preparation, which makes it the first choice in many real-life scenarios.
+  * **Gradient Boosting Machine** (GBM). GBM is an ensemble model as well. It uses the concept of trees just like the RF model does but applies it differently. GBM builds the trees one at a time, where each new tree helps to correct errors made by previously trained tree.
 
 ### Evaluation Metrics
 
-We believe that the best model has to classify all five categories as accurate as possible. The winning model also would have to identify true positives and true negatives for each category equally well. Thus we choose the multiclass confusion matrix and F1 scores to evaluate the models. The higher the F1 score for each category - the better the model performs.
-
-We also take into consideration the model training and inference speed.
+We believe that the best model has to classify all five categories as accurate as possible. The winning model also would have to identify true positives and true negatives for each category equally well. Thus we choose the multiclass confusion matrix and F1 scores to evaluate the models. The higher the F1 score for each category - the better the model performs. We also take into consideration the model training and inference speed.
 
 
 ### Model Training and Evaluation Methodology
 
-- For the base-line models training we will use top seven feature for the simulator and top nine feature for the evaluator respectively.
-- We begin with the splitting the available data into the training (70%) and test (30%) sets.
-- We upsample the training data set employing *SMOTE* algorithm.
+- For the base-line model training we will use top seven feature for the simulator and top nine feature for the evaluator.
+- We begin with the splitting the available data into the training (70%) and test (30%) sets. We make sure that the training set has all categories represented proportionally to the original data set. 
+- We upsample the training data set employing *SMOTE* algorithm (Ref:\cite{smote}).
 - We evaluate the three algorithms we have described above. We will be using the default algorithm parameters and top features (see *Feature Evaluation* paragraph for more details) to fit the models. 
 - We select the algorithm that has the best evaluation metrics.
 - Then we evaluate the winning algorithm fitting it with the smaller and larger feature sets.
 - If the data dimentionality change makes positive impact on the the winning algorithm we select this feature set for the model.
 - Finally we hyper-tune the algorithm parameters in effort to achieve even better model performance
 
+### Upsampled Training Data Sets
+
+Let's take a quick look at the training sets after we applied `SMOTE` upsampling algorithm.
+
+ Simulator Model Training Set Size | Evaluator Model Training Set Size
+ ----------------------------------|----------------------------------
+            **45895**              |                **47330**
+            
+```{r upsampled, echo=FALSE,out.width="49%", out.height="20%",fig.cap="Upsampled Training Data Sets per Category for Sampler and Evaluator",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("../../artifacts/upsampled_simulator.png","../../artifacts/upsampled_evaluator.png"))
+```   
 
 ### Lending Environment Simulator Model
 
@@ -480,7 +491,7 @@ Following the steps outlined in the previous section we have received the follow
 
 ### The Best Lending Environment Simulator Model
 
-The **Random Forest** algorithm has come up on top. This model classifies all categories much better then the other two algorithms and demonstrates a nice balance between the recall and precision metrics. The Random forest algorithm is also the fastest to train.
+The **Random Forest** algorithm has come up on top. This model classifies all categories much better than the other two algorithms and demonstrates a nice balance between the recall and precision metrics. The Random forest algorithm is also the fastest to train.
 
  Category | **RF f1-score** | SVM f1-score | GB f1-score 
 ----------|-------------|--------------|-------------
@@ -492,7 +503,7 @@ The **Random Forest** algorithm has come up on top. This model classifies all ca
  Accuracy |  **0.9372**     |  0.9199      |  0.8635        
 
 
-### Dimentionality Change
+### Dimensionality Change
 
 The winning algorithm performs quite spectacular. It employs the **seven** top features we have identified in the *Feature Selection* section. Let's see how the input data dimentionality change affects the model performance. Firstly we reduce the number of features to **five**.
 
@@ -553,7 +564,7 @@ Model Performance:
      
      Overall algorithm accuracy: 0.9547
 
-The dimentionality increase gave us a performance boost of almost **2%**. It might not seem much. Let see how performance of each category has been affected.
+The dimentionality increase gave us a performance boost of almost **2%**. It might not seem much. Let see how the identification of each category by the model has been affected.
 
  Category | 5 Features | 7 Features (base line) | **9 Features** |  Gain (%)
 ----------|------------|------------------------|----------------|-----------    
@@ -563,11 +574,11 @@ The dimentionality increase gave us a performance boost of almost **2%**. It mig
  4        |  0.62      |  0.85                  | **0.86**       | 1
  5        |  0.68      |  0.87                  | **0.88**       | 1
 
-Evidently categories 2 (*Poor*) and 3 (*Fair*) have benefited the most form the dimentionality increase. Ultimately it is up to the business to decide if 3%  accuracy gain is worth the training time and user interface complexity increase. KASI Insight representative has opted for higher accuracy.
+Evidently categories 2 (*Poor*) and 3 (*Fair*) have benefited the most form the dimentionality increase. Ultimately it is up to the business to decide if 2% accuracy gain is worth the training time and user interface complexity increase. KASI Insight team has opted for the higher accuracy.
 
 ### Hyper-parameter Tuning
 
-Hyper-parameter tuning is usually the last step in effort to improve the model performance. We will employ *Grid Search* algorithm with **three-fold cross validation** to identify the best model parameters. The parameter grid look as follows:
+The hyper-parameter tuning is usually the last step in effort to improve the model performance. We will employ *Grid Search* algorithm with **three-fold cross validation** to identify the best model parameters. The parameter grid look as follows:
 
  Parameter            |    Values 
 ----------------------|--------------------
@@ -583,7 +594,7 @@ The hyper-parameter tuning gave us another **0.5%** performance gain.
 - Number of features: **9**
 - Overall algorithm accuracy: **0.9594**
 
-```{r simulator_cm, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Simulator Model Confusion Matrix"}
+```{r simulator_cm, out.width = "90%", echo=FALSE, fig.align='center', fig.cap="Simulator Model Confusion Matrix"}
 include_graphics("../../models/training/simulator_rf_tuned_large_matrix.png")
 ```
 
@@ -664,7 +675,7 @@ Without further due let's apply the same methodology to select *Lender Evaluator
     
 ### The Best Lender Evaluator Model
 
-Again the **Random Forest** algorithm proved to be the most accurate. Though it does not identify category 5 observations as well as the other two algorithm we hope that the input data dimentionality increase and hyper-parameter tuning will rectify the problem.
+Again the **Random Forest** algorithm proved to be the most accurate. Though it does not identify category 5 observations as well as the other two algorithm we hope that the input data dimentionality increase and the hyper-parameter tuning will fix the problem.
 
 
  Category | **RF f1-score** | SVM f1-score | GB f1-score 
@@ -677,7 +688,7 @@ Again the **Random Forest** algorithm proved to be the most accurate. Though it 
  Accuracy |  **0.972**     |  0.9441      |  0.925    
  
  
-### Dimentionality Change
+### Dimensionality Change
 
 Let's evaluate how the number of features affect the accuracy of the model. Just like in the case of the simulator model we begin with the smaller feature set, namely seven.
 
@@ -761,7 +772,7 @@ The dimentionality increase yields the best performance. The category 5 identifi
 
 ### Hyper-parameter Tuning 
 
-The selected model demonstrates quite spectacular accuracy. We could potentially improve the identification of the category # 5. We are going to apply Grid Search algorithm again trying to find the optimal hyper-parameters.
+Though the selected model demonstrates quite spectacular accuracy we would want to improve the identification of the category # 5. We are going to apply Grid Search algorithm again trying to find the optimal hyper-parameters.
 
 Parameter grid:
 
@@ -796,34 +807,36 @@ include_graphics("../../models/training/evaluator_rf_tuned_large_matrix.png")
     macro avg      0.95      0.90      0.92      8815
     weighted avg   0.98      0.98      0.98      8815
 
-Lastly we are going to review the model learning and validation curves. As per figure \ref{fig:evaluator_lc} the model was learning more about the data as the training size grew. When the training size reached about 30,000 observations the validation curve converged with the training one indicating that the further increase in the training set size will not likely result in better model performance.
+Lastly we are going to review the model learning and validation curves. Figure \ref{fig:evaluator_lc}  is very similar to the simulator model training and validation curves. The validation error curve does exhibit interesting behavior. It is practically flat when the training set size seats between 17000 and 25000. Then the validation curve converges with training set curve. As we stated earlier the category #4 and especially #5 were scarcely populated. Though we upsampled the categories we think that the data lucks the variance. Probably if we collect more category 4 and 5 observations and apply enriched data set for model training the model would perform better.
 
-```{r evaluator_lc, out.width = "100%", echo=FALSE, fig.align='center', fig.cap="Eval Model Learning Curves"}
+```{r evaluator_lc, out.width = "90%", echo=FALSE, fig.align='center', fig.cap="Eval Model Learning Curves"}
 include_graphics("../../models/training/evaluator_rf_tuned_large_curves.png")
 ```
 
 
 # Model Deployment
-The finalized models is persisted as a pickle file - which is then utilized in the backend Web Application developed in Flask microservice framework, exposed as Http based RestFul endpoints.
+
+The simulator and evaluator models were deserialized and persisted as the pickle files. The model images were deployed to Flask Web Application server and exposed as RESTful Web services.
 
 ## Architecture
-The following are the high level layout of the deployment architecture:
-1. The web application can be invoked using browsers as well as mobile devices
-2. The FrontEnd application is developed using Angular framework
-3. FrontEnd web application is packaged as docker image and deployed in AWS EC2 instance
-4. Frontend web application invokes the backend service api - which utilizes the ML Models embedded within Flask Web API
-5. Backend Flask Web Application is deployed in separate AWS EC2 instance utilizing the docker image
-6. Backend Flask Web Application is exposed as Http Restful endpoints for utilizing the two ML models
-7. Interaction between frontend and backend utilizes Http Post methods with data exchange format as JSON
 
-```{r da, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Deployment Architecture"}
+The following is the high-level description of the deployment architecture:
+
+1. The front-end is a browser-based application developed using JavaScript, HTML/CSS and Angular framework. It utilized Restful API to communicate with the back-end.
+2. The front-end Web application is packaged as a docker image and deployed in AWS EC2 instance.
+3. The back-end is developed in Python employing various Python scientific libraries
+4. The back-end code is hosted in Flask Web application server, which exposes two end-points - one for each model.
+5. Flask Web Application is deployed in separate AWS EC2 instance utilizing the docker technology.
+6. JSON Ajax POST request over HTTP is the exchange protocol between the tiers.
+
+
+```{r arch, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Deployment Architecture"}
 include_graphics("../../artifacts/architecture.png")
 ```
 
 ## Docker
-Docker architecture approach is utilized to deploy the web application two distinct layers.
-Once the docker images are generated, same gets published within docker registry or with AWS ECR.
-The images can be pulled from the image repository for deployement in AWS EC2 or local server as per needs.
+
+We opted to utilize **Docker** technology to simplify the deployment of the application to the cloud environment. Once the docker images are generated, same gets published within docker registry or with AWS ECR. The images can be pulled from the image repository for deployment in AWS EC2 or local server as per needs.
 
 ```{r di, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Docker Image,Container and Registry"}
 include_graphics("../../artifacts/docker.png")
@@ -831,14 +844,14 @@ include_graphics("../../artifacts/docker.png")
 
 # Conclusion
 
-We started this project with leraning the business of KASI Insight - our partner. We explored the company data, understood the challenges and objectives. After gaining good feel about the company and its business we suggested a few concepts that we beleieved would allow our business partner to extend its business offering. The concept employed Machine-Learning techniques. Working closely with KASI Insight team we developed a methodology that allowed us to apply KASI Insight data to train the ML models. As a result of this close collaboration we came up with a project proposal that met the objectves of our business partner and allowed us hone our ML skills.  We promised to:
+We started this project with learning the business of KASI Insight - our partner. We explored the company data, understood its challenges and objectives. After gaining good feel about the company and its business we suggested a few concepts that we believed would allow our business partner to extend its offering. The concepts employed Machine-Learning techniques. Working closely with KASI Insight team we developed a methodology that allowed us to apply KASI Insight data to train the ML models. As a result of this close collaboration we came up with a project proposal that met the objectives of our business partner and allowed us to hone our ML skills.  We promised to:
 
- - Develop Lending Environment Simulator model
- - Train Lender Evaluator model
- - Deliver key-turn solution that would include:
-    - an on-line service that provides access the models
-    - a Web-based client that would demonstrate the models in action
-    - a docker image that would include all software tiers and be used for easy deployment of the system in cloud environment
+ * Develop Lending Environment Simulator model.
+ * Train Lender Evaluator model.
+ * Deliver key-turn solution that would include:
+      + an on-line service that provides access to the model algorithms.
+      + a Web-based client that would demonstrate the models in action.
+      + a Docker image that would include all software tiers and be used for easy deployment of the system to cloud environment.
     
 We can proudly conclude that we have achieved all these goals.     
 
