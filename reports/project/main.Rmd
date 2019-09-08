@@ -6,7 +6,7 @@ author:
   - name: Murlidhar Loka
     affiliation: York University School of Continuing Studies
 abstract: >
-  In the word of financial credit the industry practitioners are topically confronted by the following questions:
+  In the world of financial credit the industry practitioners are topically confronted by the following questions:
   
   
   - How strong are my potential business partners financially so my organization can create a long term relationship with them?
@@ -103,7 +103,7 @@ KASI team assigned weights to the survey answers that pertain to lending practic
  * **Poor** - the credit score is between **350 and 550**
  * **Fair** - the credit score is between **550 and 650**
  * **Good** - the credit score lies between **650 and 750**
- * **Very Good** - the credit score is higher tan **750**
+ * **Very Good** - the credit score is higher than **750**
 
 and this is how we labled all observation to train the simulator classifier.
 
@@ -804,11 +804,30 @@ include_graphics("../../models/training/evaluator_rf_tuned_large_curves.png")
 
 
 # Model Deployment
+The finalized models is persisted as a pickle file - which is then utilized in the backend Web Application developed in Flask microservice framework, exposed as Http based RestFul endpoints.
 
 ## Architecture
+The following are the high level layout of the deployment architecture:
+1. The web application can be invoked using browsers as well as mobile devices
+2. The FrontEnd application is developed using Angular framework
+3. FrontEnd web application is packaged as docker image and deployed in AWS EC2 instance
+4. Frontend web application invokes the backend service api - which utilizes the ML Models embedded within Flask Web API
+5. Backend Flask Web Application is deployed in separate AWS EC2 instance utilizing the docker image
+6. Backend Flask Web Application is exposed as Http Restful endpoints for utilizing the two ML models
+7. Interaction between frontend and backend utilizes Http Post methods with data exchange format as JSON
+
+```{r da, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Deployment Architecture"}
+include_graphics("../../artifacts/architecture.png")
+```
 
 ## Docker
+Docker architecture approach is utilized to deploy the web application two distinct layers.
+Once the docker images are generated, same gets published within docker registry or with AWS ECR.
+The images can be pulled from the image repository for deployement in AWS EC2 or local server as per needs.
 
+```{r di, out.width = "115%", echo=FALSE, fig.align='center', fig.cap="Docker Image,Container and Registry"}
+include_graphics("../../artifacts/docker.png")
+```
 
 # Conclusion
 
