@@ -13,7 +13,8 @@
     "paths": {
       "components/*":["src/app/components/*"],
       "modules/*":["src/app/modules/*"],
-      "types/*":["src/app/types/*"]
+      "types/*":["src/app/types/*"],
+      "services/*":["src/app/services/*"]
     },
     "target": "es2015",
     "typeRoots": [

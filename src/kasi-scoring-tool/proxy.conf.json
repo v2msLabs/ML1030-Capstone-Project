@@ -1,6 +1,6 @@
 {
     "/api/*": {
-      "target": "http://54.200.68.109:5000",
+      "target": "http://34.211.232.31:5000",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"

@@ -1,7 +1,7 @@
 <div class="kasi-main-toolbar">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>KASI Scoring Tool</span>
+            <span>KASI Tools</span>
             <span class="kasi-toolbar-spacer"></span>
             <button mat-icon-button [matMenuTriggerFor]="main_menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
@@ -30,6 +30,10 @@
         </ng-container>
         <span class="kasi-toolbar-spacer"></span>
         <score [scoreCategory]="score"></score>
+        <button mat-icon-button mat-icon-button color="primary" aria-label="Info" (click)="showInfo()">
+            <mat-icon class="kasi-help" matTooltip="Information">help</mat-icon>
+          </button>
+
     </mat-toolbar>
 </div>
 <div>

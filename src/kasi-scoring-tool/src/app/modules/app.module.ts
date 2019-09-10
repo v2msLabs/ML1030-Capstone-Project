@@ -11,17 +11,18 @@ import { ScoreComponent } from 'components/common/score/score.comp';
 import { SpinnerComponent } from 'components/common/spinner/spinner.comp';
 import { EnvSurveyComponent } from 'components/env-survey/env-survey.comp';
 import { LenderSurveyComponent } from 'components/lender-survey/lender-survey.comp';
-import { AppErrorHandler } from '../services/app-error-handler.service';
-import { ModelService } from '../services/model.service';
-import { OverlayService } from '../services/overlay.service';
+import { AppErrorHandler } from 'services/app-error-handler.service';
+import { ModelService } from 'services/model.service';
+import { OverlayService } from 'services/overlay.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material-module';
+import { InfoComponent } from 'components/common/info/info.comp';
 
 
 @NgModule({
   declarations: [
     AppComponent, ScoreComponent, EnvSurveyComponent, MultiChoiceStepComponent,
-    CountrySelectorComponent, LenderSurveyComponent, SpinnerComponent
+    CountrySelectorComponent, LenderSurveyComponent, SpinnerComponent, InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ import { MaterialModule } from './material-module';
     AppRoutingModule
   ],
   providers: [ModelService, OverlayService, { provide: ErrorHandler, useClass: AppErrorHandler }],
-  entryComponents: [AppComponent],
+  entryComponents: [AppComponent, InfoComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

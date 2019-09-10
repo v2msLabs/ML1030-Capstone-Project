@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>{{data}}</h2>
+<mat-dialog-content class="mat-typography">
+    <ng-container *ngIf="data === AppNameRef.Simulator">
+        <p>KASI Lending Environment Simulator Tool helps banks and financials predict a credit score of the target group
+            of people in a given area manipulating multiple lending criteria
+            The credit officer at a branch will just have to answer 9 questions every 3 months and the model will return
+            a rating as follows</p>
+        <li>Very poor - Less than 350</li>
+        <li>Poor - Between 350 and 550</li>
+        <li>Fair - Between 550 and 650</li>
+        <li>Good - Between 650 and 750</li>
+        <li>Very Good - Higher than 750</li>
+    </ng-container>
+    <ng-container *ngIf="data === AppNameRef.LenderEvaluator">
+        <p> KASI Lender Evaluator Tool provides banks and financial institutions with a mean to estimate
+            the business savviness of an individual who lends money on a regular basis in a given areas
+            The lender agent can simply answer 10 questions and the tool will return a rating as follows:
+        </p>
+        <ul>
+            <li>Very poor - Less than 350</li>
+            <li>Poor - Between 350 and 550</li>
+            <li>Fair - Between 550 and 650</li>
+            <li>Good - Between 650 and 750</li>
+            <li>Very Good - Higher than 750</li>
+        </ul>
+    </ng-container>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
