@@ -10,10 +10,12 @@ YORK UNIVERSITY. SCHOOL OF CONTINUING STUDIES. CAPSTONE PROJECT.
 
  * Project report - ProjectReport.pdf
  * Project proposal - ProjectProposal.pdf 
- * **src** folder - maintains source code.
- * **reports** folder - contains source code to generate project proposal and project report.
- * **models** folder - contains model images.
  * **artifacts** folder - maintains images, code output etc. that are used to generate the reports.
+ * **docs** folder - hosts technical project documentation.
+ * **models** folder - contains model images.
+ * **reports** folder - contains source code to generate project proposal and project report.
+ * **src** folder - maintains source code.
+
  
  **Note:** all folders maintain `README.md` files with the description of the folder content.  
  
