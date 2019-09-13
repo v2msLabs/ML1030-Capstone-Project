@@ -1,4 +1,8 @@
-# KasiScoringTool
+# Kasi Tools
+
+This is Angular front-end project that employs KASI model API to demonstrate the work of the simulator and evaluator models.
+The content of the project is meant for the experienced UI developers who are familiar with Angular 2+ framework.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
 
@@ -12,7 +16,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. The script generates ready for deployment, production-quality code. 
 
 ## Running unit tests
 
