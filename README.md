@@ -10,6 +10,7 @@ YORK UNIVERSITY. SCHOOL OF CONTINUING STUDIES. CAPSTONE PROJECT.
 
  * Project report - ProjectReport.pdf
  * Project proposal - ProjectProposal.pdf 
+ * Project PowerPoint presentation - ML1030-Project Presentation.pptx
  * **artifacts** folder - maintains images, code output etc. that are used to generate the reports.
  * **docs** folder - hosts technical project documentation.
  * **models** folder - contains model images.
