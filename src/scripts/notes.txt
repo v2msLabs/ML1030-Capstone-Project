@@ -1,0 +1,7 @@
+To uninstall ALL Python packages follow the steps outlined below:
+
+pip freeze > requirements.txt
+
+To remove one by one: pip uninstall -r requirements.txt
+
+If we want to remove all at once then: pip uninstall -r requirements.txt -y
